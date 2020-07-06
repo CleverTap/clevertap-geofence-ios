@@ -1,32 +1,30 @@
 
 import Foundation
-//import CleverTap
 import CoreLocation
-
-// CleverTapGeofence.shared.startMonitoring()
-// CleverTapGeofence.shared.stopMonitoring()
+import CleverTapSDK
 
 final public class CleverTapGeofence: NSObject {
+    
+    public static let monitor = CleverTapGeofence()
     
     private var locationManager: CLLocationManager?
     private let geofencesNotification = NSNotification.Name("CleverTapGeofencesNotification")
     
-    
-    public class func shared() -> CleverTapGeofence {
-        return CleverTapGeofence()
+    private override init() {
+        locationManager = CLLocationManager()
+        
     }
     
-    public func startMonitoring() {
-        locationManager = CLLocationManager()
+    public func start() {
         locationManager?.delegate = self
         locationManager?.startUpdatingLocation()
         locationManager?.startMonitoringVisits()
         locationManager?.startMonitoringSignificantLocationChanges()
         
-        observeForNotification()
+        observeNotification()
     }
     
-    public func stopMonitoring() {
+    public func stop() {
         
         NotificationCenter.default.removeObserver(self)
         
@@ -44,7 +42,7 @@ final public class CleverTapGeofence: NSObject {
     }
     
     
-    private func observeForNotification() {
+    private func observeNotification() {
         NotificationCenter.default.addObserver(forName: geofencesNotification,
                                                object: nil,
                                                queue: OperationQueue.main) { (notification) in
@@ -62,6 +60,8 @@ final public class CleverTapGeofence: NSObject {
                                                         let region = CLCircularRegion(center: coordinate, radius: radius, identifier: identifier)
                                                         
                                                         self.locationManager?.startMonitoring(for: region)
+                                                        
+                                                        print("will start monitoring for region: ", region)
                                                     }
                                                 }
                                             }
@@ -98,7 +98,7 @@ extension CleverTapGeofence: CLLocationManagerDelegate {
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // MAIN SDK SET LOCATION API
         
-//        CleverTap.sharedInstance.setLocation()
+//        CleverTap.sharedInstance()?.setLocation(<#T##location: CLLocationCoordinate2D##CLLocationCoordinate2D#>)
     }
     
     
