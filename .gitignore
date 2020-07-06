@@ -3,7 +3,6 @@ Carthage/
 .DS_Store
 /.build
 /Packages
-/*.xcodeproj
 xcuserdata/
 *.xcscmblueprint
 *.xccheckout
