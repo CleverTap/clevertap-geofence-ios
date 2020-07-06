@@ -1,4 +1,5 @@
 
+import os.log
 import Foundation
 import CoreLocation
 import CleverTapSDK
@@ -9,10 +10,10 @@ final public class CleverTapGeofence: NSObject {
     
     private var locationManager: CLLocationManager?
     private let geofencesNotification = NSNotification.Name("CleverTapGeofencesNotification")
+    private let logger = OSLog(subsystem: "com.clevertap.CleverTapGeofence", category: "CleverTapGeofence")
     
     private override init() {
         locationManager = CLLocationManager()
-        
     }
     
     public func start() {
@@ -61,7 +62,7 @@ final public class CleverTapGeofence: NSObject {
                                                         
                                                         self.locationManager?.startMonitoring(for: region)
                                                         
-                                                        print("will start monitoring for region: ", region)
+                                                        os_log("Will start monitoring for region: ", log: self.logger, region)
                                                     }
                                                 }
                                             }
@@ -77,19 +78,19 @@ extension CleverTapGeofence: CLLocationManagerDelegate {
     // MARK: - Standard Location
     
     public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        print("location manager authorization status changed")
+        os_log("location manager authorization status changed", log: logger)
         
         switch status {
         case .authorizedAlways:
-            print("user allow app to get location data when app is active or in background")
+            os_log("User allow app to get location data when app is active or in background", log: logger)
         case .authorizedWhenInUse:
-            print("user allow app to get location data only when app is active")
+            os_log("user allow app to get location data only when app is active", log: logger)
         case .denied:
-            print("user tap 'disallow' on the permission dialog, cant get location data")
+            os_log("user tap 'disallow' on the permission dialog, cant get location data", log: logger)
         case .restricted:
-            print("parental control setting disallow location data")
+            os_log("parental control setting disallow location data", log: logger)
         case .notDetermined:
-            print("the location permission dialog haven't shown before, user haven't tap allow/disallow")
+            os_log("the location permission dialog haven't shown before, user haven't tap allow/disallow", log: logger)
         @unknown default: break
             //fatalError()
         }
