@@ -13,10 +13,14 @@ final public class CleverTapGeofence: NSObject {
     private let logger = OSLog(subsystem: "com.clevertap.CleverTapGeofence", category: "CleverTapGeofence")
     
     private override init() {
+        os_log(#function, log: logger)
         locationManager = CLLocationManager()
     }
     
     public func start() {
+        
+        os_log(#function, log: logger)
+        
         locationManager?.delegate = self
         locationManager?.startUpdatingLocation()
         locationManager?.startMonitoringVisits()
@@ -26,6 +30,8 @@ final public class CleverTapGeofence: NSObject {
     }
     
     public func stop() {
+        
+        os_log(#function, log: logger)
         
         NotificationCenter.default.removeObserver(self)
         
@@ -47,6 +53,8 @@ final public class CleverTapGeofence: NSObject {
         NotificationCenter.default.addObserver(forName: geofencesNotification,
                                                object: nil,
                                                queue: OperationQueue.main) { (notification) in
+                                                
+                                                os_log(#function, log: self.logger)
                                              
                                                 if let userInfo = notification.userInfo {
                                                     
@@ -78,7 +86,7 @@ extension CleverTapGeofence: CLLocationManagerDelegate {
     // MARK: - Standard Location
     
     public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        os_log("location manager authorization status changed", log: logger)
+        os_log(#function, log: logger)
         
         switch status {
         case .authorizedAlways:
@@ -100,23 +108,29 @@ extension CleverTapGeofence: CLLocationManagerDelegate {
         // MAIN SDK SET LOCATION API
         
 //        CleverTap.sharedInstance()?.setLocation(<#T##location: CLLocationCoordinate2D##CLLocationCoordinate2D#>)
+        
+        os_log(#function, log: logger)
     }
     
     
     public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         // MAIN SDK SET ERROR CODE
+        os_log(#function, log: logger)
     }
     
     public func locationManagerDidPauseLocationUpdates(_ manager: CLLocationManager) {
         // Log state. Helpful while debugging
+        os_log(#function, log: logger)
     }
     
     public func locationManagerDidResumeLocationUpdates(_ manager: CLLocationManager) {
         // Log state. Helpful while debugging
+        os_log(#function, log: logger)
     }
     
     public func locationManager(_ manager: CLLocationManager, didFinishDeferredUpdatesWithError error: Error?) {
         // Log state. Helpful while debugging
+        os_log(#function, log: logger)
     }
     
     
@@ -124,9 +138,12 @@ extension CleverTapGeofence: CLLocationManagerDelegate {
     
     public func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
         // Log state. Helpful while debugging
+        os_log(#function, log: logger)
     }
     
     public func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        
+        os_log(#function, log: logger)
         
         // if let region = region as? CLCircularRegion {
             //let identifier = region.identifier
@@ -135,6 +152,9 @@ extension CleverTapGeofence: CLLocationManagerDelegate {
     }
     
     public func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        
+        os_log(#function, log: logger)
+        
         // if let region = region as? CLCircularRegion {
             // let identifier = region.identifier
             // Main SDK EXIT API
@@ -142,14 +162,17 @@ extension CleverTapGeofence: CLLocationManagerDelegate {
     }
     
     public func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
+        os_log(#function, log: logger)
         // Log state. Helpful while debugging
     }
     
     public func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
+        os_log(#function, log: logger)
         // MAIN SDK SET ERROR CODE
     }
     
     public func locationManager(_ manager: CLLocationManager, didVisit visit: CLVisit) {
+        os_log(#function, log: logger)
         // Log state. Helpful while debugging
     }
 }
