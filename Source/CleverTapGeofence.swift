@@ -6,7 +6,7 @@ import CleverTapSDK
 
 final public class CleverTapGeofence: NSObject {
     
-    public static let monitor = CleverTapGeofence()
+    @objc public static let monitor = CleverTapGeofence()
     
     private var locationManager: CLLocationManager?
     private let geofencesNotification = NSNotification.Name("CleverTapGeofencesNotification")
@@ -17,7 +17,7 @@ final public class CleverTapGeofence: NSObject {
         locationManager = CLLocationManager()
     }
     
-    public func start() {
+    @objc public func start() {
         
         os_log(#function, log: logger)
         
@@ -29,7 +29,7 @@ final public class CleverTapGeofence: NSObject {
         observeNotification()
     }
     
-    public func stop() {
+    @objc public func stop() {
         
         os_log(#function, log: logger)
         
