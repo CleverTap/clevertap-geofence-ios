@@ -17,7 +17,7 @@ final public class CleverTapGeofence: NSObject {
         locationManager = CLLocationManager()
     }
     
-    @objc public func start() {
+    @objc public func start(didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         
         os_log(#function, log: logger)
         
