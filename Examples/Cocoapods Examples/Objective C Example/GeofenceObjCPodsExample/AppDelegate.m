@@ -20,7 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    [[CleverTapGeofence monitor] start]; // or you can use CleverTapGeofence.monitor.start;
+    [[CleverTapGeofence monitor] startWithDidFinishLaunchingWithOptions:launchOptions];
     
     return YES;
 }
