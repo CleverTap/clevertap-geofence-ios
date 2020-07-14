@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import CleverTapSDK
 import CleverTapGeofence
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        // other app setup logic
+        
+        CleverTap.autoIntegrate()
         
         CleverTapGeofence.monitor.start(didFinishLaunchingWithOptions: launchOptions)
         
