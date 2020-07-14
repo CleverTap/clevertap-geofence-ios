@@ -1,2 +1,2 @@
-github "CleverTap/clevertap-ios-sdk" == 3.8.0
+github "CleverTap/clevertap-ios-sdk" "feature/geofence/SDK-255"
 github "SDWebImage/SDWebImage"
