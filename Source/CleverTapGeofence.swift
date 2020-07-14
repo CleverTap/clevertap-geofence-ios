@@ -8,11 +8,17 @@ import CleverTapSDK
 /**
  CleverTapGeofence provides Geofencing capabilities to CleverTap iOS SDK.
  
- - Requires: CleverTap iOS SDK version **3.9.0** or higher
+ - Requires: CleverTap iOS SDK version __3.9.0__ or higher
+ - Requires: Swift version __5.0__ or higher
+ 
+ # Reference
+ [CleverTap Documentation](https://developer.clevertap.com/docs/ios)
  */
 final public class CleverTapGeofence: NSObject {
     
-    /// Provides a shared singleton instance of `CleverTapGeofence` class
+    
+    /// Provides a shared singleton instance of `CleverTapGeofence` class.
+    /// - Important: Should __always__ be used in conjunction with either `start` or `stop` function.
     @objc public static let monitor = CleverTapGeofence()
     
     
@@ -28,32 +34,32 @@ final public class CleverTapGeofence: NSObject {
     
     
     /**
-     Initiates the monitoring of Geofences set on CleverTap Dashboard
+     Initiates the monitoring of Geofences set on CleverTap Dashboard.
      - Parameter launchOptions: A dictionary indicating the reason the app was launched.
      
      ~~~
      // Swift usage
      func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-         
-         // other app setup logic
-         
-         CleverTap.autoIntegrate()
-         
-         CleverTapGeofence.monitor.start(didFinishLaunchingWithOptions: launchOptions)
-         
-         return true
+     
+       // other app setup logic
+     
+       CleverTap.autoIntegrate()
+     
+       CleverTapGeofence.monitor.start(didFinishLaunchingWithOptions: launchOptions)
+     
+       return true
      }
      
      // Objective-C usage
      - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-         // other app setup logic
-         
-         [CleverTap autoIntegrate];
-         
-         [[CleverTapGeofence monitor] startWithDidFinishLaunchingWithOptions:launchOptions];
-         
-         return YES;
+     
+       // other app setup logic
+     
+       [CleverTap autoIntegrate];
+     
+       [[CleverTapGeofence monitor] startWithDidFinishLaunchingWithOptions:launchOptions];
+     
+       return YES;
      }
      ~~~
      */
@@ -79,12 +85,12 @@ final public class CleverTapGeofence: NSObject {
      ~~~
      // Swift usage
      func someScenarioWhereLocationMonitoringShouldBeOff() {
-        CleverTapGeofence.monitor.stop()
+       CleverTapGeofence.monitor.stop()
      }
      
      // Objective-C usage
      - (void)someScenarioWhereLocationMonitoringShouldBeOff {
-        [[CleverTapGeofence monitor] stop];
+       [[CleverTapGeofence monitor] stop];
      }
      ~~~
      */
@@ -140,10 +146,13 @@ final public class CleverTapGeofence: NSObject {
 
 // MARK: - Location Manager Delegate
 
+/// Extension on `CleverTapGeofence` conforming to `CLLocationManagerDelegate` handles interacting with all Location Manager updates triggered by iOS.
+/// - Warning: Client apps are __NOT__ expected to handle or interact with any of the functions under this Extension.
 extension CleverTapGeofence: CLLocationManagerDelegate {
     
     // MARK: - Standard Location
     
+    /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         os_log(#function, log: logger)
         
@@ -163,6 +172,7 @@ extension CleverTapGeofence: CLLocationManagerDelegate {
         }
     }
     
+    /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // MAIN SDK SET LOCATION API
         
@@ -171,22 +181,25 @@ extension CleverTapGeofence: CLLocationManagerDelegate {
         os_log(#function, log: logger)
     }
     
-    
+    /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         // MAIN SDK SET ERROR CODE
         os_log(#function, log: logger)
     }
     
+    /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     public func locationManagerDidPauseLocationUpdates(_ manager: CLLocationManager) {
         // Log state. Helpful while debugging
         os_log(#function, log: logger)
     }
     
+    /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     public func locationManagerDidResumeLocationUpdates(_ manager: CLLocationManager) {
         // Log state. Helpful while debugging
         os_log(#function, log: logger)
     }
     
+    /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     public func locationManager(_ manager: CLLocationManager, didFinishDeferredUpdatesWithError error: Error?) {
         // Log state. Helpful while debugging
         os_log(#function, log: logger)
@@ -195,11 +208,13 @@ extension CleverTapGeofence: CLLocationManagerDelegate {
     
     // MARK: - Region Monitoring
     
+    /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     public func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
         // Log state. Helpful while debugging
         os_log(#function, log: logger)
     }
     
+    /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     public func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         
         os_log(#function, log: logger)
@@ -210,6 +225,7 @@ extension CleverTapGeofence: CLLocationManagerDelegate {
         // }
     }
     
+    /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     public func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         
         os_log(#function, log: logger)
@@ -220,16 +236,19 @@ extension CleverTapGeofence: CLLocationManagerDelegate {
         // }
     }
     
+    /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     public func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
         os_log(#function, log: logger)
         // Log state. Helpful while debugging
     }
     
+    /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     public func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
         os_log(#function, log: logger)
         // MAIN SDK SET ERROR CODE
     }
     
+    /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     public func locationManager(_ manager: CLLocationManager, didVisit visit: CLVisit) {
         os_log(#function, log: logger)
         // Log state. Helpful while debugging
