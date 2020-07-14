@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+@import CleverTapSDK;
 @import CleverTapGeofence;
 // or you can use #import <CleverTapGeofence/CleverTapGeofence-Swift.h>
 // or you can use #import <CleverTapGeofence-Swift.h>
@@ -20,6 +21,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+    // other app setup logic
+    
+    [CleverTap autoIntegrate];
+    
     [[CleverTapGeofence monitor] startWithDidFinishLaunchingWithOptions:launchOptions];
     
     return YES;
