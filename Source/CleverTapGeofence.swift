@@ -4,22 +4,64 @@ import Foundation
 import CoreLocation
 import CleverTapSDK
 
+
+/**
+ CleverTapGeofence provides Geofencing capabilities to CleverTap iOS SDK.
+ 
+ - Requires: CleverTap iOS SDK version **3.9.0** or higher
+ */
 final public class CleverTapGeofence: NSObject {
     
+    /// Provides a shared singleton instance of `CleverTapGeofence` class
     @objc public static let monitor = CleverTapGeofence()
+    
     
     private var locationManager: CLLocationManager?
     private let geofencesNotification = NSNotification.Name("CleverTapGeofencesNotification")
     private let logger = OSLog(subsystem: "com.clevertap.CleverTapGeofence", category: "CleverTapGeofence")
+    
     
     private override init() {
         os_log(#function, log: logger)
         locationManager = CLLocationManager()
     }
     
+    
+    /**
+     Initiates the monitoring of Geofences set on CleverTap Dashboard
+     - Parameter launchOptions: A dictionary indicating the reason the app was launched.
+     
+     ~~~
+     // Swift usage
+     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+         
+         // other app setup logic
+         
+         CleverTap.autoIntegrate()
+         
+         CleverTapGeofence.monitor.start(didFinishLaunchingWithOptions: launchOptions)
+         
+         return true
+     }
+     
+     // Objective-C usage
+     - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+         // other app setup logic
+         
+         [CleverTap autoIntegrate];
+         
+         [[CleverTapGeofence monitor] startWithDidFinishLaunchingWithOptions:launchOptions];
+         
+         return YES;
+     }
+     ~~~
+     */
     @objc public func start(didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         
         os_log(#function, log: logger)
+        
+        dump(launchOptions)
         
         locationManager?.delegate = self
         locationManager?.startUpdatingLocation()
@@ -29,6 +71,23 @@ final public class CleverTapGeofence: NSObject {
         observeNotification()
     }
     
+    
+    /**
+     Stops the monitoring of registered Geofences.
+     Also, disables further updates of user's location.
+     
+     ~~~
+     // Swift usage
+     func someScenarioWhereLocationMonitoringShouldBeOff() {
+        CleverTapGeofence.monitor.stop()
+     }
+     
+     // Objective-C usage
+     - (void)someScenarioWhereLocationMonitoringShouldBeOff {
+        [[CleverTapGeofence monitor] stop];
+     }
+     ~~~
+     */
     @objc public func stop() {
         
         os_log(#function, log: logger)
@@ -55,11 +114,11 @@ final public class CleverTapGeofence: NSObject {
                                                queue: OperationQueue.main) { (notification) in
                                                 
                                                 os_log(#function, log: self.logger)
-                                             
+                                                
                                                 if let userInfo = notification.userInfo {
                                                     
                                                     if let geofence = userInfo["geofence"] as? [AnyHashable: Any] {
-                                                     
+                                                        
                                                         let latitude = geofence["lat"] as! CLLocationDegrees
                                                         let longitude = geofence["lng"] as! CLLocationDegrees
                                                         let radius = geofence["rad"] as! CLLocationDistance
@@ -73,7 +132,7 @@ final public class CleverTapGeofence: NSObject {
                                                         os_log("Will start monitoring for region: ", log: self.logger, region)
                                                     }
                                                 }
-                                            }
+        }
     }
 }
 
@@ -103,11 +162,11 @@ extension CleverTapGeofence: CLLocationManagerDelegate {
             //fatalError()
         }
     }
-
+    
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // MAIN SDK SET LOCATION API
         
-//        CleverTap.sharedInstance()?.setLocation(<#T##location: CLLocationCoordinate2D##CLLocationCoordinate2D#>)
+        //        CleverTap.sharedInstance()?.setLocation(<#T##location: CLLocationCoordinate2D##CLLocationCoordinate2D#>)
         
         os_log(#function, log: logger)
     }
@@ -146,8 +205,8 @@ extension CleverTapGeofence: CLLocationManagerDelegate {
         os_log(#function, log: logger)
         
         // if let region = region as? CLCircularRegion {
-            //let identifier = region.identifier
-            // Main SDK ENTER API
+        //let identifier = region.identifier
+        // Main SDK ENTER API
         // }
     }
     
@@ -156,8 +215,8 @@ extension CleverTapGeofence: CLLocationManagerDelegate {
         os_log(#function, log: logger)
         
         // if let region = region as? CLCircularRegion {
-            // let identifier = region.identifier
-            // Main SDK EXIT API
+        // let identifier = region.identifier
+        // Main SDK EXIT API
         // }
     }
     
