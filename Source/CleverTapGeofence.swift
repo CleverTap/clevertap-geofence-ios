@@ -9,7 +9,7 @@ import CleverTapSDK
  CleverTapGeofence provides Geofencing capabilities to CleverTap iOS SDK.
  
  - Requires: CleverTap iOS SDK version __3.9.0__ or higher
- - Requires: Swift version __5.0__ or higher
+ - Requires: Swift version __5.1__ or higher
  
  # Reference
  [CleverTap Documentation](https://developer.clevertap.com/docs/ios)
@@ -21,7 +21,7 @@ final public class CleverTapGeofence: NSObject {
     /// - Important: Should __always__ be used in conjunction with either `start` or `stop` function.
     @objc public static let monitor = CleverTapGeofence()
     
-    
+    private let conformer = CleverTapGeofenceLocationManagerConformance()
     private var locationManager: CLLocationManager?
     private let geofencesNotification = NSNotification.Name("CleverTapGeofencesNotification")
     private let logger = OSLog(subsystem: "com.clevertap.CleverTapGeofence", category: "CleverTapGeofence")
@@ -29,7 +29,8 @@ final public class CleverTapGeofence: NSObject {
     
     private override init() {
         os_log(#function, log: logger)
-        locationManager = CLLocationManager()
+        
+//        locationManager = CLLocationManager()
     }
     
     
@@ -69,7 +70,8 @@ final public class CleverTapGeofence: NSObject {
         
         dump(launchOptions)
         
-        locationManager?.delegate = self
+//        conformer.locationManager?.delegate = conformer
+//        locationManager?.delegate = self
         locationManager?.startUpdatingLocation()
         locationManager?.startMonitoringVisits()
         locationManager?.startMonitoringSignificantLocationChanges()
@@ -105,6 +107,7 @@ final public class CleverTapGeofence: NSObject {
                 locationManager?.stopMonitoring(for: region)
             }
         }
+        
         
         locationManager?.stopMonitoringVisits()
         locationManager?.stopMonitoringSignificantLocationChanges()
@@ -144,10 +147,20 @@ final public class CleverTapGeofence: NSObject {
 
 
 
+fileprivate class CleverTapGeofenceLocationManagerConformance: NSObject, CLLocationManagerDelegate {
+    
+    fileprivate var locationManager: CLLocationManager?
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        os_log(#function)
+    }
+}
+
 // MARK: - Location Manager Delegate
 
 /// Extension on `CleverTapGeofence` conforming to `CLLocationManagerDelegate` handles interacting with all Location Manager updates triggered by iOS.
 /// - Warning: Client apps are __NOT__ expected to handle or interact with any of the functions under this Extension.
+/*
 extension CleverTapGeofence: CLLocationManagerDelegate {
     
     // MARK: - Standard Location
@@ -254,3 +267,4 @@ extension CleverTapGeofence: CLLocationManagerDelegate {
         // Log state. Helpful while debugging
     }
 }
+*/
