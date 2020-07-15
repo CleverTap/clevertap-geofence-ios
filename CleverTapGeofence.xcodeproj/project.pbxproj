@@ -42,7 +42,7 @@
 		"CleverTapGeofence::CleverTapGeofence::Product" /* CleverTapGeofence.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CleverTapGeofence.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"CleverTapGeofence::CleverTapGeofenceTests::Product" /* CleverTapGeofenceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = CleverTapGeofenceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F90875EE24ADDC0D00AFE67C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.5.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
-		F910EC9724AF64D900BE6182 /* CleverTapGeofence.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = CleverTapGeofence.podspec; sourceTree = "<group>"; };
+		F910EC9724AF64D900BE6182 /* CleverTapGeofence.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = CleverTapGeofence.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F910EC9824AF64D900BE6182 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		F920422D24ADF30700E4492E /* CleverTapGeofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleverTapGeofence.swift; sourceTree = "<group>"; };
 		F9AE06B824B37DE000FB4321 /* CleverTapGeofence.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CleverTapGeofence.xctestplan; sourceTree = "<group>"; };
