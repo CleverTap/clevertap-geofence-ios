@@ -14,5 +14,5 @@ Pod::Spec.new do |s|
   s.ios.dependency          'CleverTap-iOS-SDK', '~> 3.8'
 
   s.source_files    = 'Source/*'
-  s.swift_version   = '5.0'
+  s.swift_version   = '5.1'
 end
