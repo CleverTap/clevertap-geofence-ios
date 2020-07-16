@@ -93,7 +93,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
         }
     }
     
-    func startMonitoring(_ geofences: [[AnyHashable: Any]]) {
+    private func startMonitoring(_ geofences: [[AnyHashable: Any]]) {
         
         for geofence in geofences {
             
@@ -122,7 +122,7 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
     // MARK: - Standard Location
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    internal func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         os_log(#function, log: logger)
         
         switch status {
@@ -144,7 +144,7 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
     }
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    internal func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         os_log(#function, log: logger)
         dump(locations)
@@ -155,33 +155,33 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
     }
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    internal func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         // MAIN SDK SET ERROR CODE
         os_log(#function, log: logger)
     }
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
-    func locationManagerDidPauseLocationUpdates(_ manager: CLLocationManager) {
+    internal func locationManagerDidPauseLocationUpdates(_ manager: CLLocationManager) {
         // Log state. Helpful while debugging
         os_log(#function, log: logger)
         locationManager?.requestLocation()
     }
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
-    func locationManagerDidResumeLocationUpdates(_ manager: CLLocationManager) {
+    internal func locationManagerDidResumeLocationUpdates(_ manager: CLLocationManager) {
         // Log state. Helpful while debugging
         os_log(#function, log: logger)
         locationManager?.startUpdatingLocation()
     }
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
-    func locationManager(_ manager: CLLocationManager, didFinishDeferredUpdatesWithError error: Error?) {
+    internal func locationManager(_ manager: CLLocationManager, didFinishDeferredUpdatesWithError error: Error?) {
         // Log state. Helpful while debugging
         os_log(#function, log: logger)
     }
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
-    func locationManager(_ manager: CLLocationManager, didVisit visit: CLVisit) {
+    internal func locationManager(_ manager: CLLocationManager, didVisit visit: CLVisit) {
         os_log(#function, log: logger)
         dump(visit)
         
@@ -192,32 +192,32 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
     // MARK: - Region Monitoring
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
-    func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
+    internal func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
         // Log state. Helpful while debugging
         os_log(#function, log: logger)
     }
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
-    func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
+    internal func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
         os_log(#function, log: logger)
         // MAIN SDK SET ERROR CODE
     }
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
-    func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
+    internal func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
         os_log(#function, log: logger)
         // Log state. Helpful while debugging
     }
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
-    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+    internal func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         
         os_log(#function, log: logger)
         CleverTap.sharedInstance()?.recordGeofenceEnteredEvent(["id": region.identifier])
     }
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
-    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+    internal func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         
         os_log(#function, log: logger)
         CleverTap.sharedInstance()?.recordGeofenceExitedEvent(["id": region.identifier])
