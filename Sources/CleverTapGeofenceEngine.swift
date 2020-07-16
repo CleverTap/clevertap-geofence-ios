@@ -30,17 +30,23 @@ internal final class CleverTapGeofenceEngine: NSObject {
         
         os_log(#function, log: logger)
         
-        if locationManager == nil {
-            locationManager = CLLocationManager()
+        if CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
+            
+            if locationManager == nil {
+                locationManager = CLLocationManager()
+            }
+            
+            locationManager?.delegate = self
+            
+            locationManager?.startUpdatingLocation()
+            locationManager?.startMonitoringVisits()
+            locationManager?.startMonitoringSignificantLocationChanges()
+            
+            observeNotification()
+            
+        } else {
+            os_log("Device does not supports Region Monitoring", log: logger, type: .fault)
         }
-        
-        locationManager?.delegate = self
-        
-        locationManager?.startUpdatingLocation()
-        locationManager?.startMonitoringVisits()
-        locationManager?.startMonitoringSignificantLocationChanges()
-        
-        observeNotification()
     }
     
     
