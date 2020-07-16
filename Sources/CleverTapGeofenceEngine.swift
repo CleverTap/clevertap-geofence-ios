@@ -121,7 +121,7 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
         case .restricted:
             os_log("parental control setting disallow location data", log: logger)
         case .notDetermined:
-            os_log("the location permission dialog haven't shown before, user haven't tap allow/disallow", log: logger)
+            os_log("the location permission dialog has not been shown yet, user hasn't tap allow/disallow", log: logger)
         @unknown default: break
             //fatalError()
         }
