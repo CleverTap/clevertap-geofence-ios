@@ -21,6 +21,8 @@ internal final class CleverTapGeofenceEngine: NSObject {
     private var locationManager: CLLocationManager?
     
     
+    // MARK: - Lifecycle
+    
     internal override init() {
         os_log(#function, log: logger)
     }
@@ -70,6 +72,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
     }
     
     
+    // MARK: - Setup Geofences
     
     private func observeNotification() {
         NotificationCenter.default.addObserver(forName: geofencesNotification,
@@ -79,25 +82,32 @@ internal final class CleverTapGeofenceEngine: NSObject {
                                                 os_log("CleverTapGeofencesNotification was observed", log: self?.logger ?? .default)
                                                 
                                                 if let userInfo = notification.userInfo {
-                                                    
                                                     if let geofences = userInfo["geofences"] as? [[AnyHashable: Any]] {
-                                                        
-                                                        for geofence in geofences {
-                                                            
-                                                            let latitude = geofence["lat"] as! CLLocationDegrees
-                                                            let longitude = geofence["lng"] as! CLLocationDegrees
-                                                            let radius = geofence["rad"] as! CLLocationDistance
-                                                            let identifier = geofence["id"] as! String
-                                                            
-                                                            let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-                                                            let region = CLCircularRegion(center: coordinate, radius: radius, identifier: identifier)
-                                                            
-                                                            self?.locationManager?.startMonitoring(for: region)
-                                                            
-                                                            os_log("Will start monitoring for region: ", log: self?.logger ?? .default, region)
-                                                        }
+                                                        self?.startMonitoring(geofences)
+                                                    } else {
+                                                        os_log("Unexpected geofences data format", log: self?.logger ?? .default, type: .error)
                                                     }
+                                                } else {
+                                                    os_log("Could not extract userInfo from notification", log: self?.logger ?? .default, type: .error)
                                                 }
+        }
+    }
+    
+    func startMonitoring(_ geofences: [[AnyHashable: Any]]) {
+        
+        for geofence in geofences {
+            
+            let latitude = geofence["lat"] as! CLLocationDegrees
+            let longitude = geofence["lng"] as! CLLocationDegrees
+            let radius = geofence["rad"] as! CLLocationDistance
+            let identifier = geofence["id"] as! String
+            
+            let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            let region = CLCircularRegion(center: coordinate, radius: radius, identifier: identifier)
+            
+            locationManager?.startMonitoring(for: region)
+            
+            os_log("Will start monitoring for region: ", log: logger , region)
         }
     }
 }
@@ -170,6 +180,14 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
         os_log(#function, log: logger)
     }
     
+    /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
+    func locationManager(_ manager: CLLocationManager, didVisit visit: CLVisit) {
+        os_log(#function, log: logger)
+        dump(visit)
+        
+        CleverTap.sharedInstance()?.setLocationForGeofences(visit.coordinate)
+    }
+    
     
     // MARK: - Region Monitoring
     
@@ -180,25 +198,9 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
     }
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
-    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        
+    func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
         os_log(#function, log: logger)
-        
-        // if let region = region as? CLCircularRegion {
-        //let identifier = region.identifier
-        // Main SDK ENTER API
-        // }
-    }
-    
-    /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
-    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
-        
-        os_log(#function, log: logger)
-        
-        // if let region = region as? CLCircularRegion {
-        // let identifier = region.identifier
-        // Main SDK EXIT API
-        // }
+        // MAIN SDK SET ERROR CODE
     }
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
