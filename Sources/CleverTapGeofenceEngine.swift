@@ -11,6 +11,7 @@ import Foundation
 import CoreLocation
 import CleverTapSDK
 
+
 internal final class CleverTapGeofenceEngine: NSObject {
     
     private let logger = OSLog(subsystem: "com.clevertap.CleverTapGeofence", category: "CleverTapGeofenceEngine")
@@ -67,9 +68,9 @@ internal final class CleverTapGeofenceEngine: NSObject {
     private func observeNotification() {
         NotificationCenter.default.addObserver(forName: geofencesNotification,
                                                object: nil,
-                                               queue: OperationQueue.main) { (notification ) in
+                                               queue: OperationQueue.main) { [weak self] (notification) in
                                                 
-                                                os_log("CleverTapGeofencesNotification was observed", log: self.logger)
+                                                os_log("CleverTapGeofencesNotification was observed", log: self?.logger ?? .default)
                                                 
                                                 if let userInfo = notification.userInfo {
                                                     
@@ -85,9 +86,9 @@ internal final class CleverTapGeofenceEngine: NSObject {
                                                             let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
                                                             let region = CLCircularRegion(center: coordinate, radius: radius, identifier: identifier)
                                                             
-                                                            self.locationManager?.startMonitoring(for: region)
+                                                            self?.locationManager?.startMonitoring(for: region)
                                                             
-                                                            os_log("Will start monitoring for region: ", log: self.logger, region)
+                                                            os_log("Will start monitoring for region: ", log: self?.logger ?? .default, region)
                                                         }
                                                     }
                                                 }
@@ -111,10 +112,10 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
         switch status {
         case .authorizedAlways:
             os_log("User allow app to get location data when app is active or in background", log: logger)
-            locationManager?.requestLocation()
+            locationManager?.startUpdatingLocation()
         case .authorizedWhenInUse:
             os_log("user allow app to get location data only when app is active", log: logger)
-            locationManager?.requestLocation()
+            locationManager?.startUpdatingLocation()
         case .denied:
             os_log("user tap 'disallow' on the permission dialog, cant get location data", log: logger)
         case .restricted:
@@ -147,13 +148,14 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
     func locationManagerDidPauseLocationUpdates(_ manager: CLLocationManager) {
         // Log state. Helpful while debugging
         os_log(#function, log: logger)
+        locationManager?.requestLocation()
     }
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     func locationManagerDidResumeLocationUpdates(_ manager: CLLocationManager) {
         // Log state. Helpful while debugging
         os_log(#function, log: logger)
-        locationManager?.requestLocation()
+        locationManager?.startUpdatingLocation()
     }
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.

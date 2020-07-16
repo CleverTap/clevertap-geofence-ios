@@ -19,6 +19,7 @@ public final class CleverTapGeofence: NSObject {
     /// - Important: Should __always__ be used in conjunction with either `start` or `stop` function.
     @objc public static let monitor = CleverTapGeofence()
     
+    
     private var engine: CleverTapGeofenceEngine
     
     
@@ -65,6 +66,7 @@ public final class CleverTapGeofence: NSObject {
         
         engine.start()
     }
+    
     
     
     /**
