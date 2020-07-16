@@ -208,16 +208,16 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
     }
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
-    func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        
         os_log(#function, log: logger)
-        // MAIN SDK SET ERROR CODE
+        CleverTap.sharedInstance()?.recordGeofenceEnteredEvent(["id": region.identifier])
     }
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
-    func locationManager(_ manager: CLLocationManager, didVisit visit: CLVisit) {
-        os_log(#function, log: logger)
-        dump(visit)
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         
-        CleverTap.sharedInstance()?.setLocationForGeofences(visit.coordinate)
+        os_log(#function, log: logger)
+        CleverTap.sharedInstance()?.recordGeofenceExitedEvent(["id": region.identifier])
     }
 }
