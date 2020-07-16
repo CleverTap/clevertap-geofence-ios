@@ -19,12 +19,13 @@ public final class CleverTapGeofence: NSObject {
     @objc public static let monitor = CleverTapGeofence()
     
     
-    private var engine: CleverTapGeofenceEngine
+    private let engine: CleverTapGeofenceEngine
     
     
     /// Client apps are not expected to initialize an instance of `CleverTapGeofence` via `init` function
     private override init() {
         engine = CleverTapGeofenceEngine()
+        print("CleverTapGeofenceEngine initialzed")
     }
     
     
