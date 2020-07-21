@@ -11,6 +11,7 @@
 		49FA01AD24C6EE34005FC1E4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FA01AC24C6EE34005FC1E4 /* CoreLocation.framework */; };
 		F920422E24ADF30700E4492E /* CleverTapGeofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F920422D24ADF30700E4492E /* CleverTapGeofence.swift */; };
 		F9A0A4A424BF57FF008E3032 /* CleverTapGeofenceEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A0A4A324BF57FF008E3032 /* CleverTapGeofenceEngine.swift */; };
+		F9CC0CA924C76D71009AD15C /* CleverTapGeofenceUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CC0CA824C76D71009AD15C /* CleverTapGeofenceUtils.swift */; };
 		OBJ_42 /* CleverTapGeofenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* CleverTapGeofenceTests.swift */; };
 		OBJ_45 /* CleverTapGeofence.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "CleverTapGeofence::CleverTapGeofence::Product" /* CleverTapGeofence.framework */; };
 /* End PBXBuildFile section */
@@ -33,6 +34,7 @@
 		F920422D24ADF30700E4492E /* CleverTapGeofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleverTapGeofence.swift; sourceTree = "<group>"; };
 		F9A0A4A324BF57FF008E3032 /* CleverTapGeofenceEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleverTapGeofenceEngine.swift; sourceTree = "<group>"; };
 		F9AE06B824B37DE000FB4321 /* CleverTapGeofence.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CleverTapGeofence.xctestplan; sourceTree = "<group>"; };
+		F9CC0CA824C76D71009AD15C /* CleverTapGeofenceUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleverTapGeofenceUtils.swift; sourceTree = "<group>"; };
 		OBJ_12 /* CleverTapGeofenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleverTapGeofenceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,6 +64,7 @@
 			children = (
 				F920422D24ADF30700E4492E /* CleverTapGeofence.swift */,
 				F9A0A4A324BF57FF008E3032 /* CleverTapGeofenceEngine.swift */,
+				F9CC0CA824C76D71009AD15C /* CleverTapGeofenceUtils.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 			files = (
 				F9A0A4A424BF57FF008E3032 /* CleverTapGeofenceEngine.swift in Sources */,
 				F920422E24ADF30700E4492E /* CleverTapGeofence.swift in Sources */,
+				F9CC0CA924C76D71009AD15C /* CleverTapGeofenceUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
