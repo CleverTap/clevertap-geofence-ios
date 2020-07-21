@@ -27,6 +27,9 @@ public final class CleverTapGeofence: NSObject {
         print("CleverTapGeofenceEngine initialzed")
     }
     
+    deinit {
+        print("CleverTapGeofenceEngine deallocated")
+    }
     
     
     /**
