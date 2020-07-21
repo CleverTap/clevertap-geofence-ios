@@ -1,10 +1,3 @@
-//
-//  CleverTapGeofenceEngine.swift
-//  CleverTapGeofence
-//
-//  Created by Yogesh Singh on 15/07/20.
-//  Copyright © 2020 CleverTap. All rights reserved.
-//
 
 import os.log
 import Foundation

@@ -1,7 +1,6 @@
 
 import UIKit
 
-
 /**
  CleverTapGeofence provides Geofencing capabilities to CleverTap iOS SDK.
  
@@ -38,25 +37,25 @@ public final class CleverTapGeofence: NSObject {
      // Swift usage
      func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
      
-       // other app setup logic
+     // other app setup logic
      
-       CleverTap.autoIntegrate()
+     CleverTap.autoIntegrate()
      
-       CleverTapGeofence.monitor.start(didFinishLaunchingWithOptions: launchOptions)
+     CleverTapGeofence.monitor.start(didFinishLaunchingWithOptions: launchOptions)
      
-       return true
+     return true
      }
      
      // Objective-C usage
      - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
      
-       // other app setup logic
+     // other app setup logic
      
-       [CleverTap autoIntegrate];
+     [CleverTap autoIntegrate];
      
-       [[CleverTapGeofence monitor] startWithDidFinishLaunchingWithOptions:launchOptions];
+     [[CleverTapGeofence monitor] startWithDidFinishLaunchingWithOptions:launchOptions];
      
-       return YES;
+     return YES;
      }
      ~~~
      */
@@ -76,12 +75,12 @@ public final class CleverTapGeofence: NSObject {
      ~~~
      // Swift usage
      func someScenarioWhereLocationMonitoringShouldBeOff() {
-       CleverTapGeofence.monitor.stop()
+     CleverTapGeofence.monitor.stop()
      }
      
      // Objective-C usage
      - (void)someScenarioWhereLocationMonitoringShouldBeOff {
-       [[CleverTapGeofence monitor] stop];
+     [[CleverTapGeofence monitor] stop];
      }
      ~~~
      */
