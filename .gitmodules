@@ -1,3 +1,4 @@
-[submodule "clevertap-geofence-ios"]
-	path = clevertap-geofence-ios
-	url = https://github.com/CleverTap/clevertap-geofence-ios
+[submodule "Vendors/CleverTapSDK"]
+	path = Vendors/CleverTapSDK
+	url = https://github.com/CleverTap/clevertap-ios-sdk.git
+	
