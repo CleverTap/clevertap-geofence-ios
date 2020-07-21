@@ -143,7 +143,7 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
         dump(locations)
         
         if let location = locations.last {
-            CleverTap.sharedInstance()?.setLocationForGeofences(location.coordinate)
+            CleverTap.sharedInstance()?.setLocationForGeofences(location.coordinate, withPluginVersion: "100000")
         }
     }
     
@@ -178,7 +178,7 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
         os_log(#function, log: logger)
         dump(visit)
         
-        CleverTap.sharedInstance()?.setLocationForGeofences(visit.coordinate)
+        CleverTap.sharedInstance()?.setLocationForGeofences(visit.coordinate, withPluginVersion: "100000")
     }
     
     
