@@ -1,5 +1,5 @@
 
-import UIKit
+import Foundation
 
 /**
  CleverTapGeofence provides Geofencing capabilities to CleverTap iOS SDK.
@@ -62,7 +62,7 @@ public final class CleverTapGeofence: NSObject {
      }
      ~~~
      */
-    @objc public func start(didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
+    @objc public func start(didFinishLaunchingWithOptions launchOptions: [AnyHashable: Any]?) {
         
         dump(launchOptions)
         
