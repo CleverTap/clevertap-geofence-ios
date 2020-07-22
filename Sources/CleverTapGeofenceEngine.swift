@@ -5,6 +5,8 @@ import CoreLocation
 import CleverTapSDK
 
 
+/// `CleverTapGeofenceEngine` runs all the Geofence setup & Core Location interactions.
+/// - Warning: Client apps are __NOT__ expected to interact with this class.
 internal final class CleverTapGeofenceEngine: NSObject {
     
     private var locationManager: CLLocationManager?
@@ -12,6 +14,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
     
     // MARK: - Lifecycle
     
+    /// - Warning: Client apps are __NOT__ expected to interact with this function.
     internal override init() {
         os_log(#function, log: CleverTapGeofenceUtils.logger)
     }
@@ -21,6 +24,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
     }
     
     
+    /// - Warning: Client apps are __NOT__ expected to interact with this function.
     internal func start() {
         
         os_log(#function, log: CleverTapGeofenceUtils.logger)
@@ -55,6 +59,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
     }
     
     
+    /// - Warning: Client apps are __NOT__ expected to interact with this function.
     internal func stop() {
         
         os_log(#function, log: CleverTapGeofenceUtils.logger)
