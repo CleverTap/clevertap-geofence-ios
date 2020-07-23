@@ -35,26 +35,27 @@ internal struct CleverTapGeofenceUtils {
 //        var updatedArgs: CVarArg? = args
 //        updatedArgs.insert(message as! CVarArg, at: 0)
         
-        var updatedArgs = args
+//        var updatedArgs = args
+//
+//        if args.count > 0 {
+//            updatedArgs.insert(message, at: 0)
+//        } else {
+//            updatedArgs = [CVarArg]()
+//            updatedArgs.append(message)
+//        }
         
-        if args.count > 0 {
-            updatedArgs.insert(message as! CVarArg, at: 0)
-        } else {
-            updatedArgs = [CVarArg]()
-            updatedArgs.append(message as! CVarArg)
-        }
         
-        
-        switch CleverTapGeofence.monitor.logLevel {
+        switch CleverTapGeofence.logLevel {
         case .error:
+            os_log(message, log: logger, type: .error, args)
 //            os_log("%@ %@", log: logger, type: .error, message as! CVarArg, args)
 //            os_log("%@", log: logger, type: .error, message as! CVarArg, args)
-            os_log("%@", log: logger, type: .error, updatedArgs)
+//            os_log("%@", log: logger, type: .error, updatedArgs)
         case .debug:
             
-//            os_log("%@ %@", log: logger, type: .debug, message as! CVarArg, args)
+            os_log(message, log: logger, type: .debug, args)
 //            os_log("%@", log: logger, type: .debug, message as! CVarArg, args)
-            os_log("%@", log: logger, type: .debug, updatedArgs)
+//            os_log("%@", log: logger, type: .debug, updatedArgs)
         case .off:
             break
         default:
