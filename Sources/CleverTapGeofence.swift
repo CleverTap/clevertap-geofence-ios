@@ -1,5 +1,6 @@
 
-import Foundation
+import UIKit
+
 
 /**
  CleverTapGeofence provides Geofencing capabilities to CleverTap iOS SDK.
@@ -18,17 +19,19 @@ public final class CleverTapGeofence: NSObject {
     @objc public static let monitor = CleverTapGeofence()
     
     
+    ///`CleverTapGeofenceEngine` sets up Geofences & interacts with Core Location APIs.
+    /// - Warning: Client apps are not expected to interact with this class.
     private let engine: CleverTapGeofenceEngine
     
     
     /// Client apps are not expected to initialize an instance of `CleverTapGeofence` via `init` function
     private override init() {
         engine = CleverTapGeofenceEngine()
-        print("CleverTapGeofenceEngine initialzed")
+        CleverTapGeofenceUtils.log("CleverTapGeofence class initialized", type: .debug)
     }
     
     deinit {
-        print("CleverTapGeofenceEngine deallocated")
+        CleverTapGeofenceUtils.log("CleverTapGeofence class deallocated", type: .debug)
     }
     
     
@@ -62,11 +65,21 @@ public final class CleverTapGeofence: NSObject {
      }
      ~~~
      */
-    @objc public func start(didFinishLaunchingWithOptions launchOptions:[AnyHashable: Any]?) {
+    @objc public func start(didFinishLaunchingWithOptions launchOptions:[UIApplication.LaunchOptionsKey: Any]?) {
         
-        dump(launchOptions)
+        CleverTapGeofenceUtils.log(#function, type: .debug)
         
         engine.start()
+        
+        if let options = launchOptions {
+            if options[.location] != nil {
+                CleverTapGeofenceUtils.log("The app was launched to handle an incoming location event.", type: .debug)
+            } else {
+                CleverTapGeofenceUtils.log("launchOptions: %@", type: .debug, options.description)
+            }
+        } else {
+            CleverTapGeofenceUtils.log("didFinishLaunchingWithOptions launchOptions is empty", type: .debug)
+        }
     }
     
     
@@ -88,6 +101,29 @@ public final class CleverTapGeofence: NSObject {
      ~~~
      */
     @objc public func stop() {
+        
+        CleverTapGeofenceUtils.log(#function, type: .debug)
+        
         engine.stop()
     }
+    
+    
+    
+    
+    
+    @objc public var logLevel: CleverTapGeofenceLogLevel = .error {
+        didSet {
+            CleverTapGeofenceUtils.log("Log Level updated: %d", type: .debug, logLevel.rawValue)
+        }
+    }
+}
+
+
+/**
+ 
+ */
+@objc public enum CleverTapGeofenceLogLevel: Int {
+    case error
+    case debug
+    case off
 }
