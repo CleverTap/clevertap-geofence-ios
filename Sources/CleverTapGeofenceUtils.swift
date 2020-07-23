@@ -20,17 +20,68 @@ internal struct CleverTapGeofenceUtils {
     private static let logger = OSLog(subsystem: "com.clevertap.CleverTapGeofence", category: "CleverTapGeofence")
     
     
-    internal static func log(_ message: StaticString, type: CleverTapGeofenceLogLevel = CleverTapGeofenceLogLevel.Error) {
+    internal static func log(_ message: StaticString,
+                             type: CleverTapGeofenceLogLevel = .error,
+                             _ args: CVarArg...) {
+        
+//        var updatedArgs: CVarArg
+//        if args != nil {
+//            updatedArgs = args
+//            updatedArgs.insert(message, at: 0)
+//        } else {
+//            updatedArgs = message as! CVarArg
+//        }
+        
+        var updatedArgs = args
+        updatedArgs.insert(message as! CVarArg, at: 0)
+        
         
         switch CleverTapGeofence.monitor.logLevel {
-        case .Error:
-            os_log(message, log: logger, type: .error)
-        case .Debug:
-            os_log(message, log: logger, type: .debug)
-        case .Off:
+        case .error:
+//            os_log("%@ %@", log: logger, type: .error, message as! CVarArg, args)
+//            os_log("%@", log: logger, type: .error, message as! CVarArg, args)
+            os_log("%@", log: logger, type: .error, updatedArgs)
+        case .debug:
+            
+//            os_log("%@ %@", log: logger, type: .debug, message as! CVarArg, args)
+//            os_log("%@", log: logger, type: .debug, message as! CVarArg, args)
+            os_log("%@", log: logger, type: .debug, updatedArgs)
+        case .off:
             break
         default:
             break
         }
     }
+    
+    
+    internal static func convertStringToDictionary(text: String) -> [String:AnyObject]? {
+        if let data = text.data(using: .utf8) {
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:AnyObject]
+                return json
+            } catch {
+                print("Something went wrong")
+            }
+        }
+        return nil
+    }
+}
+
+
+internal enum ErrorMessages: String {
+    case monitoringUnsupported = "Device does not supports Location Region Monitoring."
+    case uninitialized = "CleverTap SDK is not initialized."
+    case unexpectedData = "Unexpected Geofences Data format received."
+    case engineNil = "Unexpected scenario where CleverTapGeofenceEngine is nil."
+    case locationManagerNil = "Location Manager instance is nil."
+    case permissionOnlyWhileUsing = "User allowed app to get location data only when app is active."
+    case permissionDenied = "User tapped 'disallow' on the permission dialog, cannot get location data."
+    case permissionRestricted = "Access to location data is restricted."
+    case permissionUndetermined = "The location permission dialog has not been shown yet, user hasn't tap allow/disallow."
+    case permissionUnknownState = "Unkown location permission  status detected."
+    case emptyLocation = "Locations array updated by delegate is empty."
+    case currentLocation = "Error in getting user's current location."
+    case deferredUpdates = "Finished deferred location updates."
+    case cannotMonitor = "Could not start monitoring for region."
+    case undeterminedState = "Could not determine user's current region state"
 }
