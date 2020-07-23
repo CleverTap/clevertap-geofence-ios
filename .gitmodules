@@ -1,0 +1,3 @@
+[submodule "Vendors/CleverTap"]
+	path = Vendors/CleverTap
+	url = git@github.com:CleverTap/clevertap-ios-sdk.git
