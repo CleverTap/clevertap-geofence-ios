@@ -32,8 +32,17 @@ internal struct CleverTapGeofenceUtils {
 //            updatedArgs = message as! CVarArg
 //        }
         
+//        var updatedArgs: CVarArg? = args
+//        updatedArgs.insert(message as! CVarArg, at: 0)
+        
         var updatedArgs = args
-        updatedArgs.insert(message as! CVarArg, at: 0)
+        
+        if args.count > 0 {
+            updatedArgs.insert(message as! CVarArg, at: 0)
+        } else {
+            updatedArgs = [CVarArg]()
+            updatedArgs.append(message as! CVarArg)
+        }
         
         
         switch CleverTapGeofence.monitor.logLevel {
