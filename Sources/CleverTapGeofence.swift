@@ -62,7 +62,7 @@ public final class CleverTapGeofence: NSObject {
      }
      ~~~
      */
-    @objc public func start(didFinishLaunchingWithOptions launchOptions: [AnyHashable: Any]?) {
+    @objc public func start(didFinishLaunchingWithOptions launchOptions:[AnyHashable: Any]?) {
         
         dump(launchOptions)
         

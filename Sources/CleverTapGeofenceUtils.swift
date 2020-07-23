@@ -13,7 +13,7 @@ internal struct CleverTapGeofenceUtils {
     
     internal static let pluginVersion = "100000"
     
-    internal static let geofencesNotification = NSNotification.Name("CleverTapGeofencesNotification")
+    internal static let geofencesNotification = NSNotification.Name("CleverTapGeofencesDidUpdateNotification")
     
     internal static let logger = OSLog(subsystem: "com.clevertap.CleverTapGeofence", category: "CleverTapGeofence")
 }

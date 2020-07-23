@@ -53,7 +53,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
         locationManager?.startUpdatingLocation()
         locationManager?.startMonitoringVisits()
         locationManager?.startMonitoringSignificantLocationChanges()
-        //            locationManager?.distanceFilter
+//        locationManager?.distanceFilter
         
         observeNotification()
     }
@@ -126,15 +126,15 @@ internal final class CleverTapGeofenceEngine: NSObject {
             
             guard let latitude = geofence["lat"] as? CLLocationDegrees,
                 let longitude = geofence["lng"] as? CLLocationDegrees,
-                let radius = geofence["rad"] as? CLLocationDistance,
-                let identifier = geofence["id"] as? String
+                let radius = geofence["r"] as? CLLocationDistance,
+                let identifier = geofence["id"] as? Int
                 else {
                     recordGeofencesError(description: "Could not parse from geofence data")
                     return
             }
             
             let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-            let region = CLCircularRegion(center: coordinate, radius: radius, identifier: identifier)
+            let region = CLCircularRegion(center: coordinate, radius: radius, identifier: "\(identifier)")
             
             if let manager = locationManager {
                 manager.startMonitoring(for: region)
