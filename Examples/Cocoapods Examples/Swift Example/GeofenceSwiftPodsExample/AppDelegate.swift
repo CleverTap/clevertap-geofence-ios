@@ -21,7 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         CleverTap.autoIntegrate()
         
+        let manager = CLLocationManager()
+        manager.requestAlwaysAuthorization()
+        
         CleverTapGeofence.monitor.start(didFinishLaunchingWithOptions: launchOptions)
+        
+        CleverTapGeofence.monitor.logLevel = .Off
         
         return true
     }
