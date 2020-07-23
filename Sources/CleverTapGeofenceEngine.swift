@@ -266,7 +266,16 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     internal func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
         os_log(#function, log: CleverTapGeofenceUtils.logger)
-        // Log state. Helpful while debugging
+        
+        switch state {
+        case .inside:
+            CleverTap.sharedInstance()?.recordGeofenceEnteredEvent(["id": region.identifier])
+        case .outside:
+            CleverTap.sharedInstance()?.recordGeofenceExitedEvent(["id": region.identifier])
+        default:
+            recordGeofencesError(description: "Could not determine user region state")
+        }
+
     }
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
