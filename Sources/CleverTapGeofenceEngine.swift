@@ -53,7 +53,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
         locationManager?.startUpdatingLocation()
         locationManager?.startMonitoringVisits()
         locationManager?.startMonitoringSignificantLocationChanges()
-//        locationManager?.distanceFilter
+        //        locationManager?.distanceFilter
         
         observeNotification()
     }
@@ -146,16 +146,22 @@ internal final class CleverTapGeofenceEngine: NSObject {
         }
     }
     
-    private func recordGeofencesError(type: OSLogType = .error, code: Int = 0, description: StaticString) {
+    private func recordGeofencesError(type: OSLogType = .error, code: Int = 0, error: Error? = nil, description: StaticString) {
         
         os_log(description, log: CleverTapGeofenceUtils.logger, type: type)
         
-        let error = NSError(domain: "CleverTapGeofence",
-                            code: code,
-                            userInfo: [NSLocalizedDescriptionKey: description])
+        var generatedError: Error
+        
+        if let error = error {
+            generatedError = error
+        } else {
+            generatedError = NSError(domain: "CleverTapGeofence",
+                                     code: code,
+                                     userInfo: [NSLocalizedDescriptionKey: description])
+        }
         
         if let instance = CleverTap.sharedInstance() {
-            instance.didFailToRegisterForGeofencesWithError(error)
+            instance.didFailToRegisterForGeofencesWithError(generatedError)
         } else {
             os_log("CleverTap SDK is not initialized", log: CleverTapGeofenceUtils.logger, type: .fault)
         }
@@ -177,19 +183,20 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
         
         switch status {
         case .authorizedAlways:
-            os_log("User allow app to get location data when app is active or in background", log: CleverTapGeofenceUtils.logger)
+            os_log("User allow app to get location data when app is active or in background.", log: CleverTapGeofenceUtils.logger)
             locationManager?.startUpdatingLocation()
         case .authorizedWhenInUse:
-            os_log("user allow app to get location data only when app is active", log: CleverTapGeofenceUtils.logger)
+            os_log("User allow app to get location data only when app is active.", log: CleverTapGeofenceUtils.logger)
             locationManager?.startUpdatingLocation()
         case .denied:
-            os_log("User tapped 'disallow' on the permission dialog, cannot get location data", log: CleverTapGeofenceUtils.logger)
+            recordGeofencesError(description: "User tapped 'disallow' on the permission dialog, cannot get location data.")
         case .restricted:
-            os_log("parental control setting disallow location data", log: CleverTapGeofenceUtils.logger)
+            recordGeofencesError(description: "Access to location data is restricted.")
         case .notDetermined:
-            os_log("the location permission dialog has not been shown yet, user hasn't tap allow/disallow", log: CleverTapGeofenceUtils.logger)
-        @unknown default: break
-            //fatalError()
+            recordGeofencesError(description: "The location permission dialog has not been shown yet, user hasn't tap allow/disallow.")
+        @unknown default:
+            recordGeofencesError(type: .fault, description: "Unkown authorization status detected")
+            break
         }
     }
     
@@ -199,41 +206,43 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
         os_log(#function, log: CleverTapGeofenceUtils.logger)
         dump(locations)
         
-        if let location = locations.last {
-            if let instance = CleverTap.sharedInstance() {
-                instance.setLocationForGeofences(location.coordinate, withPluginVersion: CleverTapGeofenceUtils.pluginVersion)
-            } else {
-                // error log
-            }
-            
-            //            CleverTap.sharedInstance()?.setLocationForGeofences(location.coordinate, withPluginVersion: "100000")
+        guard let instance = CleverTap.sharedInstance(),
+            let location = locations.last
+            else {
+                if CleverTap.sharedInstance() == nil {
+                    recordGeofencesError(type: .fault, description: "CleverTap SDK is not initialized")
+                } else {
+                    recordGeofencesError(description: "Update locations array is empty!")
+                }
+                return
         }
+        
+        instance.setLocationForGeofences(location.coordinate, withPluginVersion: CleverTapGeofenceUtils.pluginVersion)
     }
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     internal func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        // MAIN SDK SET ERROR CODE
         os_log(#function, log: CleverTapGeofenceUtils.logger)
+        recordGeofencesError(error: error, description: "Error in getting current user location")
     }
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     internal func locationManagerDidPauseLocationUpdates(_ manager: CLLocationManager) {
-        // Log state. Helpful while debugging
         os_log(#function, log: CleverTapGeofenceUtils.logger)
         locationManager?.requestLocation()
     }
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     internal func locationManagerDidResumeLocationUpdates(_ manager: CLLocationManager) {
-        // Log state. Helpful while debugging
         os_log(#function, log: CleverTapGeofenceUtils.logger)
         locationManager?.startUpdatingLocation()
     }
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     internal func locationManager(_ manager: CLLocationManager, didFinishDeferredUpdatesWithError error: Error?) {
-        // Log state. Helpful while debugging
         os_log(#function, log: CleverTapGeofenceUtils.logger)
+        locationManager?.requestLocation()
+        recordGeofencesError(error: error, description: "Finished deferred location updates")
     }
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
@@ -241,11 +250,12 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
         os_log(#function, log: CleverTapGeofenceUtils.logger)
         dump(visit)
         
-        if let instance = CleverTap.sharedInstance() {
-            instance.setLocationForGeofences(visit.coordinate, withPluginVersion: "100000")
-        } else {
-            os_log("CleverTap SDK is not initialized", log: CleverTapGeofenceUtils.logger, type: .error)
+        guard let instance = CleverTap.sharedInstance() else {
+            recordGeofencesError(type: .fault, description: "CleverTap SDK is not initialized")
+            return
         }
+        
+        instance.setLocationForGeofences(visit.coordinate, withPluginVersion: CleverTapGeofenceUtils.pluginVersion)
     }
     
     
@@ -253,14 +263,14 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     internal func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
-        // Log state. Helpful while debugging
+        
         os_log(#function, log: CleverTapGeofenceUtils.logger)
     }
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     internal func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
         os_log(#function, log: CleverTapGeofenceUtils.logger)
-        // MAIN SDK SET ERROR CODE
+        recordGeofencesError(error: error, description: "Could not start monitoring for region")
     }
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
@@ -275,7 +285,7 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
         default:
             recordGeofencesError(description: "Could not determine user region state")
         }
-
+        
     }
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
