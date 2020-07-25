@@ -24,51 +24,28 @@ internal struct CleverTapGeofenceUtils {
                              type: CleverTapGeofenceLogLevel = .error,
                              _ args: CVarArg...) {
         
-//        var updatedArgs: CVarArg
-//        if args != nil {
-//            updatedArgs = args
-//            updatedArgs.insert(message, at: 0)
-//        } else {
-//            updatedArgs = message as! CVarArg
-//        }
-        
-//        var updatedArgs: CVarArg? = args
-//        updatedArgs.insert(message as! CVarArg, at: 0)
-        
-//        var updatedArgs = args
-//
-//        if args.count > 0 {
-//            updatedArgs.insert(message, at: 0)
-//        } else {
-//            updatedArgs = [CVarArg]()
-//            updatedArgs.append(message)
-//        }
-        
         print("CleverTapGeofence.logLevel: \(CleverTapGeofence.logLevel.rawValue)")
         
         switch CleverTapGeofence.logLevel {
         case .error:
             os_log(message, log: logger, type: .error, args.count > 0 ? args : "")
-//            os_log("%@ %@", log: logger, type: .error, message as! CVarArg, args)
-//            os_log("%@", log: logger, type: .error, message as! CVarArg, args)
-//            os_log("%@", log: logger, type: .error, updatedArgs)
-        case .debug:
             
+        case .debug:
             os_log(message, log: logger, type: .debug, args.count > 0 ? args : "")
-//            os_log("%@", log: logger, type: .debug, message as! CVarArg, args)
-//            os_log("%@", log: logger, type: .debug, updatedArgs)
+            
         case .off:
             break
+            
         default:
             break
         }
     }
     
     
-    internal static func convertStringToDictionary(text: String) -> [String:AnyObject]? {
+    internal static func convertStringToDictionary(text: String) -> [String: Any]? {
         if let data = text.data(using: .utf8) {
             do {
-                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:AnyObject]
+                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any]
                 return json
             } catch {
                 print("Something went wrong")
