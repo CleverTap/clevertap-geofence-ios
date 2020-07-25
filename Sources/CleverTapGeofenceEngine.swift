@@ -130,9 +130,14 @@ internal final class CleverTapGeofenceEngine: NSObject {
             
             guard let latitude = geofence["lat"] as? CLLocationDegrees,
                 let longitude = geofence["lng"] as? CLLocationDegrees,
-                let radius = geofence["r"] as? CLLocationDistance
+                let radius = geofence["r"] as? CLLocationDistance,
+                let manager = locationManager
                 else {
-                    recordGeofencesError(message: .unexpectedData, geofence)
+                    if locationManager == nil {
+                        recordGeofencesError(message: .locationManagerNil, geofence)
+                    } else {
+                        recordGeofencesError(message: .unexpectedData, geofence)
+                    }
                     return
             }
             
@@ -140,13 +145,9 @@ internal final class CleverTapGeofenceEngine: NSObject {
             
             let region = CLCircularRegion(center: coordinate, radius: radius, identifier: geofence.description)
             
-            if let manager = locationManager {
-                manager.startMonitoring(for: region)
-            } else {
-                recordGeofencesError(message: .locationManagerNil, geofence)
-            }
+            manager.startMonitoring(for: region)
             
-            CleverTapGeofenceUtils.log("Will start monitoring for region: %@", region.description)
+            CleverTapGeofenceUtils.log("Submitted for monitoring region: %@", region.description)
         }
     }
     
