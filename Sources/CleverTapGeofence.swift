@@ -106,16 +106,6 @@ public final class CleverTapGeofence: NSObject {
         
         engine.stop()
     }
-    
-    
-    
-    
-    
-    @objc public static var logLevel: CleverTapGeofenceLogLevel = .error {
-        didSet {
-            CleverTapGeofenceUtils.log("Log Level updated: %d", type: .debug, logLevel.rawValue)
-        }
-    }
 }
 
 
@@ -126,4 +116,14 @@ public final class CleverTapGeofence: NSObject {
     case error
     case debug
     case off
+}
+
+
+@objc extension CleverTapGeofence {
+    
+    @objc public static var logLevel: CleverTapGeofenceLogLevel = .error {
+           didSet {
+               CleverTapGeofenceUtils.log("Log Level updated: %d", type: .debug, logLevel.rawValue)
+           }
+       }
 }

@@ -44,6 +44,7 @@ internal struct CleverTapGeofenceUtils {
 //            updatedArgs.append(message)
 //        }
         
+        print("CleverTapGeofence.logLevel: \(CleverTapGeofence.logLevel.rawValue)")
         
         switch CleverTapGeofence.logLevel {
         case .error:
