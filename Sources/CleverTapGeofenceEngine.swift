@@ -175,6 +175,24 @@ internal final class CleverTapGeofenceEngine: NSObject {
             CleverTapGeofenceUtils.log("%@", ErrorMessages.uninitialized.rawValue)
         }
     }
+    
+    private func getDetails(for region: CLRegion) -> ([String: Any], CleverTap)? {
+        
+        guard let geofenceDetails = CleverTapGeofenceUtils.convertStringToDictionary(text: region.identifier),
+            let instance = CleverTap.sharedInstance()
+            else {
+                
+                if CleverTap.sharedInstance() == nil {
+                    recordGeofencesError(message: .uninitialized, region.description)
+                } else {
+                    recordGeofencesError(message: .unexpectedData, region.description)
+                }
+                
+                return nil
+        }
+        
+        return (geofenceDetails, instance)
+    }
 }
 
 
@@ -300,72 +318,40 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     internal func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
         
-        CleverTapGeofenceUtils.log("%@ %@ region state: %@", type: .debug, #function, region.description, "\(state)")
+        CleverTapGeofenceUtils.log("%@ %@ %@ region state: %@", type: .debug, #file, #function, region.description, "\(state)")
         
-        guard let geofenceDetails = CleverTapGeofenceUtils.convertStringToDictionary(text: region.identifier),
-            let instance = CleverTap.sharedInstance()
-            else {
-                
-                if CleverTap.sharedInstance() == nil {
-                    recordGeofencesError(message: .uninitialized, region.description)
-                } else {
-                    recordGeofencesError(message: .unexpectedData, region.description)
-                }
-                
-                return
-        }
-        
-        switch state {
-        case .inside:
-            instance.recordGeofenceEnteredEvent(geofenceDetails)
+        if let (geofenceDetails, instance) = getDetails(for: region) {
             
-        case .outside:
-            instance.recordGeofenceExitedEvent(geofenceDetails)
-            
-        default:
-            recordGeofencesError(message: .undeterminedState, region.description)
+            switch state {
+            case .inside:
+                instance.recordGeofenceEnteredEvent(geofenceDetails)
+                
+            case .outside:
+                instance.recordGeofenceExitedEvent(geofenceDetails)
+                
+            default:
+                recordGeofencesError(message: .undeterminedState, region.description)
+            }
         }
     }
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     internal func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         
-        CleverTapGeofenceUtils.log(#function, type: .debug, region.description)
+        CleverTapGeofenceUtils.log("%@ %@ %@", type: .debug, #file, #function, region.description)
         
-        guard let geofenceDetails = CleverTapGeofenceUtils.convertStringToDictionary(text: region.identifier),
-            let instance = CleverTap.sharedInstance()
-            else {
-                
-                if CleverTap.sharedInstance() == nil {
-                    recordGeofencesError(message: .uninitialized, region.description)
-                } else {
-                    recordGeofencesError(message: .unexpectedData, region.description)
-                }
-                
-                return
+        if let (geofenceDetails, instance) = getDetails(for: region) {
+            instance.recordGeofenceEnteredEvent(geofenceDetails)
         }
-        
-        instance.recordGeofenceEnteredEvent(geofenceDetails)
     }
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     internal func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         
-        CleverTapGeofenceUtils.log(#function, type: .debug, region.description)
+        CleverTapGeofenceUtils.log("%@ %@ %@", type: .debug, #file, #function, region.description)
         
-        guard let geofenceDetails = CleverTapGeofenceUtils.convertStringToDictionary(text: region.identifier),
-            let instance = CleverTap.sharedInstance()
-            else {
-                
-                if CleverTap.sharedInstance() == nil {
-                    recordGeofencesError(message: .uninitialized, region.description)
-                } else {
-                    recordGeofencesError(message: .unexpectedData, region.description)
-                }
-                
-                return
+        if let (geofenceDetails, instance) = getDetails(for: region) {
+            instance.recordGeofenceExitedEvent(geofenceDetails)
         }
-        
-        instance.recordGeofenceExitedEvent(geofenceDetails)
     }
 }
