@@ -48,13 +48,13 @@ internal struct CleverTapGeofenceUtils {
         
         switch CleverTapGeofence.logLevel {
         case .error:
-            os_log(message, log: logger, type: .error, args)
+            os_log(message, log: logger, type: .error, args.count > 0 ? args : "")
 //            os_log("%@ %@", log: logger, type: .error, message as! CVarArg, args)
 //            os_log("%@", log: logger, type: .error, message as! CVarArg, args)
 //            os_log("%@", log: logger, type: .error, updatedArgs)
         case .debug:
             
-            os_log(message, log: logger, type: .debug, args)
+            os_log(message, log: logger, type: .debug, args.count > 0 ? args : "")
 //            os_log("%@", log: logger, type: .debug, message as! CVarArg, args)
 //            os_log("%@", log: logger, type: .debug, updatedArgs)
         case .off:
