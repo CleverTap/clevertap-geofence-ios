@@ -67,7 +67,7 @@ public final class CleverTapGeofence: NSObject {
      */
     @objc public func start(didFinishLaunchingWithOptions launchOptions:[UIApplication.LaunchOptionsKey: Any]?) {
         
-        CleverTapGeofenceUtils.log("%@ %@", type: .debug, #file, #function)
+        CleverTapGeofenceUtils.log(#function, type: .debug)
         
         engine.start()
         
@@ -102,7 +102,7 @@ public final class CleverTapGeofence: NSObject {
      */
     @objc public func stop() {
         
-        CleverTapGeofenceUtils.log("%@ %@", type: .debug, #file, #function)
+        CleverTapGeofenceUtils.log(#function, type: .debug)
         
         engine.stop()
     }
