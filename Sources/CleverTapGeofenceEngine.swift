@@ -15,11 +15,6 @@ internal final class CleverTapGeofenceEngine: NSObject {
     
     // MARK: - Lifecycle
     
-    deinit {
-        CleverTapGeofenceUtils.log(#function, type: .debug)
-    }
-    
-    
     /// - Warning: Client apps are __NOT__ expected to interact with this function.
     internal func start() {
         
@@ -102,7 +97,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
                                                     }
                                                 } else {
                                                     
-                                                    CleverTapGeofenceUtils.log("%@", ErrorMessages.engineNil.rawValue)
+                                                    CleverTapGeofenceUtils.log("%@", type: .error, ErrorMessages.engineNil.rawValue)
                                                     
                                                     let error = NSError(domain: "CleverTapGeofence",
                                                                         code: 0,
@@ -111,7 +106,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
                                                     if let instance = CleverTap.sharedInstance() {
                                                         instance.didFailToRegisterForGeofencesWithError(error)
                                                     } else {
-                                                        CleverTapGeofenceUtils.log("%@", ErrorMessages.uninitialized.rawValue)
+                                                        CleverTapGeofenceUtils.log("%@", type: .error, ErrorMessages.uninitialized.rawValue)
                                                     }
                                                 }
         }
@@ -142,16 +137,15 @@ internal final class CleverTapGeofenceEngine: NSObject {
             
             manager.startMonitoring(for: region)
             
-            CleverTapGeofenceUtils.log("Submitted for monitoring region: %@", region.description)
+            CleverTapGeofenceUtils.log("Submitted for monitoring region: %@", type: .debug, region.description)
         }
     }
     
-    private func recordGeofencesError(type: CleverTapGeofenceLogLevel = .error,
-                                      code: Int = 0,
+    private func recordGeofencesError(code: Int = 0,
                                       _ error: Error? = nil,
                                       message: ErrorMessages) {
         
-        CleverTapGeofenceUtils.log("%@", type: type, message.rawValue)
+        CleverTapGeofenceUtils.log("%@", type: .error, message.rawValue)
         
         var generatedError: Error
         
@@ -166,7 +160,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
         if let instance = CleverTap.sharedInstance() {
             instance.didFailToRegisterForGeofencesWithError(generatedError)
         } else {
-            CleverTapGeofenceUtils.log("%@", ErrorMessages.uninitialized.rawValue)
+            CleverTapGeofenceUtils.log("%@", type: .error, ErrorMessages.uninitialized.rawValue)
         }
     }
     
@@ -218,7 +212,7 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
         
         switch status {
         case .authorizedAlways:
-            CleverTapGeofenceUtils.log("User allow app to get location data when app is active or in background.")
+            CleverTapGeofenceUtils.log("User allow app to get location data when app is active or in background.", type: .debug)
             locationManager?.startUpdatingLocation()
         case .authorizedWhenInUse:
             recordGeofencesError(message: .permissionOnlyWhileUsing)
