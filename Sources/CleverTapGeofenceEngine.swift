@@ -1,6 +1,5 @@
 
 import Foundation
-import CoreLocation
 import CleverTapSDK
 
 
@@ -16,7 +15,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
     // MARK: - Lifecycle
     
     /// - Warning: Client apps are __NOT__ expected to interact with this function.
-    internal func start() {
+    internal func start(distanceFilter: CLLocationDistance = kCLDistanceFilterNone) {
         
         CleverTapGeofenceUtils.log(#function, type: .debug)
         
@@ -44,7 +43,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
         locationManager?.startUpdatingLocation()
         locationManager?.startMonitoringVisits()
         locationManager?.startMonitoringSignificantLocationChanges()
-        // TODO: - locationManager?.distanceFilter
+        locationManager?.distanceFilter = distanceFilter
         
         observeNotification()
     }
@@ -313,7 +312,7 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     internal func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
-        
+        // TODO: verify if need to use file manager to diff & get current state
         CleverTapGeofenceUtils.log("%@", type: .debug, #function, "\(state.rawValue)", region.description)
         
         if let (identifier, instance) = getDetails(for: region) {

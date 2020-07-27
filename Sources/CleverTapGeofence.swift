@@ -1,5 +1,6 @@
 
 import UIKit
+import CoreLocation
 
 
 /**
@@ -65,11 +66,12 @@ public final class CleverTapGeofence: NSObject {
      }
      ~~~
      */
-    @objc public func start(didFinishLaunchingWithOptions launchOptions:[UIApplication.LaunchOptionsKey: Any]?) {
+    @objc public func start(didFinishLaunchingWithOptions launchOptions:[UIApplication.LaunchOptionsKey: Any]?,
+                            distanceFilter: CLLocationDistance = kCLDistanceFilterNone) {
         
         CleverTapGeofenceUtils.log(#function, type: .debug)
         
-        engine.start()
+        engine.start(distanceFilter: distanceFilter)
         
         if let options = launchOptions {
             if options[.location] != nil {
@@ -113,7 +115,7 @@ public final class CleverTapGeofence: NSObject {
  
  */
 @objc public enum CleverTapGeofenceLogLevel: Int {
-    case error = 0
+    case error
     case debug
     case off
 }
