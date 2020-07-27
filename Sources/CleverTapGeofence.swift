@@ -121,9 +121,5 @@ public final class CleverTapGeofence: NSObject {
 
 @objc extension CleverTapGeofence {
     
-    @objc public static var logLevel: CleverTapGeofenceLogLevel = .error {
-           didSet {
-               CleverTapGeofenceUtils.log("Log Level updated: %d", type: .debug, logLevel.rawValue)
-           }
-       }
+    @objc public static var logLevel: CleverTapGeofenceLogLevel = .error
 }

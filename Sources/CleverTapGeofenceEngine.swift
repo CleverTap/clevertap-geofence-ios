@@ -160,7 +160,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
         } else {
             generatedError = NSError(domain: "CleverTapGeofence",
                                      code: code,
-                                     userInfo: [NSLocalizedDescriptionKey: message])
+                                     userInfo: [NSLocalizedDescriptionKey: message.rawValue])
         }
         
         if let instance = CleverTap.sharedInstance() {
