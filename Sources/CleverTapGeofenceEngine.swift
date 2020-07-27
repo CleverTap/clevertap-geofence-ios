@@ -15,9 +15,6 @@ internal final class CleverTapGeofenceEngine: NSObject {
     
     // MARK: - Lifecycle
     
-    /// - Warning: Client apps are __NOT__ expected to interact with this function.
-    internal override init() {}
-    
     deinit {
         CleverTapGeofenceUtils.log(#function, type: .debug)
     }
@@ -98,10 +95,10 @@ internal final class CleverTapGeofenceEngine: NSObject {
                                                         if let geofences = userInfo["geofences"] as? [[AnyHashable: Any]] {
                                                             strongSelf.startMonitoring(geofences)
                                                         } else {
-                                                            strongSelf.recordGeofencesError(message: .unexpectedData, userInfo.description)
+                                                            strongSelf.recordGeofencesError(message: .unexpectedData)
                                                         }
                                                     } else {
-                                                        strongSelf.recordGeofencesError(message: .unexpectedData, notification.description)
+                                                        strongSelf.recordGeofencesError(message: .unexpectedData)
                                                     }
                                                 } else {
                                                     
@@ -132,9 +129,9 @@ internal final class CleverTapGeofenceEngine: NSObject {
                 let manager = locationManager
                 else {
                     if locationManager == nil {
-                        recordGeofencesError(message: .locationManagerNil, geofence)
+                        recordGeofencesError(message: .locationManagerNil)
                     } else {
-                        recordGeofencesError(message: .unexpectedData, geofence)
+                        recordGeofencesError(message: .unexpectedData)
                     }
                     return
             }
@@ -152,10 +149,9 @@ internal final class CleverTapGeofenceEngine: NSObject {
     private func recordGeofencesError(type: CleverTapGeofenceLogLevel = .error,
                                       code: Int = 0,
                                       _ error: Error? = nil,
-                                      message: ErrorMessages,
-                                      _ args: CVarArg...) {
+                                      message: ErrorMessages) {
         
-        CleverTapGeofenceUtils.log("%@ %@", type: type, message.rawValue, args)
+        CleverTapGeofenceUtils.log("%@", type: type, message.rawValue)
         
         var generatedError: Error
         
@@ -180,7 +176,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
                     let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any]
                     return json
                 } catch {
-                    recordGeofencesError(message: .unexpectedData, text)
+                    recordGeofencesError(message: .unexpectedData)
                 }
             }
             return nil
@@ -193,9 +189,9 @@ internal final class CleverTapGeofenceEngine: NSObject {
             else {
                 
                 if CleverTap.sharedInstance() == nil {
-                    recordGeofencesError(message: .uninitialized, region.description)
+                    recordGeofencesError(message: .uninitialized)
                 } else {
-                    recordGeofencesError(message: .unexpectedData, region.description)
+                    recordGeofencesError(message: .unexpectedData)
                 }
                 
                 return nil
@@ -264,9 +260,9 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
             let location = locations.last
             else {
                 if CleverTap.sharedInstance() == nil {
-                    recordGeofencesError(message: .uninitialized, locations.description)
+                    recordGeofencesError(message: .uninitialized)
                 } else {
-                    recordGeofencesError(message: .emptyLocation, locations.description)
+                    recordGeofencesError(message: .emptyLocation)
                 }
                 return
         }
@@ -304,7 +300,7 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
         CleverTapGeofenceUtils.log("%@ %@", type: .debug, #function, visit.description)
         
         guard let instance = CleverTap.sharedInstance() else {
-            recordGeofencesError(message: .uninitialized, visit.description)
+            recordGeofencesError(message: .uninitialized)
             return
         }
         
@@ -340,7 +336,7 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
                 instance.recordGeofenceExitedEvent(geofenceDetails)
                 
             default:
-                recordGeofencesError(message: .undeterminedState, region.description)
+                recordGeofencesError(message: .undeterminedState)
             }
         }
     }
