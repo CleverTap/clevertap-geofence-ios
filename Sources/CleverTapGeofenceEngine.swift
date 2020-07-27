@@ -15,9 +15,9 @@ internal final class CleverTapGeofenceEngine: NSObject {
     // MARK: - Lifecycle
     
     /// - Warning: Client apps are __NOT__ expected to interact with this function.
-    internal func start(distanceFilter: CLLocationDistance = kCLDistanceFilterNone) {
+    internal func start(distanceFilter: CLLocationDistance = 100) {
         
-        CleverTapGeofenceUtils.log(#function, type: .debug)
+        CleverTapGeofenceUtils.log("%@", type: .debug, #function, distanceFilter)
         
         guard CleverTap.sharedInstance() != nil,
             CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self)
@@ -39,11 +39,11 @@ internal final class CleverTapGeofenceEngine: NSObject {
         }
         
         locationManager?.delegate = self
+        locationManager?.distanceFilter = distanceFilter
         
         locationManager?.startUpdatingLocation()
         locationManager?.startMonitoringVisits()
         locationManager?.startMonitoringSignificantLocationChanges()
-        locationManager?.distanceFilter = distanceFilter
         
         observeNotification()
     }

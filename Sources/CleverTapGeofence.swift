@@ -39,7 +39,7 @@ public final class CleverTapGeofence: NSObject {
     /**
      Initiates the monitoring of Geofences set on CleverTap Dashboard.
      - Parameter launchOptions: A dictionary indicating the reason the app was launched.
-     - Parameter distanceFilter: Specifies the minimum update distance in meters to be used by Geofence location manager. Client will not be notified of movements of less than the stated value, unless the accuracy has improved. Pass in kCLDistanceFilterNone to be notified of all movements. By default, kCLDistanceFilterNone is used.
+     - Parameter distanceFilter: Specifies the minimum update distance in meters to be used by Geofence location manager. Client will not be notified of movements of less than the stated value, unless the accuracy has improved. Pass in kCLDistanceFilterNone to be notified of all movements. By default, 100 meters is used.
      
      ~~~
      // Swift usage
@@ -68,7 +68,7 @@ public final class CleverTapGeofence: NSObject {
      ~~~
      */
     @objc public func start(didFinishLaunchingWithOptions launchOptions:[UIApplication.LaunchOptionsKey: Any]?,
-                            distanceFilter: CLLocationDistance = kCLDistanceFilterNone) {
+                            distanceFilter: CLLocationDistance = 100) {
         
         CleverTapGeofenceUtils.log(#function, type: .debug)
         
