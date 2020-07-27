@@ -57,17 +57,24 @@ internal final class CleverTapGeofenceEngine: NSObject {
         
         NotificationCenter.default.removeObserver(self)
         
-        if let regions = locationManager?.monitoredRegions {
-            for region in regions {
-                locationManager?.stopMonitoring(for: region)
-            }
-        }
+        resetRegions()
         
         locationManager?.stopMonitoringVisits()
         locationManager?.stopMonitoringSignificantLocationChanges()
         locationManager?.stopUpdatingLocation()
         locationManager?.delegate = nil
         locationManager = nil
+    }
+    
+    private func resetRegions() {
+        
+        CleverTapGeofenceUtils.log(#function, type: .debug)
+        
+        if let regions = locationManager?.monitoredRegions {
+            for region in regions {
+                locationManager?.stopMonitoring(for: region)
+            }
+        }
     }
     
     
@@ -88,6 +95,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
                                                     if let userInfo = notification.userInfo {
                                                         
                                                         if let geofences = userInfo["geofences"] as? [[AnyHashable: Any]] {
+                                                            strongSelf.resetRegions()
                                                             strongSelf.startMonitoring(geofences)
                                                         } else {
                                                             strongSelf.recordGeofencesError(message: .unexpectedData)
