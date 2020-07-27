@@ -24,14 +24,12 @@ internal struct CleverTapGeofenceUtils {
                              type: CleverTapGeofenceLogLevel = .error,
                              _ args: CVarArg...) {
         
-        print("CleverTapGeofence.logLevel: \(CleverTapGeofence.logLevel.rawValue)")
-        
         switch CleverTapGeofence.logLevel {
         case .error:
-            os_log(message, log: logger, type: .error, args.count > 0 ? args : "")
+            os_log(message, log: logger, type: .error, args)
             
         case .debug:
-            os_log(message, log: logger, type: .debug, args.count > 0 ? args : "")
+            os_log(message, log: logger, type: .debug, args)
             
         case .off:
             break
