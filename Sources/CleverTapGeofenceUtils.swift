@@ -66,7 +66,7 @@ internal enum ErrorMessages: String {
     case permissionDenied           = "User tapped 'disallow' on the permission dialog, cannot get location data."
     case permissionRestricted       = "Access to location data is restricted."
     case permissionUndetermined     = "The location permission dialog has not been shown yet, user hasn't tap allow/disallow."
-    case permissionUnknownState     = "Unkown location permission  status detected."
+    case permissionUnknownState     = "Unkown location permission status detected."
     case emptyLocation              = "Locations array updated by delegate is empty."
     case currentLocation            = "Error in getting user's current location."
     case deferredUpdates            = "Finished deferred location updates."
