@@ -121,6 +121,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
             guard let latitude = geofence["lat"] as? CLLocationDegrees,
                 let longitude = geofence["lng"] as? CLLocationDegrees,
                 let radius = geofence["r"] as? CLLocationDistance,
+                let identifier = geofence["id"] as? Int,
                 let manager = locationManager
                 else {
                     if locationManager == nil {
@@ -133,7 +134,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
             
             let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
             
-            let region = CLCircularRegion(center: coordinate, radius: radius, identifier: geofence.description)
+            let region = CLCircularRegion(center: coordinate, radius: radius, identifier: "\(identifier)")
             
             manager.startMonitoring(for: region)
             
@@ -164,22 +165,9 @@ internal final class CleverTapGeofenceEngine: NSObject {
         }
     }
     
-    private func convertStringToDictionary(text: String) -> [String: Any]? {
-            if let data = text.data(using: .utf8) {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any]
-                    return json
-                } catch {
-                    recordGeofencesError(message: .unexpectedData)
-                }
-            }
-            return nil
-        }
-    
-    private func getDetails(for region: CLRegion) -> ([String: Any], CleverTap)? {
+    private func getDetails(for region: CLRegion) -> (String, CleverTap)? {
         
-        guard let geofenceDetails = convertStringToDictionary(text: region.identifier),
-            let instance = CleverTap.sharedInstance()
+        guard let instance = CleverTap.sharedInstance()
             else {
                 
                 if CleverTap.sharedInstance() == nil {
@@ -191,7 +179,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
                 return nil
         }
         
-        return (geofenceDetails, instance)
+        return (region.identifier, instance)
     }
 }
 
@@ -318,16 +306,16 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     internal func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
         
-        CleverTapGeofenceUtils.log("%@", type: .debug, #function, "\(state)", region.description)
+        CleverTapGeofenceUtils.log("%@", type: .debug, #function, "\(state.rawValue)", region.description)
         
-        if let (geofenceDetails, instance) = getDetails(for: region) {
+        if let (identifier, instance) = getDetails(for: region) {
             
             switch state {
             case .inside:
-                instance.recordGeofenceEnteredEvent(geofenceDetails)
+                instance.recordGeofenceEnteredEvent(["id": identifier])
                 
             case .outside:
-                instance.recordGeofenceExitedEvent(geofenceDetails)
+                instance.recordGeofenceExitedEvent(["id": identifier])
                 
             default:
                 recordGeofencesError(message: .undeterminedState)
@@ -340,8 +328,8 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
         
         CleverTapGeofenceUtils.log("%@", type: .debug, #function, region.description)
         
-        if let (geofenceDetails, instance) = getDetails(for: region) {
-            instance.recordGeofenceEnteredEvent(geofenceDetails)
+        if let (identifier, instance) = getDetails(for: region) {
+            instance.recordGeofenceEnteredEvent(["id": identifier])
         }
     }
     
@@ -350,8 +338,8 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
         
         CleverTapGeofenceUtils.log("%@", type: .debug, #function, region.description)
         
-        if let (geofenceDetails, instance) = getDetails(for: region) {
-            instance.recordGeofenceExitedEvent(geofenceDetails)
+        if let (identifier, instance) = getDetails(for: region) {
+            instance.recordGeofenceExitedEvent(["id": identifier])
         }
     }
 }
