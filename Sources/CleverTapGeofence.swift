@@ -113,7 +113,7 @@ public final class CleverTapGeofence: NSObject {
  
  */
 @objc public enum CleverTapGeofenceLogLevel: Int {
-    case error
+    case error = 0
     case debug
     case off
 }
