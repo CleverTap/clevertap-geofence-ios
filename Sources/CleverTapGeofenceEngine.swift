@@ -323,7 +323,7 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
                 instance.recordGeofenceEnteredEvent(["id": identifier])
                 
             case .outside:
-                instance.recordGeofenceExitedEvent(["id": identifier])
+                break
                 
             default:
                 recordGeofencesError(message: .undeterminedState)
