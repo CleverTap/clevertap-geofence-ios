@@ -176,9 +176,21 @@ internal final class CleverTapGeofenceEngine: NSObject {
         }
     }
     
+    private func convertStringToDictionary(text: String) -> [String: Any]? {
+            if let data = text.data(using: .utf8) {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any]
+                    return json
+                } catch {
+                    recordGeofencesError(message: .unexpectedData, text)
+                }
+            }
+            return nil
+        }
+    
     private func getDetails(for region: CLRegion) -> ([String: Any], CleverTap)? {
         
-        guard let geofenceDetails = CleverTapGeofenceUtils.convertStringToDictionary(text: region.identifier),
+        guard let geofenceDetails = convertStringToDictionary(text: region.identifier),
             let instance = CleverTap.sharedInstance()
             else {
                 

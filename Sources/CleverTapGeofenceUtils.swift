@@ -38,19 +38,6 @@ internal struct CleverTapGeofenceUtils {
             break
         }
     }
-    
-    
-    internal static func convertStringToDictionary(text: String) -> [String: Any]? {
-        if let data = text.data(using: .utf8) {
-            do {
-                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any]
-                return json
-            } catch {
-                print("Something went wrong")
-            }
-        }
-        return nil
-    }
 }
 
 
