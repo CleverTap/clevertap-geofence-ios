@@ -123,7 +123,7 @@ public final class CleverTapGeofence: NSObject {
     
     @objc public static var logLevel: CleverTapGeofenceLogLevel = .error {
         didSet {
-            CleverTapGeofenceUtils.log("Log Level updated: %d", type: .debug, logLevel.rawValue)
+            CleverTapGeofenceUtils.log("Log Level updated", type: .debug)
         }
     }    
 }
