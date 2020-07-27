@@ -9,7 +9,7 @@
 import Foundation
 import os.log
 
-internal class CleverTapGeofenceUtils {
+internal struct CleverTapGeofenceUtils {
     
     internal static let pluginVersion = "100000"
     
@@ -26,10 +26,14 @@ internal class CleverTapGeofenceUtils {
         
         switch CleverTapGeofence.logLevel {
         case .error:
-            os_log(message, log: logger, type: .error, args)
+            if type == .error {
+                os_log(message, log: logger, type: .error, args)
+            }
             
         case .debug:
-            os_log(message, log: logger, type: .debug, args)
+            if type == .error || type == .debug {
+                os_log(message, log: logger, type: .debug, args)
+            }
             
         case .off:
             break
