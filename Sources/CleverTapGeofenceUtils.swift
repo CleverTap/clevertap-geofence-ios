@@ -16,6 +16,8 @@ internal struct CleverTapGeofenceUtils {
     
     internal static let geofencesNotification = NSNotification.Name("CleverTapGeofencesDidUpdateNotification")
     
+    internal static let geofencesKey = "CleverTapGeofencesDataKey"
+    
     
     private static let logger = OSLog(subsystem: "com.clevertap.CleverTapGeofence", category: "CleverTapGeofence")
     

@@ -74,6 +74,8 @@ internal final class CleverTapGeofenceEngine: NSObject {
                 locationManager?.stopMonitoring(for: region)
             }
         }
+        
+        UserDefaults.standard.removeObject(forKey: CleverTapGeofenceUtils.geofencesKey)
     }
     
     
@@ -147,6 +149,8 @@ internal final class CleverTapGeofenceEngine: NSObject {
             
             CleverTapGeofenceUtils.log("Submitted for monitoring region: %@", type: .debug, region.description)
         }
+        
+        UserDefaults.standard.set(geofences, forKey: CleverTapGeofenceUtils.geofencesKey)
     }
     
     private func recordGeofencesError(code: Int = 0,
@@ -172,9 +176,11 @@ internal final class CleverTapGeofenceEngine: NSObject {
         }
     }
     
-    private func getDetails(for region: CLRegion) -> (String, CleverTap)? {
+    private func getDetails(for region: CLRegion) -> ([AnyHashable: Any], CleverTap)? {
         
-        guard let instance = CleverTap.sharedInstance()
+        guard let instance = CleverTap.sharedInstance(),
+            let geofences = UserDefaults.standard.object(forKey: CleverTapGeofenceUtils.geofencesKey) as? [[AnyHashable: Any]]
+            
             else {
                 
                 if CleverTap.sharedInstance() == nil {
@@ -186,7 +192,17 @@ internal final class CleverTapGeofenceEngine: NSObject {
                 return nil
         }
         
-        return (region.identifier, instance)
+        for geofence in geofences {
+            if let identifier = geofence["id"] as? Int {
+                if region.identifier == "\(identifier)" {
+                    return (geofence, instance)
+                }
+            }
+        }
+        
+        recordGeofencesError(message: .unexpectedData)
+        
+        return nil
     }
 }
 
@@ -315,11 +331,11 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
         // TODO: verify if need to use file manager to diff & get current state
         CleverTapGeofenceUtils.log("%@", type: .debug, #function, "\(state.rawValue)", region.description)
         
-        if let (identifier, instance) = getDetails(for: region) {
+        if let (geofenceDetails, instance) = getDetails(for: region) {
             
             switch state {
             case .inside:
-                instance.recordGeofenceEnteredEvent(["id": identifier])
+                instance.recordGeofenceEnteredEvent(geofenceDetails)
                 
             case .outside:
                 break
@@ -335,8 +351,8 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
         
         CleverTapGeofenceUtils.log("%@", type: .debug, #function, region.description)
         
-        if let (identifier, instance) = getDetails(for: region) {
-            instance.recordGeofenceEnteredEvent(["id": identifier])
+        if let (geofenceDetails, instance) = getDetails(for: region) {
+            instance.recordGeofenceEnteredEvent(geofenceDetails)
         }
     }
     
@@ -345,8 +361,8 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
         
         CleverTapGeofenceUtils.log("%@", type: .debug, #function, region.description)
         
-        if let (identifier, instance) = getDetails(for: region) {
-            instance.recordGeofenceExitedEvent(["id": identifier])
+        if let (geofenceDetails, instance) = getDetails(for: region) {
+            instance.recordGeofenceExitedEvent(geofenceDetails)
         }
     }
 }
