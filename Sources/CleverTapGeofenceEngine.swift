@@ -36,7 +36,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
         if locationManager == nil {
             locationManager = CLLocationManager()
         } else {
-            CleverTapGeofenceUtils.log("%@ Will utilize existing location manager instance", type: .debug, #function)
+            CleverTapGeofenceUtils.log("Will utilize existing location manager instance", type: .debug)
         }
         
         locationManager?.delegate = self
@@ -114,7 +114,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
     
     private func startMonitoring(_ geofences: [[AnyHashable: Any]]) {
         
-        CleverTapGeofenceUtils.log("%@ %@", type: .debug, #function, geofences.description)
+        CleverTapGeofenceUtils.log("%@", type: .debug, #function, geofences.description)
         
         for geofence in geofences {
             
@@ -234,7 +234,7 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     internal func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        CleverTapGeofenceUtils.log("%@ %@", type: .debug, #function, locations.description)
+        CleverTapGeofenceUtils.log("%@", type: .debug, #function, locations.description)
         
         // TODO: - let distanceDifference = latestLocation?.distance(from: (recentLocations?.last)!)
         //        if recentLocations == nil {
@@ -291,7 +291,7 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     internal func locationManager(_ manager: CLLocationManager, didVisit visit: CLVisit) {
         
-        CleverTapGeofenceUtils.log("%@ %@", type: .debug, #function, visit.description)
+        CleverTapGeofenceUtils.log("%@", type: .debug, #function, visit.description)
         
         guard let instance = CleverTap.sharedInstance() else {
             recordGeofencesError(message: .uninitialized)
@@ -307,7 +307,7 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     internal func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
         
-        CleverTapGeofenceUtils.log("%@ %@", type: .debug, #function, region.description)
+        CleverTapGeofenceUtils.log("%@", type: .debug, #function, region.description)
     }
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
@@ -318,7 +318,7 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     internal func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
         
-        CleverTapGeofenceUtils.log("%@ %@ region state: %@", type: .debug, #function, region.description, "\(state)")
+        CleverTapGeofenceUtils.log("%@", type: .debug, #function, "\(state)", region.description)
         
         if let (geofenceDetails, instance) = getDetails(for: region) {
             
@@ -338,7 +338,7 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     internal func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         
-        CleverTapGeofenceUtils.log("%@ %@", type: .debug, #function, region.description)
+        CleverTapGeofenceUtils.log("%@", type: .debug, #function, region.description)
         
         if let (geofenceDetails, instance) = getDetails(for: region) {
             instance.recordGeofenceEnteredEvent(geofenceDetails)
@@ -348,7 +348,7 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     internal func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         
-        CleverTapGeofenceUtils.log("%@ %@", type: .debug, #function, region.description)
+        CleverTapGeofenceUtils.log("%@", type: .debug, #function, region.description)
         
         if let (geofenceDetails, instance) = getDetails(for: region) {
             instance.recordGeofenceExitedEvent(geofenceDetails)
