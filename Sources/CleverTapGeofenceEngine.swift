@@ -9,7 +9,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
     
     private var locationManager: CLLocationManager?
     
-    // TODO: - var recentLocations: [CLLocation]?
+    var recentLocations: [CLLocation]?
     
     
     // MARK: - Lifecycle
@@ -377,7 +377,7 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
     internal func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
-        // TODO: verify if need to use file manager to diff & get current state
+        
         CleverTapGeofenceUtils.log("%@", type: .debug, #function, "\(state.rawValue)", region.description)
         
         if let (geofenceDetails, instance) = getDetails(for: region) {
