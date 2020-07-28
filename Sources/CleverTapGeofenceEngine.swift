@@ -204,6 +204,42 @@ internal final class CleverTapGeofenceEngine: NSObject {
         
         return nil
     }
+    
+    private func updateState(for region: CLRegion, with state: CLRegionState) {
+        
+        guard let _ = CleverTap.sharedInstance(),
+            let geofences = UserDefaults.standard.object(forKey: CleverTapGeofenceUtils.geofencesKey) as? [[AnyHashable: Any]]
+            
+            else {
+                
+                if CleverTap.sharedInstance() == nil {
+                    recordGeofencesError(message: .uninitialized)
+                } else {
+                    recordGeofencesError(message: .unexpectedData)
+                }
+                
+                return
+        }
+        
+        var geofencesListToBeUpdated = geofences
+        
+        geofencesListToBeUpdated = geofencesListToBeUpdated.map({
+            let geofence = $0
+            if let identifier = geofence["id"] as? Int {
+                if region.identifier == "\(identifier)" {
+                    var geofenceToBeUpdated = geofence
+                    geofenceToBeUpdated[CleverTapGeofenceUtils.regionStateKey] = state.rawValue
+                    return geofenceToBeUpdated
+                }
+            }
+            return geofence
+        })
+        
+        UserDefaults.standard.removeObject(forKey: CleverTapGeofenceUtils.geofencesKey)
+        UserDefaults.standard.set(geofencesListToBeUpdated, forKey: CleverTapGeofenceUtils.geofencesKey)
+        
+        CleverTapGeofenceUtils.log("Updated State for geofences: %@", type: .debug, geofencesListToBeUpdated)
+    }
 }
 
 
@@ -223,7 +259,7 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
         
         switch status {
         case .authorizedAlways:
-            CleverTapGeofenceUtils.log("User allow app to get location data when app is active or in background.", type: .debug)
+            CleverTapGeofenceUtils.log("User set Always permission, app can get location data in active & background state.", type: .debug)
             locationManager?.startUpdatingLocation()
         case .authorizedWhenInUse:
             recordGeofencesError(message: .permissionOnlyWhileUsing)
@@ -333,16 +369,22 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
         
         if let (geofenceDetails, instance) = getDetails(for: region) {
             
-            switch state {
-            case .inside:
-                instance.recordGeofenceEnteredEvent(geofenceDetails)
-                
-            case .outside:
-                break
-                
-            default:
-                recordGeofencesError(message: .undeterminedState)
+            if let savedState = geofenceDetails[CleverTapGeofenceUtils.regionStateKey] as? Int {
+                if savedState != state.rawValue {
+                    switch state {
+                    case .inside:
+                        instance.recordGeofenceEnteredEvent(geofenceDetails)
+                        
+                    case .outside:
+                        instance.recordGeofenceExitedEvent(geofenceDetails)
+                        
+                    default:
+                        recordGeofencesError(message: .undeterminedState)
+                    }
+                }
             }
+            
+            updateState(for: region, with: state)
         }
     }
     
