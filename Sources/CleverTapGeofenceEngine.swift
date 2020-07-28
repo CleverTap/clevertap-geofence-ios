@@ -9,8 +9,6 @@ internal final class CleverTapGeofenceEngine: NSObject {
     
     private var locationManager: CLLocationManager?
     
-    var recentLocations: [CLLocation]?
-    
     
     // MARK: - Lifecycle
     
@@ -241,7 +239,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
         CleverTapGeofenceUtils.log("Updated State for geofences: %@", type: .debug, geofencesListToBeUpdated)
     }
     
-    func recordEventBased(on state: CLRegionState, for geofenceDetails: [AnyHashable: Any], with instance: CleverTap) {
+    private func recordEventBased(on state: CLRegionState, for geofenceDetails: [AnyHashable: Any], with instance: CleverTap) {
         switch state {
         case .inside:
             instance.recordGeofenceEnteredEvent(geofenceDetails)
@@ -295,20 +293,6 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
     internal func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         CleverTapGeofenceUtils.log("%@", type: .debug, #function, locations.description)
-        
-        // TODO: - let distanceDifference = latestLocation?.distance(from: (recentLocations?.last)!)
-        //        if recentLocations == nil {
-        //            recentLocations = [CLLocation]()
-        //        }
-        //
-        //        for loc in locations {
-        //            recentLocations?.append(loc)
-        //        }
-        //
-        //        let latestLocation = locations.last
-        //
-        //        let distanceDifference = latestLocation?.distance(from: (recentLocations?.last)!)
-        
         
         guard let instance = CleverTap.sharedInstance(),
             let location = locations.last
