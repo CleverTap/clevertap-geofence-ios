@@ -61,7 +61,7 @@ public final class CleverTapGeofence: NSObject {
      
      [CleverTap autoIntegrate];
      
-     [[CleverTapGeofence monitor] startWithDidFinishLaunchingWithOptions:launchOptions distanceFilter:kCLDistanceFilterNone];
+     [[CleverTapGeofence monitor] startWithDidFinishLaunchingWithOptions:launchOptions distanceFilter:100];
      
      return YES;
      }
@@ -112,18 +112,60 @@ public final class CleverTapGeofence: NSObject {
 }
 
 
-/**
- 
- */
+
+/// An enum to be used for setting `logLevel` for `CleverTapGeofence`. By default, `.error` level is set.
 @objc public enum CleverTapGeofenceLogLevel: Int {
+    
+    
+    /// Only errors are logged to console. `.error` is the default
     case error
+    
+    
+    /// Logs additional diagnostic info along with `.error` logs for debugging purposes.
     case debug
+    
+    
+    /// Stops all logs from `CleverTapGeofence`
     case off
 }
 
 
+
 @objc extension CleverTapGeofence {
     
+    
+    /**
+     Specify a `logLevel` for `CleverTapGeofence`. By default, `.error` level is set.
+     ~~~
+     // Swift usage
+     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+     
+     // other app setup logic
+     
+     CleverTap.autoIntegrate()
+     
+     CleverTapGeofence.logLevel = .debug
+     
+     CleverTapGeofence.monitor.start(didFinishLaunchingWithOptions: launchOptions)
+     
+     return true
+     }
+     
+     // Objective-C usage
+     - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     
+     // other app setup logic
+     
+     [CleverTap autoIntegrate];
+     
+     CleverTapGeofence.logLevel = CleverTapGeofenceLogLevelDebug;
+     
+     [[CleverTapGeofence monitor] startWithDidFinishLaunchingWithOptions:launchOptions distanceFilter:100];
+     
+     return YES;
+     }
+     ~~~
+     */
     @objc public static var logLevel: CleverTapGeofenceLogLevel = .error {
         didSet {
             CleverTapGeofenceUtils.log("Log Level updated", type: .debug)
