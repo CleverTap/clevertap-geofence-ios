@@ -67,9 +67,15 @@ internal final class CleverTapGeofenceEngine: NSObject {
         
         CleverTapGeofenceUtils.log(#function, type: .debug)
         
-        guard let manager = locationManager else {
-            CleverTapGeofenceUtils.recordGeofencesError(message: .locationManagerNil)
-            return
+        guard let manager = locationManager,
+            manager.monitoredRegions.count > 0
+            else {
+                if locationManager == nil {
+                    CleverTapGeofenceUtils.recordGeofencesError(message: .locationManagerNil)
+                } else {
+                    CleverTapGeofenceUtils.log("No regions being monitored currently.", type: .debug)
+                }
+                return
         }
         
         if let geofences = CleverTapGeofenceUtils.read() {
