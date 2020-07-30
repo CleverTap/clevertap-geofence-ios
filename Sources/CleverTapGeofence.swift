@@ -39,7 +39,8 @@ public final class CleverTapGeofence: NSObject {
     /**
      Initiates the monitoring of Geofences set on CleverTap Dashboard.
      - Parameter launchOptions: A dictionary indicating the reason the app was launched.
-     - Parameter distanceFilter: Specifies the minimum update distance in meters to be used by Geofence location manager. Client will not be notified of movements of less than the stated value, unless the accuracy has improved. Pass in kCLDistanceFilterNone to be notified of all movements. By default, 1000 meters is used.
+     - Parameter distanceFilter: Specifies the minimum update distance in meters to be used by Geofence location manager. Client will not be notified of movements of less than the stated value, unless the accuracy has improved. By default, 1000 meters is used.
+     - Parameter timeFilter: Specifies the minimum time in seconds after which location should be updated. Location updates will not be triggered within less than the stated `timeFilter` value. By default, 3600 seconds is used.
      
      ~~~
      // Swift usage
@@ -61,7 +62,7 @@ public final class CleverTapGeofence: NSObject {
      
      [CleverTap autoIntegrate];
      
-     [[CleverTapGeofence monitor] startWithDidFinishLaunchingWithOptions:launchOptions distanceFilter:1000 timeInterval:3600];
+     [[CleverTapGeofence monitor] startWithDidFinishLaunchingWithOptions:launchOptions distanceFilter:1000 timeFilter:3600];
      
      return YES;
      }
@@ -69,11 +70,11 @@ public final class CleverTapGeofence: NSObject {
      */
     @objc public func start(didFinishLaunchingWithOptions launchOptions:[UIApplication.LaunchOptionsKey: Any]?,
                             distanceFilter: CLLocationDistance = 1000,
-                            timeInterval: TimeInterval = 3600) {
+                            timeFilter: TimeInterval = 3600) {
         
         CleverTapGeofenceUtils.log(#function, type: .debug)
         
-        engine.start(distanceFilter, timeInterval)
+        engine.start(distanceFilter, timeFilter)
         
         if let options = launchOptions {
             if options[.location] != nil {
