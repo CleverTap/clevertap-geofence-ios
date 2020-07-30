@@ -61,18 +61,19 @@ public final class CleverTapGeofence: NSObject {
      
      [CleverTap autoIntegrate];
      
-     [[CleverTapGeofence monitor] startWithDidFinishLaunchingWithOptions:launchOptions distanceFilter:1000];
+     [[CleverTapGeofence monitor] startWithDidFinishLaunchingWithOptions:launchOptions distanceFilter:1000 timeInterval:3600];
      
      return YES;
      }
      ~~~
      */
     @objc public func start(didFinishLaunchingWithOptions launchOptions:[UIApplication.LaunchOptionsKey: Any]?,
-                            distanceFilter: CLLocationDistance = 1000) {
+                            distanceFilter: CLLocationDistance = 1000,
+                            timeInterval: TimeInterval = 3600) {
         
         CleverTapGeofenceUtils.log(#function, type: .debug)
         
-        engine.start(distanceFilter: distanceFilter)
+        engine.start(distanceFilter, timeInterval)
         
         if let options = launchOptions {
             if options[.location] != nil {

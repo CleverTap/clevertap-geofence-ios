@@ -9,15 +9,17 @@ internal final class CleverTapGeofenceEngine: NSObject {
     
     private var locationManager: CLLocationManager?
     
+    private var recentLocations = [CLLocation]()
+    
     private var specifiedDistanceFilter: CLLocationDistance = 1000
     
-    private var recentLocations = [CLLocation]()
+    private var specifiedTimeInterval: TimeInterval = 3600
     
     
     // MARK: - Lifecycle
     
     /// - Warning: Client apps are __NOT__ expected to interact with this function.
-    internal func start(distanceFilter: CLLocationDistance = 1000) {
+    internal func start(_ distanceFilter: CLLocationDistance = 1000, _ timeInterval: TimeInterval = 3600) {
         
         CleverTapGeofenceUtils.log("%@", type: .debug, #function, distanceFilter)
         
@@ -43,6 +45,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
         locationManager?.delegate = self
         locationManager?.distanceFilter = distanceFilter
         specifiedDistanceFilter = distanceFilter
+        specifiedTimeInterval = timeInterval
         
         locationManager?.startUpdatingLocation()
         locationManager?.startMonitoringVisits()
@@ -308,10 +311,13 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
             let lastTwoLocations = recentLocations.suffix(2)
             if let previousLocation = lastTwoLocations.first, let currentLocation = lastTwoLocations.last {
                 if currentLocation.distance(from: previousLocation) > specifiedDistanceFilter {
-                    instance.setLocationForGeofences(currentLocation.coordinate, withPluginVersion: CleverTapGeofenceUtils.pluginVersion)
+                    if currentLocation.timestamp.timeIntervalSince(previousLocation.timestamp) > specifiedTimeInterval {
+                        instance.setLocationForGeofences(currentLocation.coordinate, withPluginVersion: CleverTapGeofenceUtils.pluginVersion)
+                    } else {
+                        CleverTapGeofenceUtils.log("Current Location update is less than specified time interval away from previous location: %@", type: .debug, specifiedTimeInterval, recentLocations)
+                    }
                 } else {
-                    CleverTapGeofenceUtils.log("Current Location update is less than specified distance filter away from previous location: %@",
-                                               type: .debug, specifiedDistanceFilter, recentLocations)
+                    CleverTapGeofenceUtils.log("Current Location update is less than specified distance filter away from previous location: %@", type: .debug, specifiedDistanceFilter, recentLocations)
                 }
             } else {
                 CleverTapGeofenceUtils.recordError(message: .emptyLocation)
