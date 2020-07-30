@@ -209,7 +209,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
         guard let cachedRegionState = geofenceDetails[CleverTapGeofenceUtils.regionStateKey] as? Int,
             let cachedTimeStamp = geofenceDetails[CleverTapGeofenceUtils.timeStampKey] as? Date
             else {
-                CleverTapGeofenceUtils.log("Cached regionState / timeStamp does not exists: %@", type: .debug, geofenceDetails)
+                CleverTapGeofenceUtils.log("Cached regionState / timeStamp does not exists: %@", type: .debug, state.rawValue, geofenceDetails)
                 if state == .inside {
                     instance.recordGeofenceEnteredEvent(geofenceDetails)
                     update(state, for: region)
