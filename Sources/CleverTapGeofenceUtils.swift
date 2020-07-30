@@ -112,7 +112,9 @@ internal struct CleverTapGeofenceUtils {
                 } else {
                     recordGeofencesError(message: .diskRead)
                 }
-            } 
+            } else {
+                log("%@", type: .debug, "Geofences File does not exists at path: ", filePathStr)
+            }
         } else {
             recordGeofencesError(message: .diskFilePath)
         }
