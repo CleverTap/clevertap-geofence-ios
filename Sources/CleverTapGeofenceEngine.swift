@@ -11,6 +11,9 @@ internal final class CleverTapGeofenceEngine: NSObject {
     
     private var specifiedDistanceFilter: CLLocationDistance = 1000
     
+    private var recentLocations = [CLLocation]()
+    
+    
     // MARK: - Lifecycle
     
     /// - Warning: Client apps are __NOT__ expected to interact with this function.
@@ -295,11 +298,17 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
                 return
         }
         
-        if locations.count > 1 {
-            let recentLocations = locations.suffix(2)
-            if let previousLocation = recentLocations.first, let currentLocation = recentLocations.last {
+        for location in locations {
+            if !recentLocations.contains(location) {
+                recentLocations.append(location)
+            }
+        }
+        
+        if recentLocations.count > 1 {
+            let lastTwoLocations = recentLocations.suffix(2)
+            if let previousLocation = lastTwoLocations.first, let currentLocation = lastTwoLocations.last {
                 if currentLocation.distance(from: previousLocation) > specifiedDistanceFilter {
-                    instance.setLocationForGeofences(location.coordinate, withPluginVersion: CleverTapGeofenceUtils.pluginVersion)
+                    instance.setLocationForGeofences(currentLocation.coordinate, withPluginVersion: CleverTapGeofenceUtils.pluginVersion)
                 } else {
                     CleverTapGeofenceUtils.log("Current Location update is less than specified distance filter away from previous location: %@",
                                                type: .debug, specifiedDistanceFilter, locations)
