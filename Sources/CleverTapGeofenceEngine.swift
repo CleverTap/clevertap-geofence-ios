@@ -293,7 +293,21 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
                 return
         }
         
-        instance.setLocationForGeofences(location.coordinate, withPluginVersion: CleverTapGeofenceUtils.pluginVersion)
+        if locations.count > 1 {
+            let recentLocations = locations.suffix(2)
+            if let previousLocation = recentLocations.first, let currentLocation = recentLocations.last {
+                if currentLocation.distance(from: previousLocation) > specifiedDistanceFilter {
+                    instance.setLocationForGeofences(location.coordinate, withPluginVersion: CleverTapGeofenceUtils.pluginVersion)
+                } else {
+                    CleverTapGeofenceUtils.log("Current Location update is less than specified distance filter away from previous location: %@",
+                                               type: .debug, specifiedDistanceFilter, locations)
+                }
+            } else {
+                CleverTapGeofenceUtils.recordError(message: .emptyLocation)
+            }
+        } else {
+            instance.setLocationForGeofences(location.coordinate, withPluginVersion: CleverTapGeofenceUtils.pluginVersion)
+        }
     }
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
