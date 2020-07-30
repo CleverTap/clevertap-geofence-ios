@@ -311,7 +311,7 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
                     instance.setLocationForGeofences(currentLocation.coordinate, withPluginVersion: CleverTapGeofenceUtils.pluginVersion)
                 } else {
                     CleverTapGeofenceUtils.log("Current Location update is less than specified distance filter away from previous location: %@",
-                                               type: .debug, specifiedDistanceFilter, locations)
+                                               type: .debug, specifiedDistanceFilter, recentLocations)
                 }
             } else {
                 CleverTapGeofenceUtils.recordError(message: .emptyLocation)
