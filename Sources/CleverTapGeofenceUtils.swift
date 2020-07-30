@@ -79,8 +79,10 @@ internal struct CleverTapGeofenceUtils {
         
         if let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             let filePath = path.appendingPathComponent(geofencesKey)
-            let filePathStr = String(describing: filePath)
-            if  NSKeyedArchiver.archiveRootObject(geofences, toFile: filePathStr) == false {
+            let data = NSKeyedArchiver.archivedData(withRootObject: geofences)
+            do {
+                try data.write(to: filePath)
+            } catch {
                 recordGeofencesError(message: .diskWrite)
             }
         } else {
@@ -93,24 +95,24 @@ internal struct CleverTapGeofenceUtils {
         if let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             let filePath = path.appendingPathComponent(geofencesKey)
             let filePathStr = String(describing: filePath)
-            if let data = NSKeyedUnarchiver.unarchiveObject(withFile: filePathStr) as? [[AnyHashable: Any]] {
-                
-                if remove {
-                    if FileManager.default.fileExists(atPath: filePathStr) {
-                        do {
-                            try FileManager.default.removeItem(atPath: filePathStr)
-                        } catch {
-                            recordGeofencesError(message: .diskRemove)
+            if let data = FileManager.default.contents(atPath: filePathStr) {
+                if let geofences =  NSKeyedUnarchiver.unarchiveObject(with: data) as? [[AnyHashable: Any]] {
+                    if remove {
+                        if FileManager.default.fileExists(atPath: filePathStr) {
+                            do {
+                                try FileManager.default.removeItem(atPath: filePathStr)
+                            } catch {
+                                recordGeofencesError(message: .diskRemove)
+                            }
+                        } else {
+                            log("%@", type: .debug, "File does not exists at path: ", filePathStr)
                         }
-                    } else {
-                        log("%@", type: .debug, "File does not exists at path: ", filePathStr)
                     }
+                    return geofences
+                } else {
+                    recordGeofencesError(message: .diskRead)
                 }
-                
-                return data
-            } else {
-                recordGeofencesError(message: .diskRead)
-            }
+            } 
         } else {
             recordGeofencesError(message: .diskFilePath)
         }
