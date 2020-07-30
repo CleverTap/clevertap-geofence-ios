@@ -207,9 +207,10 @@ internal final class CleverTapGeofenceEngine: NSObject {
         CleverTapGeofenceUtils.log("%@", type: .debug, #function, state.rawValue, geofenceDetails)
         
         guard let cachedRegionState = geofenceDetails[CleverTapGeofenceUtils.regionStateKey] as? Int,
-            let cachedTimeStamp = geofenceDetails[CleverTapGeofenceUtils.timeStampKey] as? Date
+            let cachedTimeStampStr = geofenceDetails[CleverTapGeofenceUtils.timeStampKey] as? String,
+            let cachedTimeStamp = CleverTapGeofenceUtils.formatter.date(from: cachedTimeStampStr)
             else {
-                CleverTapGeofenceUtils.log("Cached regionState / timeStamp does not exists: %@", type: .debug, state.rawValue, geofenceDetails)
+                CleverTapGeofenceUtils.log("Cached regionState / timeStamp does not exists: %@", type: .debug, state.rawValue, region, geofenceDetails)
                 if state == .inside {
                     instance.recordGeofenceEnteredEvent(geofenceDetails)
                     update(state, for: region)
@@ -249,7 +250,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
                 if region.identifier == "\(identifier)" {
                     var geofenceToBeUpdated = geofence
                     geofenceToBeUpdated[CleverTapGeofenceUtils.regionStateKey] = state.rawValue
-                    geofenceToBeUpdated[CleverTapGeofenceUtils.timeStampKey] = Date()
+                    geofenceToBeUpdated[CleverTapGeofenceUtils.timeStampKey] = CleverTapGeofenceUtils.formatter.string(from: Date())
                     return geofenceToBeUpdated
                 }
             }
@@ -327,7 +328,7 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
                 if currentLocation.distance(from: previousLocation) > specifiedDistanceFilter || currentLocation.timestamp.timeIntervalSince(previousLocation.timestamp) > specifiedTimeFilter {
                     instance.setLocationForGeofences(currentLocation.coordinate, withPluginVersion: CleverTapGeofenceUtils.pluginVersion)
                 } else {
-                    CleverTapGeofenceUtils.log("Will not update location because neither specified distance has been travelled nor specified time interval has passed: %@", type: .debug, specifiedDistanceFilter, specifiedTimeFilter ,recentLocations)
+                    CleverTapGeofenceUtils.log("Will not update location because neither specified distance has been travelled nor specified time interval has passed: %@", type: .debug, specifiedDistanceFilter, specifiedTimeFilter, recentLocations)
                 }
             } else {
                 CleverTapGeofenceUtils.recordError(message: .emptyLocation)

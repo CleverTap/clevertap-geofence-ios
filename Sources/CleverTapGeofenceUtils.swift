@@ -24,6 +24,8 @@ internal struct CleverTapGeofenceUtils {
     
     internal static let timeStampKey = "timeStamp"
     
+    internal static let formatter = ISO8601DateFormatter()
+    
     private static let logger = OSLog(subsystem: "com.clevertap.CleverTapGeofence", category: "CleverTapGeofence")
     
     
