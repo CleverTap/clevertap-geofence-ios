@@ -218,7 +218,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
                 return
         }
         
-        if state.rawValue != cachedRegionState || cachedTimeStamp.timeIntervalSinceNow > specifiedTimeFilter {
+        if state.rawValue != cachedRegionState || abs(cachedTimeStamp.timeIntervalSinceNow) > specifiedTimeFilter {
             switch state {
             case .inside:
                 instance.recordGeofenceEnteredEvent(geofenceDetails)
