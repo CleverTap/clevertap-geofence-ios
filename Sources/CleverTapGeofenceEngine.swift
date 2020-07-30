@@ -217,9 +217,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
                 return
         }
         
-        let didRegionStateChanged = state.rawValue != cachedRegionState
-        
-        if didRegionStateChanged || cachedTimeStamp.timeIntervalSinceNow > specifiedTimeFilter {
+        if state.rawValue != cachedRegionState || cachedTimeStamp.timeIntervalSinceNow > specifiedTimeFilter {
             switch state {
             case .inside:
                 instance.recordGeofenceEnteredEvent(geofenceDetails)
@@ -234,13 +232,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
             update(state, for: region)
             
         } else {
-            let reason = "Will not record geofence event because "
-            
-            if didRegionStateChanged {
-                CleverTapGeofenceUtils.log("%@", type: .debug, reason, DebugMessages.lessThanTimeFilter.rawValue)
-            } else {
-                CleverTapGeofenceUtils.log("%@", type: .debug, reason, DebugMessages.regionStateUnchanged.rawValue)
-            }
+            CleverTapGeofenceUtils.log("Will not record geofence event because neither region state has changed nor specified time interval has passed: %@", type: .debug, state.rawValue, geofenceDetails, region)
         }
     }
     
@@ -332,16 +324,10 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
             let lastTwoLocations = recentLocations.suffix(2)
             if let previousLocation = lastTwoLocations.first, let currentLocation = lastTwoLocations.last {
                 
-                let didTravelLargeDistance = currentLocation.distance(from: previousLocation) > specifiedDistanceFilter
-                
-                if didTravelLargeDistance || currentLocation.timestamp.timeIntervalSince(previousLocation.timestamp) > specifiedTimeFilter {
+                if currentLocation.distance(from: previousLocation) > specifiedDistanceFilter || currentLocation.timestamp.timeIntervalSince(previousLocation.timestamp) > specifiedTimeFilter {
                     instance.setLocationForGeofences(currentLocation.coordinate, withPluginVersion: CleverTapGeofenceUtils.pluginVersion)
                 } else {
-                    if didTravelLargeDistance {
-                        CleverTapGeofenceUtils.log("%@", type: .debug, DebugMessages.lessThanTimeFilter.rawValue, specifiedTimeFilter, recentLocations)
-                    } else {
-                        CleverTapGeofenceUtils.log("%@", type: .debug, DebugMessages.lessThanDistanceFilter.rawValue, specifiedDistanceFilter, recentLocations)
-                    }
+                    CleverTapGeofenceUtils.log("Will not update location because neither specified distance has been travelled nor specified time interval has passed: %@", type: .debug, recentLocations)
                 }
             } else {
                 CleverTapGeofenceUtils.recordError(message: .emptyLocation)

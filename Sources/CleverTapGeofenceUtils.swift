@@ -133,13 +133,6 @@ internal struct CleverTapGeofenceUtils {
 
 // MARK: -
 
-internal enum DebugMessages: String {
-    case regionStateUnchanged = "the state for region has not changed since last cached value"
-    case lessThanTimeFilter = "the specified time interval has not passed since last cached value"
-    case lessThanDistanceFilter = "current location update is less than specified distance filter away from previous location"
-}
-
-
 internal enum ErrorMessages: String {
     case monitoringUnsupported      = "Device does not supports Location Region Monitoring."
     case uninitialized              = "CleverTap SDK is not initialized."

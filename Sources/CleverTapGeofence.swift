@@ -72,7 +72,7 @@ public final class CleverTapGeofence: NSObject {
                             distanceFilter: CLLocationDistance = 1000,
                             timeFilter: TimeInterval = 3600) {
         
-        CleverTapGeofenceUtils.log(#function, type: .debug)
+        CleverTapGeofenceUtils.log("%@", type: .debug, #function, distanceFilter, timeFilter)
         
         engine.start(distanceFilter, timeFilter)
         
