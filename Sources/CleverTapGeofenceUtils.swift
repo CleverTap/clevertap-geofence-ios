@@ -51,9 +51,9 @@ internal struct CleverTapGeofenceUtils {
     }
     
     
-    internal static func recordGeofencesError(code: Int = 0,
-                                              _ error: Error? = nil,
-                                              message: ErrorMessages) {
+    internal static func recordError(code: Int = 0,
+                                     _ error: Error? = nil,
+                                     message: ErrorMessages) {
         
         CleverTapGeofenceUtils.log("%@", type: .error, message.rawValue)
         
@@ -86,10 +86,10 @@ internal struct CleverTapGeofenceUtils {
                 try data.write(to: filePath)
                 log("Successfully wrote geofences to disk: %@", type: .debug, geofences)
             } catch {
-                recordGeofencesError(message: .diskWrite)
+                recordError(message: .diskWrite)
             }
         } else {
-            recordGeofencesError(message: .diskFilePath)
+            recordError(message: .diskFilePath)
         }
     }
     
@@ -109,19 +109,19 @@ internal struct CleverTapGeofenceUtils {
                         do {
                             try FileManager.default.removeItem(at: filePath)
                         } catch {
-                            recordGeofencesError(code: 0, error, message: .diskRemove)
+                            recordError(code: 0, error, message: .diskRemove)
                         }
                     }
                     log("Geofences list as read from disk: %@", type: .debug, geofences)
                     return geofences
                 } else {
-                    recordGeofencesError(message: .diskRead)
+                    recordError(message: .diskRead)
                 }
             } catch {
-                recordGeofencesError(code: 0, error, message: .diskRead)
+                recordError(code: 0, error, message: .diskRead)
             }
         } else {
-            recordGeofencesError(message: .diskFilePath)
+            recordError(message: .diskFilePath)
         }
         
         return nil
