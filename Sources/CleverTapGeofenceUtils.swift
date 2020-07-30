@@ -100,26 +100,23 @@ internal struct CleverTapGeofenceUtils {
         if let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             let filePath = path.appendingPathComponent(geofencesKey)
             let filePathStr = String(describing: filePath)
-            if let data = FileManager.default.contents(atPath: filePathStr) {
-                if let geofences =  NSKeyedUnarchiver.unarchiveObject(with: data) as? [[AnyHashable: Any]] {
-                    if remove {
-                        if FileManager.default.fileExists(atPath: filePathStr) {
-                            do {
-                                try FileManager.default.removeItem(atPath: filePathStr)
-                            } catch {
-                                recordGeofencesError(message: .diskRemove)
-                            }
-                        } else {
-                            log("%@", type: .debug, "Geofences File does not exists at path: ", filePathStr)
+            
+            if let geofences = NSKeyedUnarchiver.unarchiveObject(withFile: filePathStr) as? [[AnyHashable: Any]] {
+                if remove {
+                    if FileManager.default.fileExists(atPath: filePathStr) {
+                        do {
+                            try FileManager.default.removeItem(atPath: filePathStr)
+                        } catch {
+                            recordGeofencesError(message: .diskRemove)
                         }
+                    } else {
+                        log("%@", type: .debug, "Geofences File does not exists at path: ", filePathStr)
                     }
-                    log("Geofences list as read from disk: %@", type: .debug, geofences)
-                    return geofences
-                } else {
-                    recordGeofencesError(message: .diskRead)
                 }
+                log("Geofences list as read from disk: %@", type: .debug, geofences)
+                return geofences
             } else {
-                log("%@", type: .debug, "Geofences File does not exists at path: ", filePathStr)
+                recordGeofencesError(message: .diskRead)
             }
         } else {
             recordGeofencesError(message: .diskFilePath)
