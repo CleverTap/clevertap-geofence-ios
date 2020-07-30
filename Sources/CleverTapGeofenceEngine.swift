@@ -232,7 +232,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
             update(state, for: region)
             
         } else {
-            CleverTapGeofenceUtils.log("Will not record geofence event because neither region state has changed nor specified time interval has passed: %@", type: .debug, state.rawValue, geofenceDetails, region)
+            CleverTapGeofenceUtils.log("Will not record geofence event because neither region state has changed nor specified time interval has passed: %@", type: .debug, state.rawValue, specifiedTimeFilter, region, geofenceDetails)
         }
     }
     
@@ -327,7 +327,7 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
                 if currentLocation.distance(from: previousLocation) > specifiedDistanceFilter || currentLocation.timestamp.timeIntervalSince(previousLocation.timestamp) > specifiedTimeFilter {
                     instance.setLocationForGeofences(currentLocation.coordinate, withPluginVersion: CleverTapGeofenceUtils.pluginVersion)
                 } else {
-                    CleverTapGeofenceUtils.log("Will not update location because neither specified distance has been travelled nor specified time interval has passed: %@", type: .debug, recentLocations)
+                    CleverTapGeofenceUtils.log("Will not update location because neither specified distance has been travelled nor specified time interval has passed: %@", type: .debug, specifiedDistanceFilter, specifiedTimeFilter ,recentLocations)
                 }
             } else {
                 CleverTapGeofenceUtils.recordError(message: .emptyLocation)
