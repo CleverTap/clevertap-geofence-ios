@@ -22,6 +22,8 @@ internal struct CleverTapGeofenceUtils {
     
     internal static let regionStateKey = "regionState"
     
+    internal static let timeStampKey = "timeStamp"
+    
     private static let logger = OSLog(subsystem: "com.clevertap.CleverTapGeofence", category: "CleverTapGeofence")
     
     

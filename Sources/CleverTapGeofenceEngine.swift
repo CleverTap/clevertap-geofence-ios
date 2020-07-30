@@ -110,7 +110,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
                                                object: nil,
                                                queue: OperationQueue.main) { [weak self] (notification) in
                                                 
-                                                CleverTapGeofenceUtils.log("CleverTapGeofencesDidUpdateNotification was observed: %@", type: .debug, notification.description)
+                                                CleverTapGeofenceUtils.log("Geofences notification observed: %@", type: .debug, notification.description)
                                                 
                                                 if let strongSelf = self {
                                                     
@@ -202,7 +202,49 @@ internal final class CleverTapGeofenceEngine: NSObject {
         return nil
     }
     
-    private func updateState(for region: CLRegion, with state: CLRegionState) {
+    private func recordEventBasedOn(_ state: CLRegionState, _ geofenceDetails: [AnyHashable: Any], _ region: CLRegion, _ instance: CleverTap) {
+        
+        CleverTapGeofenceUtils.log("%@", type: .debug, #function, state.rawValue, geofenceDetails)
+        
+        guard let cachedRegionState = geofenceDetails[CleverTapGeofenceUtils.regionStateKey] as? Int,
+            let cachedTimeStamp = geofenceDetails[CleverTapGeofenceUtils.timeStampKey] as? Date
+            else {
+                CleverTapGeofenceUtils.log("Cached regionState / timeStamp does not exists: %@", type: .debug, geofenceDetails)
+                if state == .inside {
+                    instance.recordGeofenceEnteredEvent(geofenceDetails)
+                    update(state, for: region)
+                }
+                return
+        }
+        
+        let didRegionStateChanged = state.rawValue != cachedRegionState
+        
+        if didRegionStateChanged || cachedTimeStamp.timeIntervalSinceNow > specifiedTimeFilter {
+            switch state {
+            case .inside:
+                instance.recordGeofenceEnteredEvent(geofenceDetails)
+                
+            case .outside:
+                instance.recordGeofenceExitedEvent(geofenceDetails)
+                
+            default:
+                CleverTapGeofenceUtils.recordError(message: .undeterminedState)
+            }
+            
+            update(state, for: region)
+            
+        } else {
+            let reason = "Will not record geofence event because "
+            
+            if didRegionStateChanged {
+                CleverTapGeofenceUtils.log("%@", type: .debug, reason, DebugMessages.lessThanTimeFilter.rawValue)
+            } else {
+                CleverTapGeofenceUtils.log("%@", type: .debug, reason, DebugMessages.regionStateUnchanged.rawValue)
+            }
+        }
+    }
+    
+    private func update(_ state: CLRegionState, for region: CLRegion) {
         
         guard var geofencesListToBeUpdated = CleverTapGeofenceUtils.read() else {
             CleverTapGeofenceUtils.recordError(message: .unexpectedData)
@@ -215,6 +257,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
                 if region.identifier == "\(identifier)" {
                     var geofenceToBeUpdated = geofence
                     geofenceToBeUpdated[CleverTapGeofenceUtils.regionStateKey] = state.rawValue
+                    geofenceToBeUpdated[CleverTapGeofenceUtils.timeStampKey] = Date()
                     return geofenceToBeUpdated
                 }
             }
@@ -224,28 +267,6 @@ internal final class CleverTapGeofenceEngine: NSObject {
         CleverTapGeofenceUtils.write(geofencesListToBeUpdated)
         
         CleverTapGeofenceUtils.log("Updated State for geofences: %@", type: .debug, geofencesListToBeUpdated)
-    }
-    
-    private func recordEventBased(on state: CLRegionState, for geofenceDetails: [AnyHashable: Any], with instance: CleverTap) {
-        
-        if let savedState = geofenceDetails[CleverTapGeofenceUtils.regionStateKey] as? Int {
-            if savedState != state.rawValue {
-                switch state {
-                case .inside:
-                    instance.recordGeofenceEnteredEvent(geofenceDetails)
-                    
-                case .outside:
-                    instance.recordGeofenceExitedEvent(geofenceDetails)
-                    
-                default:
-                    CleverTapGeofenceUtils.recordError(message: .undeterminedState)
-                }
-            }
-        } else {
-            if state == .inside {
-                instance.recordGeofenceEnteredEvent(geofenceDetails)
-            }
-        }
     }
 }
 
@@ -311,13 +332,13 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
             let lastTwoLocations = recentLocations.suffix(2)
             if let previousLocation = lastTwoLocations.first, let currentLocation = lastTwoLocations.last {
                 if currentLocation.distance(from: previousLocation) > specifiedDistanceFilter {
-                    if currentLocation.timestamp.timeIntervalSince(previousLocation.timestamp) > specifiedTimeInterval {
+                    if currentLocation.timestamp.timeIntervalSince(previousLocation.timestamp) > specifiedTimeFilter {
                         instance.setLocationForGeofences(currentLocation.coordinate, withPluginVersion: CleverTapGeofenceUtils.pluginVersion)
                     } else {
-                        CleverTapGeofenceUtils.log("Current Location update is less than specified time interval away from previous location: %@", type: .debug, specifiedTimeInterval, recentLocations)
+                        CleverTapGeofenceUtils.log("%@", type: .debug, DebugMessages.lessThanTimeFilter.rawValue, specifiedTimeFilter, recentLocations)
                     }
                 } else {
-                    CleverTapGeofenceUtils.log("Current Location update is less than specified distance filter away from previous location: %@", type: .debug, specifiedDistanceFilter, recentLocations)
+                    CleverTapGeofenceUtils.log("%@", type: .debug, DebugMessages.lessThanDistanceFilter.rawValue, specifiedDistanceFilter, recentLocations)
                 }
             } else {
                 CleverTapGeofenceUtils.recordError(message: .emptyLocation)
@@ -384,10 +405,7 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
         CleverTapGeofenceUtils.log("%@", type: .debug, #function, "\(state.rawValue)", region.description)
         
         if let (geofenceDetails, instance) = getDetails(for: region) {
-            
-            recordEventBased(on: state, for: geofenceDetails, with: instance)
-            
-            updateState(for: region, with: state)
+            recordEventBasedOn(state, geofenceDetails, region, instance)
         }
     }
     
@@ -397,10 +415,7 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
         CleverTapGeofenceUtils.log("%@", type: .debug, #function, region.description)
         
         if let (geofenceDetails, instance) = getDetails(for: region) {
-            
-            recordEventBased(on: CLRegionState.inside, for: geofenceDetails, with: instance)
-            
-            updateState(for: region, with: CLRegionState.inside)
+            recordEventBasedOn(CLRegionState.inside, geofenceDetails, region, instance)
         }
     }
     
@@ -410,10 +425,7 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
         CleverTapGeofenceUtils.log("%@", type: .debug, #function, region.description)
         
         if let (geofenceDetails, instance) = getDetails(for: region) {
-            
-            recordEventBased(on: CLRegionState.outside, for: geofenceDetails, with: instance)
-            
-            updateState(for: region, with: CLRegionState.outside)
+            recordEventBasedOn(CLRegionState.outside, geofenceDetails, region, instance)
         }
     }
 }
