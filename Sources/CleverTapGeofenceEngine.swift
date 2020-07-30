@@ -331,14 +331,17 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
         if recentLocations.count > 1 {
             let lastTwoLocations = recentLocations.suffix(2)
             if let previousLocation = lastTwoLocations.first, let currentLocation = lastTwoLocations.last {
-                if currentLocation.distance(from: previousLocation) > specifiedDistanceFilter {
-                    if currentLocation.timestamp.timeIntervalSince(previousLocation.timestamp) > specifiedTimeFilter {
-                        instance.setLocationForGeofences(currentLocation.coordinate, withPluginVersion: CleverTapGeofenceUtils.pluginVersion)
-                    } else {
-                        CleverTapGeofenceUtils.log("%@", type: .debug, DebugMessages.lessThanTimeFilter.rawValue, specifiedTimeFilter, recentLocations)
-                    }
+                
+                let didTravelLargeDistance = currentLocation.distance(from: previousLocation) > specifiedDistanceFilter
+                
+                if didTravelLargeDistance || currentLocation.timestamp.timeIntervalSince(previousLocation.timestamp) > specifiedTimeFilter {
+                    instance.setLocationForGeofences(currentLocation.coordinate, withPluginVersion: CleverTapGeofenceUtils.pluginVersion)
                 } else {
-                    CleverTapGeofenceUtils.log("%@", type: .debug, DebugMessages.lessThanDistanceFilter.rawValue, specifiedDistanceFilter, recentLocations)
+                    if didTravelLargeDistance {
+                        CleverTapGeofenceUtils.log("%@", type: .debug, DebugMessages.lessThanTimeFilter.rawValue, specifiedTimeFilter, recentLocations)
+                    } else {
+                        CleverTapGeofenceUtils.log("%@", type: .debug, DebugMessages.lessThanDistanceFilter.rawValue, specifiedDistanceFilter, recentLocations)
+                    }
                 }
             } else {
                 CleverTapGeofenceUtils.recordError(message: .emptyLocation)
