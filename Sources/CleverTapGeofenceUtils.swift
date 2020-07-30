@@ -99,24 +99,26 @@ internal struct CleverTapGeofenceUtils {
         
         if let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             let filePath = path.appendingPathComponent(geofencesKey)
-            let filePathStr = String(describing: filePath)
             
-            if let geofences = NSKeyedUnarchiver.unarchiveObject(withFile: filePathStr) as? [[AnyHashable: Any]] {
-                if remove {
-                    if FileManager.default.fileExists(atPath: filePathStr) {
+            do {
+                let data = try Data(contentsOf: filePath)
+                
+                if let geofences = NSKeyedUnarchiver.unarchiveObject(with: data) as? [[AnyHashable: Any]]{
+                    
+                    if remove {
                         do {
-                            try FileManager.default.removeItem(atPath: filePathStr)
+                            try FileManager.default.removeItem(at: filePath)
                         } catch {
-                            recordGeofencesError(message: .diskRemove)
+                            recordGeofencesError(code: 0, error, message: .diskRemove)
                         }
-                    } else {
-                        log("%@", type: .debug, "Geofences File does not exists at path: ", filePathStr)
                     }
+                    log("Geofences list as read from disk: %@", type: .debug, geofences)
+                    return geofences
+                } else {
+                    recordGeofencesError(message: .diskRead)
                 }
-                log("Geofences list as read from disk: %@", type: .debug, geofences)
-                return geofences
-            } else {
-                recordGeofencesError(message: .diskRead)
+            } catch {
+                recordGeofencesError(code: 0, error, message: .diskRead)
             }
         } else {
             recordGeofencesError(message: .diskFilePath)
