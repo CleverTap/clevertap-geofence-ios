@@ -77,11 +77,14 @@ internal struct CleverTapGeofenceUtils {
     
     internal static func write(_ geofences: [[AnyHashable: Any]]) {
         
+        log("%@", type: .debug, #function)
+        
         if let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             let filePath = path.appendingPathComponent(geofencesKey)
             let data = NSKeyedArchiver.archivedData(withRootObject: geofences)
             do {
                 try data.write(to: filePath)
+                log("Successfully wrote geofences to disk: %@", type: .debug, geofences)
             } catch {
                 recordGeofencesError(message: .diskWrite)
             }
@@ -91,6 +94,8 @@ internal struct CleverTapGeofenceUtils {
     }
     
     internal static func read(remove: Bool = true) -> [[AnyHashable: Any]]? {
+        
+        log("%@", type: .debug, #function, remove)
         
         if let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             let filePath = path.appendingPathComponent(geofencesKey)
@@ -105,9 +110,10 @@ internal struct CleverTapGeofenceUtils {
                                 recordGeofencesError(message: .diskRemove)
                             }
                         } else {
-                            log("%@", type: .debug, "File does not exists at path: ", filePathStr)
+                            log("%@", type: .debug, "Geofences File does not exists at path: ", filePathStr)
                         }
                     }
+                    log("Geofences list as read from disk: %@", type: .debug, geofences)
                     return geofences
                 } else {
                     recordGeofencesError(message: .diskRead)
