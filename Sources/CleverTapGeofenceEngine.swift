@@ -217,19 +217,6 @@ internal final class CleverTapGeofenceEngine: NSObject {
         
         CleverTapGeofenceUtils.log("Updated State for geofences: %@", type: .debug, geofencesListToBeUpdated)
     }
-    
-    private func recordEventBased(on state: CLRegionState, for geofenceDetails: [AnyHashable: Any], with instance: CleverTap) {
-        switch state {
-        case .inside:
-            instance.recordGeofenceEnteredEvent(geofenceDetails)
-            
-        case .outside:
-            instance.recordGeofenceExitedEvent(geofenceDetails)
-            
-        default:
-            CleverTapGeofenceUtils.recordGeofencesError(message: .undeterminedState)
-        }
-    }
 }
 
 
@@ -347,10 +334,21 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
             
             if let savedState = geofenceDetails[CleverTapGeofenceUtils.regionStateKey] as? Int {
                 if savedState != state.rawValue {
-                    recordEventBased(on: state, for: geofenceDetails, with: instance)
+                    switch state {
+                    case .inside:
+                        instance.recordGeofenceEnteredEvent(geofenceDetails)
+                        
+                    case .outside:
+                        instance.recordGeofenceExitedEvent(geofenceDetails)
+                        
+                    default:
+                        CleverTapGeofenceUtils.recordGeofencesError(message: .undeterminedState)
+                    }
                 }
             } else {
-                recordEventBased(on: state, for: geofenceDetails, with: instance)
+                if state == .inside {
+                    instance.recordGeofenceEnteredEvent(geofenceDetails)
+                }
             }
             
             updateState(for: region, with: state)
