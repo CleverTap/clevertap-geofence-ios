@@ -13,7 +13,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
     // MARK: - Lifecycle
     
     /// - Warning: Client apps are __NOT__ expected to interact with this function.
-    internal func start(distanceFilter: CLLocationDistance = 100) {
+    internal func start(distanceFilter: CLLocationDistance = 1000) {
         
         CleverTapGeofenceUtils.log("%@", type: .debug, #function, distanceFilter)
         
