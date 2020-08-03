@@ -11,15 +11,15 @@ internal final class CleverTapGeofenceEngine: NSObject {
     
     private var recentLocations = [CLLocation]()
     
-    private var specifiedDistanceFilter: CLLocationDistance = 1000
+    private var specifiedDistanceFilter: CLLocationDistance = 200
     
-    private var specifiedTimeFilter: TimeInterval = 3600
+    private var specifiedTimeFilter: TimeInterval = 1800
     
     
     // MARK: - Lifecycle
     
     /// - Warning: Client apps are __NOT__ expected to interact with this function.
-    internal func start(_ distanceFilter: CLLocationDistance = 1000, _ timeFilter: TimeInterval = 3600) {
+    internal func start(_ distanceFilter: CLLocationDistance = 200, _ timeFilter: TimeInterval = 1800) {
         
         CleverTapGeofenceUtils.log("%@", type: .debug, #function, distanceFilter)
         
