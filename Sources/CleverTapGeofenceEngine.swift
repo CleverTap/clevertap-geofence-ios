@@ -49,7 +49,12 @@ internal final class CleverTapGeofenceEngine: NSObject {
         
         locationManager?.startUpdatingLocation()
         locationManager?.startMonitoringVisits()
-        locationManager?.startMonitoringSignificantLocationChanges()
+        
+        if CLLocationManager.significantLocationChangeMonitoringAvailable() {
+            locationManager?.startMonitoringSignificantLocationChanges()
+        } else {
+            CleverTapGeofenceUtils.recordError(message: .significantUnsupported)
+        }
         
         observeNotification()
     }

@@ -137,6 +137,7 @@ internal struct CleverTapGeofenceUtils {
 
 internal enum ErrorMessages: String {
     case monitoringUnsupported      = "Device does not supports Location Region Monitoring."
+    case significantUnsupported     = "Device does not supports Significant Location Change Monitoring."
     case uninitialized              = "CleverTap SDK is not initialized."
     case unexpectedData             = "Unexpected Geofences Data format received."
     case engineNil                  = "Unexpected scenario where CleverTapGeofenceEngine is nil."
