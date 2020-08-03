@@ -325,10 +325,10 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
             let lastTwoLocations = recentLocations.suffix(2)
             if let previousLocation = lastTwoLocations.first, let currentLocation = lastTwoLocations.last {
                 
-                if currentLocation.distance(from: previousLocation) > specifiedDistanceFilter || currentLocation.timestamp.timeIntervalSince(previousLocation.timestamp) > specifiedTimeFilter {
+                if currentLocation.distance(from: previousLocation) > specifiedDistanceFilter && currentLocation.timestamp.timeIntervalSince(previousLocation.timestamp) > specifiedTimeFilter {
                     instance.setLocationForGeofences(currentLocation.coordinate, withPluginVersion: CleverTapGeofenceUtils.pluginVersion)
                 } else {
-                    CleverTapGeofenceUtils.log("Will not update location because neither specified distance has been travelled nor specified time interval has passed: %@", type: .debug, specifiedDistanceFilter, specifiedTimeFilter, recentLocations)
+                    CleverTapGeofenceUtils.log("Will not update location because specified distance & time filter not satisfied: %@", type: .debug, specifiedDistanceFilter, specifiedTimeFilter, recentLocations)
                 }
             } else {
                 CleverTapGeofenceUtils.recordError(message: .emptyLocation)
