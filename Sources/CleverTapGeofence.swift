@@ -37,6 +37,41 @@ public final class CleverTapGeofence: NSObject {
     
     
     /**
+    Initiates the monitoring of Geofences set on CleverTap Dashboard.
+    - Parameter launchOptions: A dictionary indicating the reason the app was launched.
+    
+    ~~~
+    // Swift usage
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    
+       // other app setup logic
+    
+       CleverTap.autoIntegrate()
+    
+       CleverTapGeofence.monitor.start(didFinishLaunchingWithOptions: launchOptions)
+    
+       return true
+    }
+    
+    // Objective-C usage
+    - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+       // other app setup logic
+    
+       [CleverTap autoIntegrate];
+    
+       [[CleverTapGeofence monitor] startWithDidFinishLaunchingWithOptions:launchOptions];
+    
+       return YES;
+    }
+    ~~~
+    */
+    @objc public func start(didFinishLaunchingWithOptions launchOptions:[UIApplication.LaunchOptionsKey: Any]?) {
+        start(didFinishLaunchingWithOptions: launchOptions, distanceFilter: 200, timeFilter: 1800)
+    }
+    
+    
+    /**
      Initiates the monitoring of Geofences set on CleverTap Dashboard.
      - Parameter launchOptions: A dictionary indicating the reason the app was launched.
      - Parameter distanceFilter: Specifies the minimum update distance in meters to be used by Geofence location manager. Client will not be notified of movements of less than the stated value, unless the accuracy has improved. By default, 200 meters is used.
@@ -46,25 +81,25 @@ public final class CleverTapGeofence: NSObject {
      // Swift usage
      func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
      
-     // other app setup logic
+        // other app setup logic
      
-     CleverTap.autoIntegrate()
+        CleverTap.autoIntegrate()
      
-     CleverTapGeofence.monitor.start(didFinishLaunchingWithOptions: launchOptions)
+        CleverTapGeofence.monitor.start(didFinishLaunchingWithOptions: launchOptions, distanceFilter: 200, timeFilter: 1800)
      
-     return true
+        return true
      }
      
      // Objective-C usage
      - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
      
-     // other app setup logic
+        // other app setup logic
      
-     [CleverTap autoIntegrate];
+        [CleverTap autoIntegrate];
      
-     [[CleverTapGeofence monitor] startWithDidFinishLaunchingWithOptions:launchOptions distanceFilter:200 timeFilter:1800];
+        [[CleverTapGeofence monitor] startWithDidFinishLaunchingWithOptions:launchOptions distanceFilter:200 timeFilter:1800];
      
-     return YES;
+        return YES;
      }
      ~~~
      */
@@ -96,12 +131,12 @@ public final class CleverTapGeofence: NSObject {
      ~~~
      // Swift usage
      func someScenarioWhereLocationMonitoringShouldBeOff() {
-     CleverTapGeofence.monitor.stop()
+        CleverTapGeofence.monitor.stop()
      }
      
      // Objective-C usage
      - (void)someScenarioWhereLocationMonitoringShouldBeOff {
-     [[CleverTapGeofence monitor] stop];
+        [[CleverTapGeofence monitor] stop];
      }
      ~~~
      */
