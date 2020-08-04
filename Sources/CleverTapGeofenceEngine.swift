@@ -326,7 +326,7 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
             }
         }
         
-        if recentLocations.count > 1 {
+        if locations.count > 1 {
             let lastTwoLocations = recentLocations.suffix(2)
             if let previousLocation = lastTwoLocations.first, let currentLocation = lastTwoLocations.last {
                 
