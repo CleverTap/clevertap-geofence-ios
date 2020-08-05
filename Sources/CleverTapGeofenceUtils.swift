@@ -157,3 +157,10 @@ internal enum ErrorMessages: String {
     case diskRead                   = "Could not read geofences data from disk."
     case diskRemove                 = "Could not remove stale geofences data from disk."
 }
+
+
+extension CLLocationCoordinate2D: Equatable {
+    static public func ==(lhs: Self, rhs: Self) -> Bool {
+        return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
+    }
+}

@@ -320,13 +320,14 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
                 return
         }
         
-        for location in locations {
-            if !recentLocations.contains(location) {
-                recentLocations.append(location)
-            }
+        let existingLocations = recentLocations.filter { $0.coordinate == location.coordinate }
+        if existingLocations.count == 0 {
+            recentLocations.append(location)
+        } else {
+            CleverTapGeofenceUtils.log("Location already exists in recentLocations array, will ignore", type: .debug, location, recentLocations)
         }
         
-        if locations.count > 1 {
+        if recentLocations.count > 1 {
             let lastTwoLocations = recentLocations.suffix(2)
             if let previousLocation = lastTwoLocations.first, let currentLocation = lastTwoLocations.last {
                 
