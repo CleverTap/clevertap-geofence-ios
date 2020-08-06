@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		49FA01AA24C6EBAD005FC1E4 /* CleverTapSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FA01A924C6EBAD005FC1E4 /* CleverTapSDK.framework */; };
 		49FA01AD24C6EE34005FC1E4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FA01AC24C6EE34005FC1E4 /* CoreLocation.framework */; };
+		ECE7A2B124DC10700016F503 /* CleverTapGeofence.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = "CleverTapGeofence::CleverTapGeofence::Product" /* CleverTapGeofence.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ECE7A2B224DC10700016F503 /* CleverTapSDK.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49FA01A924C6EBAD005FC1E4 /* CleverTapSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ECE7A2CB24DC12050016F503 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECE7A2C424DC11E60016F503 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ECE7A2CC24DC12050016F503 /* OCMock.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECE7A2C324DC11E60016F503 /* OCMock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ECE7A2CD24DC12050016F503 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECE7A2C524DC11E70016F503 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ECE7A2CE24DC12050016F503 /* SDWebImage.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECE7A2C624DC11E70016F503 /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F920422E24ADF30700E4492E /* CleverTapGeofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F920422D24ADF30700E4492E /* CleverTapGeofence.swift */; };
 		F9A0A4A424BF57FF008E3032 /* CleverTapGeofenceEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A0A4A324BF57FF008E3032 /* CleverTapGeofenceEngine.swift */; };
 		F9CC0CA924C76D71009AD15C /* CleverTapGeofenceUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CC0CA824C76D71009AD15C /* CleverTapGeofenceUtils.swift */; };
@@ -26,11 +32,33 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		EC4297EB24DBFDF200A97832 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				ECE7A2CB24DC12050016F503 /* Nimble.framework in CopyFiles */,
+				ECE7A2CC24DC12050016F503 /* OCMock.framework in CopyFiles */,
+				ECE7A2CD24DC12050016F503 /* Quick.framework in CopyFiles */,
+				ECE7A2CE24DC12050016F503 /* SDWebImage.framework in CopyFiles */,
+				ECE7A2B124DC10700016F503 /* CleverTapGeofence.framework in CopyFiles */,
+				ECE7A2B224DC10700016F503 /* CleverTapSDK.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		49FA01A924C6EBAD005FC1E4 /* CleverTapSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CleverTapSDK.framework; path = Vendors/CleverTapSDK.framework; sourceTree = "<group>"; };
 		49FA01AC24C6EE34005FC1E4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
 		"CleverTapGeofence::CleverTapGeofence::Product" /* CleverTapGeofence.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CleverTapGeofence.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"CleverTapGeofence::CleverTapGeofenceTests::Product" /* CleverTapGeofenceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = CleverTapGeofenceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECE7A2C324DC11E60016F503 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = Carthage/Build/iOS/OCMock.framework; sourceTree = "<group>"; };
+		ECE7A2C424DC11E60016F503 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		ECE7A2C524DC11E70016F503 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		ECE7A2C624DC11E70016F503 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
 		F920422D24ADF30700E4492E /* CleverTapGeofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleverTapGeofence.swift; sourceTree = "<group>"; };
 		F9A0A4A324BF57FF008E3032 /* CleverTapGeofenceEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleverTapGeofenceEngine.swift; sourceTree = "<group>"; };
 		F9AE06B824B37DE000FB4321 /* CleverTapGeofence.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CleverTapGeofence.xctestplan; sourceTree = "<group>"; };
@@ -72,8 +100,12 @@
 		F90875ED24ADDC0D00AFE67C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				49FA01AC24C6EE34005FC1E4 /* CoreLocation.framework */,
 				49FA01A924C6EBAD005FC1E4 /* CleverTapSDK.framework */,
+				49FA01AC24C6EE34005FC1E4 /* CoreLocation.framework */,
+				ECE7A2C424DC11E60016F503 /* Nimble.framework */,
+				ECE7A2C324DC11E60016F503 /* OCMock.framework */,
+				ECE7A2C524DC11E70016F503 /* Quick.framework */,
+				ECE7A2C624DC11E70016F503 /* SDWebImage.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -140,6 +172,7 @@
 			buildPhases = (
 				OBJ_41 /* Sources */,
 				OBJ_44 /* Frameworks */,
+				EC4297EB24DBFDF200A97832 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -371,6 +404,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = CleverTapGeofence.xcodeproj/CleverTapGeofenceTests_Info.plist;
@@ -453,6 +487,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = CleverTapGeofence.xcodeproj/CleverTapGeofenceTests_Info.plist;
