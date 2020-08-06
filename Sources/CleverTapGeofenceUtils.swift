@@ -12,7 +12,7 @@ import CleverTapSDK
 
 internal struct CleverTapGeofenceUtils {
     
-    // MARK: -
+    // MARK: - Static Constants
     
     internal static let pluginVersion = "100000"
     
@@ -33,7 +33,7 @@ internal struct CleverTapGeofenceUtils {
     private static let logger = OSLog(subsystem: "com.clevertap.CleverTapGeofence", category: "CleverTapGeofence")
     
     
-    // MARK: -
+    // MARK: - Util Functions
     
     internal static func log(_ message: StaticString,
                              type: CleverTapGeofenceLogLevel,
@@ -163,8 +163,10 @@ internal enum ErrorMessages: String {
 }
 
 
+// MARK: -
+
 extension CLLocationCoordinate2D: Equatable {
-    static public func ==(lhs: Self, rhs: Self) -> Bool {
+    public static func == (lhs: Self, rhs: Self) -> Bool {
         return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
     }
 }
