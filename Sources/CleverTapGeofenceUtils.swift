@@ -16,6 +16,10 @@ internal struct CleverTapGeofenceUtils {
     
     internal static let pluginVersion = "100000"
     
+    internal static let defaultDistanceFilter: CLLocationDistance = 200
+    
+    internal static let defaultTimeFilter: TimeInterval = 1800
+    
     internal static let geofencesNotification = NSNotification.Name("CleverTapGeofencesDidUpdateNotification")
     
     internal static let geofencesKey = "CleverTapGeofencesData"

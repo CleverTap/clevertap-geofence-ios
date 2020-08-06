@@ -67,7 +67,9 @@ public final class CleverTapGeofence: NSObject {
     ~~~
     */
     @objc public func start(didFinishLaunchingWithOptions launchOptions:[UIApplication.LaunchOptionsKey: Any]?) {
-        start(didFinishLaunchingWithOptions: launchOptions, distanceFilter: 200, timeFilter: 1800)
+        start(didFinishLaunchingWithOptions: launchOptions,
+              distanceFilter: CleverTapGeofenceUtils.defaultDistanceFilter,
+              timeFilter: CleverTapGeofenceUtils.defaultTimeFilter)
     }
     
     
