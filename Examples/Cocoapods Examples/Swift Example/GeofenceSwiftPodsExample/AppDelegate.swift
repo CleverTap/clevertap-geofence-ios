@@ -14,7 +14,6 @@ import CleverTapGeofence
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // other app setup logic
@@ -24,9 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let manager = CLLocationManager()
         manager.requestAlwaysAuthorization()
         
-        CleverTapGeofence.monitor.start(didFinishLaunchingWithOptions: launchOptions)
+        CleverTapGeofence.logLevel = .debug
         
-        CleverTapGeofence.monitor.logLevel = .Off
+        CleverTapGeofence.monitor.start(didFinishLaunchingWithOptions: launchOptions)
         
         return true
     }
