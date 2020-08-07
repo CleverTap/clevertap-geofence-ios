@@ -1,16 +1,25 @@
-import XCTest
-@testable import CleverTapGeofence
 
-final class CleverTapGeofenceTests: XCTestCase {
+import Quick
+import Nimble
+import OCMock
+import CleverTapSDK
+import CleverTapGeofence
+
+final class CleverTapGeofenceTests: QuickSpec {
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-//        XCTAssertEqual(CleverTapGeofence().text, "Hello, World!")
+    override func spec() {
+        
+        describe("a CleverTapGeofence instance") {
+            
+            context("") {
+                
+                it("returns an singleton instance of CleverTapGeofence module") {
+                    
+                    let instance = CleverTapGeofence.monitor
+                    
+                    expect(instance).toNot(beNil())
+                }
+            }
+        }
     }
-
-    static var allTests = [
-        ("testExample", testExample),
-    ]
 }
