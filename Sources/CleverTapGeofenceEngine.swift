@@ -228,7 +228,6 @@ internal final class CleverTapGeofenceEngine: NSObject {
             default:
                 CleverTapGeofenceUtils.recordError(message: .undeterminedState)
             }
-            
             update(state, for: region)
             
         } else {
@@ -257,7 +256,6 @@ internal final class CleverTapGeofenceEngine: NSObject {
         })
         
         CleverTapGeofenceUtils.write(geofencesListToBeUpdated)
-        
         CleverTapGeofenceUtils.log("Updated State for geofences: %@", type: .debug, geofencesListToBeUpdated)
     }
 }
@@ -295,7 +293,6 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
             break
         }
     }
-    
     
     
     /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
@@ -371,7 +368,6 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
             CleverTapGeofenceUtils.recordError(message: .uninitialized)
             return
         }
-        
         instance.setLocationForGeofences(visit.coordinate, withPluginVersion: CleverTapGeofenceUtils.pluginVersion)
     }
     
