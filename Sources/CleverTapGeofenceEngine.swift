@@ -1,4 +1,3 @@
-
 import Foundation
 import CleverTapSDK
 
@@ -8,11 +7,8 @@ import CleverTapSDK
 internal final class CleverTapGeofenceEngine: NSObject {
     
     private var locationManager: CLLocationManager?
-    
     private var recentLocations = [CLLocation]()
-    
     private var specifiedDistanceFilter = CleverTapGeofenceUtils.defaultDistanceFilter
-    
     private var specifiedTimeFilter = CleverTapGeofenceUtils.defaultTimeFilter
     
     
@@ -26,13 +22,11 @@ internal final class CleverTapGeofenceEngine: NSObject {
         guard CleverTap.sharedInstance() != nil,
             CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self)
             else {
-                
                 if CleverTap.sharedInstance() == nil {
                     CleverTapGeofenceUtils.recordError(message: .uninitialized)
                 } else {
                     CleverTapGeofenceUtils.recordError(message: .monitoringUnsupported)
                 }
-                
                 return
         }
         

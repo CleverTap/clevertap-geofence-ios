@@ -1,11 +1,3 @@
-//
-//  CleverTapGeofenceUtils.swift
-//  CleverTapGeofence
-//
-//  Created by Yogesh Singh on 22/07/20.
-//  Copyright © 2020 CleverTap. All rights reserved.
-//
-
 import os.log
 import Foundation
 import CleverTapSDK
@@ -70,7 +62,7 @@ internal struct CleverTapGeofenceUtils {
         if let error = error {
             generatedError = error
         } else {
-            generatedError = NSError(domain: "CleverTapGeofence",
+            generatedError = NSError(domain: "CleverTapGeofence:",
                                      code: code,
                                      userInfo: [NSLocalizedDescriptionKey: message.rawValue])
         }
