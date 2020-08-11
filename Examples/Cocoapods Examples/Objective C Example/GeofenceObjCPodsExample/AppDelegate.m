@@ -24,11 +24,8 @@
     // other app setup logic
     
     [CleverTap autoIntegrate];
-    
     CleverTapGeofence.logLevel = CleverTapGeofenceLogLevelDebug;
-    
     [[CleverTapGeofence monitor] startWithDidFinishLaunchingWithOptions:launchOptions];
-    
     return YES;
 }
 
