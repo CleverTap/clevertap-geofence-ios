@@ -10,14 +10,29 @@ final class CleverTapGeofenceTests: QuickSpec {
         
         describe("a CleverTapGeofence instance") {
             
-            context("") {
+            it("returns an singleton instance of CleverTapGeofence module") {
                 
-                it("returns an singleton instance of CleverTapGeofence module") {
-                    
-                    let instance = CleverTapGeofence.monitor
-                    
-                    expect(instance).toNot(beNil())
-                }
+                let instance = CleverTapGeofence.monitor
+                
+                expect(instance).toNot(beNil())
+            }
+            
+            it("starts geofence module") {
+                
+                CleverTap.setCredentialsWithAccountID("AccountID", andToken: "Token")
+                CleverTapGeofence.monitor.start(didFinishLaunchingWithOptions: nil)
+                
+                let cleverTapInstance = CleverTap.sharedInstance()
+                expect(cleverTapInstance).toNot(beNil())
+            }
+            
+            it("stops geofence module") {
+                
+                CleverTap.setCredentialsWithAccountID("AccountID", andToken: "Token")
+                CleverTapGeofence.monitor.stop()
+                
+                let cleverTapInstance = CleverTap.sharedInstance()
+                expect(cleverTapInstance).toNot(beNil())
             }
         }
     }
