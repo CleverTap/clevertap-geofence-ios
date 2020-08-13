@@ -1,4 +1,6 @@
-CleverTap iOS Geofence SDK
+<p align="center">
+  <img src="https://github.com/CleverTap/clevertap-segment-ios/blob/master/clevertap-logo.png" width="230"/>
+</p>
 
 ## Introduction 
 
@@ -7,7 +9,19 @@ CleverTap iOS Geofence SDK
 
 ### CocoaPods
 
+[CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. To integrate CleverTap Geofence SDK into your Xcode project using CocoaPods, specify it in your `Podfile`:
+
+```
+--- code
+```
+
 ### Carthage
+
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate CleverTap Geofence SDK into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```
+--- code
+```
 
 ### Manual
 
