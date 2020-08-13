@@ -15,7 +15,32 @@
                     <view key="view" contentMode="scaleToFill" id="Fm4-q4-ZdU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="rIr-hE-jAA">
+                                <rect key="frame" x="44" y="108" width="326" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="g76-qh-Dxg"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CleverTap Geofence Example" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NeT-0t-GaB">
+                                <rect key="frame" x="44" y="426" width="326" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="axp-Fa-XKt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="rIr-hE-jAA" firstAttribute="top" secondItem="nZw-cc-zM2" secondAttribute="top" constant="64" id="5kR-lR-zwL"/>
+                            <constraint firstItem="nZw-cc-zM2" firstAttribute="trailing" secondItem="rIr-hE-jAA" secondAttribute="trailing" constant="44" id="9Cm-KU-iFX"/>
+                            <constraint firstItem="nZw-cc-zM2" firstAttribute="trailing" secondItem="NeT-0t-GaB" secondAttribute="trailing" constant="44" id="9p4-Df-Xza"/>
+                            <constraint firstItem="NeT-0t-GaB" firstAttribute="centerY" secondItem="Fm4-q4-ZdU" secondAttribute="centerY" id="AaW-au-Nfv"/>
+                            <constraint firstItem="rIr-hE-jAA" firstAttribute="leading" secondItem="nZw-cc-zM2" secondAttribute="leading" constant="44" id="jqH-A8-O7o"/>
+                            <constraint firstItem="NeT-0t-GaB" firstAttribute="leading" secondItem="nZw-cc-zM2" secondAttribute="leading" constant="44" id="uFy-F4-M7d"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="nZw-cc-zM2"/>
                     </view>
                 </viewController>
@@ -24,4 +49,7 @@
             <point key="canvasLocation" x="-313" y="39"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo" width="1000" height="283"/>
+    </resources>
 </document>
