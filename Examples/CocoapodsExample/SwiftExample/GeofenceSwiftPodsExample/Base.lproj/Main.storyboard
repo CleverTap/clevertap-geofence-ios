@@ -15,7 +15,32 @@
                     <view key="view" contentMode="scaleToFill" id="1fa-b3-y94">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="4Wa-vs-6Li">
+                                <rect key="frame" x="44" y="108" width="326" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="JQC-tY-MoK"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CleverTap Geofence Example" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x33-m8-Mwe">
+                                <rect key="frame" x="44" y="426" width="326" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="dhb-gN-2WE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="4Wa-vs-6Li" firstAttribute="leading" secondItem="gtk-2E-68R" secondAttribute="leading" constant="44" id="0w0-YM-efm"/>
+                            <constraint firstItem="x33-m8-Mwe" firstAttribute="leading" secondItem="gtk-2E-68R" secondAttribute="leading" constant="44" id="3so-cz-rUE"/>
+                            <constraint firstItem="gtk-2E-68R" firstAttribute="trailing" secondItem="4Wa-vs-6Li" secondAttribute="trailing" constant="44" id="5BP-Mk-qix"/>
+                            <constraint firstItem="x33-m8-Mwe" firstAttribute="centerY" secondItem="1fa-b3-y94" secondAttribute="centerY" id="RDU-rn-xyj"/>
+                            <constraint firstItem="4Wa-vs-6Li" firstAttribute="top" secondItem="gtk-2E-68R" secondAttribute="top" constant="64" id="dx6-Hb-rUf"/>
+                            <constraint firstItem="gtk-2E-68R" firstAttribute="trailing" secondItem="x33-m8-Mwe" secondAttribute="trailing" constant="44" id="xO9-nK-1AA"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="gtk-2E-68R"/>
                     </view>
                 </viewController>
@@ -24,4 +49,7 @@
             <point key="canvasLocation" x="-436" y="-31"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo" width="500" height="141.5"/>
+    </resources>
 </document>
