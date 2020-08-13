@@ -11,8 +11,9 @@ CleverTap iOS Geofence SDK
 
 ## Example Usage #
 
-
 ## Changelog #
+
+See the [CleverTap Geofence SDK Change Log](https://github.com/CleverTap/clevertap-geofence-ios/blob/feature/SDK-104-geofence-support/CHANGELOG.md)
 
 
 ## Questions? #
