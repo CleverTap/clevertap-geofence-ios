@@ -1,0 +1,3 @@
+github "CleverTap/clevertap-geofence-ios" "5462ae3ff90f7c83145cfa0eafa9caddde003429"
+github "CleverTap/clevertap-ios-sdk" "cd72afc64bcb926d76e151dc20b978e12b713e38"
+github "SDWebImage/SDWebImage" "5.8.4"
