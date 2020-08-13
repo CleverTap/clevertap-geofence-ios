@@ -14,8 +14,8 @@ CleverTap iOS Geofence SDK
 
 ## Changelog #
 
- If you have questions or concerns, you can reach out to the CleverTap support team at [support@clevertap.com](mailto:support@clevertap.com).
 
 ## Questions? #
 
-Checkout the CleverTap Geofence SDK [License](https://github.com/CleverTap/clevertap-geofence-ios/blob/master/LICENSE) here.
+If you have questions or concerns, you can reach out to the CleverTap support team at [support@clevertap.com](mailto:support@clevertap.com).
+
