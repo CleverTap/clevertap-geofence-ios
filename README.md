@@ -1,20 +1,28 @@
 CleverTap iOS Geofence SDK
 
-## Setup #
+## Introduction 
 
 
-### Install the Framework #
+## Installation 
+
+### CocoaPods
+
+### Carthage
+
+### Manual
 
 
-### Integration the Framework #
+## Integration #
 
 
 ## Example Usage #
 
+- A [demo application](https://github.com/CleverTap/clevertap-geofence-ios/tree/feature/SDK-104-geofence-support/Examples/CocoapodsExample) showing CocoaPods Installation.
+- A [demo application](https://github.com/CleverTap/clevertap-geofence-ios/tree/feature/SDK-104-geofence-support/Examples/CarthageExample) showing Carthage Installation.
+
 ## Changelog #
 
 See the [CleverTap Geofence SDK Change Log](https://github.com/CleverTap/clevertap-geofence-ios/blob/feature/SDK-104-geofence-support/CHANGELOG.md)
-
 
 ## Questions? #
 
