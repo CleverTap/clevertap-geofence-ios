@@ -44,19 +44,23 @@ internal struct CleverTapGeofenceUtils {
     }
     
     
-    internal static func recordError(code: Int = geofenceErrorCode,
-                                     _ error: Error? = nil,
+    internal static func recordError(_ error: Error? = nil,
                                      message: ErrorMessages) {
         
         CleverTapGeofenceUtils.log("%@", type: .error, message.rawValue)
         
         var generatedError: Error
         
-        if let error = error {
-            generatedError = error
+        if let error = error as NSError? {
+
+            let description = message.rawValue + " | " + error.domain + " | " + "\(error.code)" + " | " + error.localizedDescription
+            
+            generatedError = NSError(domain: "CleverTapGeofence",
+                                     code: geofenceErrorCode,
+                                     userInfo: [NSLocalizedDescriptionKey: description])
         } else {
-            generatedError = NSError(domain: "CleverTapGeofence:",
-                                     code: code,
+            generatedError = NSError(domain: "CleverTapGeofence",
+                                     code: geofenceErrorCode,
                                      userInfo: [NSLocalizedDescriptionKey: message.rawValue])
         }
         
@@ -102,7 +106,7 @@ internal struct CleverTapGeofenceUtils {
                         do {
                             try FileManager.default.removeItem(at: filePath)
                         } catch {
-                            recordError(code: 0, error, message: .diskRemove)
+                            recordError(error, message: .diskRemove)
                         }
                     }
                     log("Geofences list as read from disk: %@", type: .debug, geofences)
@@ -111,7 +115,7 @@ internal struct CleverTapGeofenceUtils {
                     recordError(message: .diskRead)
                 }
             } catch {
-                recordError(code: 0, error, message: .diskRead)
+                recordError(error, message: .diskRead)
             }
         } else {
             recordError(message: .diskFilePath)
