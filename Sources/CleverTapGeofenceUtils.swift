@@ -7,6 +7,7 @@ internal struct CleverTapGeofenceUtils {
     // MARK: - Static Constants
     
     internal static let pluginVersion = "100000"
+    internal static let geofenceErrorCode = 515
     internal static let defaultDistanceFilter: CLLocationDistance = 200
     internal static let defaultTimeFilter: TimeInterval = 1800
     internal static let geofencesNotification = NSNotification.Name("CleverTapGeofencesDidUpdateNotification")
@@ -43,7 +44,7 @@ internal struct CleverTapGeofenceUtils {
     }
     
     
-    internal static func recordError(code: Int = 0,
+    internal static func recordError(code: Int = geofenceErrorCode,
                                      _ error: Error? = nil,
                                      message: ErrorMessages) {
         
