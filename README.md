@@ -41,4 +41,3 @@ See the [CleverTap Geofence SDK Change Log](https://github.com/CleverTap/clevert
 ## Questions? #
 
 If you have questions or concerns, you can reach out to the CleverTap support team at [support@clevertap.com](mailto:support@clevertap.com).
-

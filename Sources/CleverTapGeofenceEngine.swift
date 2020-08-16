@@ -212,6 +212,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
                 CleverTapGeofenceUtils.log("Cached regionState / timeStamp does not exists: %@", type: .debug, state.rawValue, region, geofenceDetails)
                 if state == .inside {
                     instance.recordGeofenceEnteredEvent(geofenceDetails)
+                    NotificationCenter.default.post(name: CleverTapGeofenceUtils.geofenceEntered, object: nil, userInfo: geofenceDetails)
                     update(state, for: region)
                 }
                 return
@@ -221,9 +222,11 @@ internal final class CleverTapGeofenceEngine: NSObject {
             switch state {
             case .inside:
                 instance.recordGeofenceEnteredEvent(geofenceDetails)
+                NotificationCenter.default.post(name: CleverTapGeofenceUtils.geofenceEntered, object: nil, userInfo: geofenceDetails)
                 
             case .outside:
                 instance.recordGeofenceExitedEvent(geofenceDetails)
+                NotificationCenter.default.post(name: CleverTapGeofenceUtils.geofenceExited, object: nil, userInfo: geofenceDetails)
                 
             default:
                 CleverTapGeofenceUtils.recordError(message: .undeterminedState)
