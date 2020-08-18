@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		49FA01AA24C6EBAD005FC1E4 /* CleverTapSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FA01A924C6EBAD005FC1E4 /* CleverTapSDK.framework */; };
 		49FA01AD24C6EE34005FC1E4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FA01AC24C6EE34005FC1E4 /* CoreLocation.framework */; };
+		ECBA6ABA24EBEFEC007D8D6D /* CleverTapGeofence.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBA6AB624EBEEDE007D8D6D /* CleverTapGeofence.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECE7A2B124DC10700016F503 /* CleverTapGeofence.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = "CleverTapGeofence::CleverTapGeofence::Product" /* CleverTapGeofence.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ECE7A2B224DC10700016F503 /* CleverTapSDK.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49FA01A924C6EBAD005FC1E4 /* CleverTapSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ECE7A2CB24DC12050016F503 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECE7A2C424DC11E60016F503 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -55,6 +56,7 @@
 		49FA01AC24C6EE34005FC1E4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
 		"CleverTapGeofence::CleverTapGeofence::Product" /* CleverTapGeofence.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CleverTapGeofence.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"CleverTapGeofence::CleverTapGeofenceTests::Product" /* CleverTapGeofenceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = CleverTapGeofenceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECBA6AB624EBEEDE007D8D6D /* CleverTapGeofence.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CleverTapGeofence.h; sourceTree = "<group>"; };
 		ECE7A2C324DC11E60016F503 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = Carthage/Build/iOS/OCMock.framework; sourceTree = "<group>"; };
 		ECE7A2C424DC11E60016F503 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		ECE7A2C524DC11E70016F503 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			children = (
 				F920422D24ADF30700E4492E /* CleverTapGeofence.swift */,
 				F9A0A4A324BF57FF008E3032 /* CleverTapGeofenceEngine.swift */,
+				ECBA6AB624EBEEDE007D8D6D /* CleverTapGeofence.h */,
 				F9CC0CA824C76D71009AD15C /* CleverTapGeofenceUtils.swift */,
 			);
 			path = Sources;
@@ -149,11 +152,23 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		ECBA6AB824EBEFC4007D8D6D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECBA6ABA24EBEFEC007D8D6D /* CleverTapGeofence.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		"CleverTapGeofence::CleverTapGeofence" /* CleverTapGeofence */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = OBJ_20 /* Build configuration list for PBXNativeTarget "CleverTapGeofence" */;
 			buildPhases = (
+				ECBA6AB824EBEFC4007D8D6D /* Headers */,
 				OBJ_23 /* Sources */,
 				OBJ_25 /* Frameworks */,
 			);
