@@ -24,7 +24,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   CleverTap-iOS-SDK:
-    :commit: 446ee0389cc23d4dfbf8543480f768852b02c449
+    :commit: 82a916543c872bce7b0822cca1c0e8164034e597
     :git: https://github.com/CleverTap/clevertap-ios-sdk.git
 
 SPEC CHECKSUMS:

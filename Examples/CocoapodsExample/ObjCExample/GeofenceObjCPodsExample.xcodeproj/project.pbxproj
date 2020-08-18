@@ -245,7 +245,7 @@
 		F989560824B7578C00836D5D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = CleverTap;
 				TargetAttributes = {
 					F989560F24B7578C00836D5D = {

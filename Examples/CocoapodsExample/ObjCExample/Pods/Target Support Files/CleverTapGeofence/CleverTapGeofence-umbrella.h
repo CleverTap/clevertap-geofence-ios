@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "CleverTapGeofence.h"
 
 FOUNDATION_EXPORT double CleverTapGeofenceVersionNumber;
 FOUNDATION_EXPORT const unsigned char CleverTapGeofenceVersionString[];
