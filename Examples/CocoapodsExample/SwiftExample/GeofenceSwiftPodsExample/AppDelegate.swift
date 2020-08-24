@@ -11,10 +11,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         CleverTap.autoIntegrate()
-        let manager = CLLocationManager()
-        manager.requestAlwaysAuthorization()
+        let locationManager = CLLocationManager()
+        locationManager.requestAlwaysAuthorization()
         CleverTapGeofence.logLevel = .debug
+        // CleverTapGeofence.logLevel = .off
+        
         CleverTapGeofence.monitor.start(didFinishLaunchingWithOptions: launchOptions)
+//        CleverTapGeofence.monitor.start(didFinishLaunchingWithOptions: launchOptions, distanceFilter: 200, timeFilter: 1800)
+        
         return true
     }
     
