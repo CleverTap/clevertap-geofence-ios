@@ -199,7 +199,6 @@ An example of how an app can request location permission is below -
   [[NSNotificationCenter defaultCenter] addObserverForName:@"CleverTapGeofenceExited" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
       NSLog(@"Perform custom action on Geofence Exit event");
   }]
-
   ```
 
 ## Example Usage
@@ -207,10 +206,10 @@ An example of how an app can request location permission is below -
 - A [demo application](https://github.com/CleverTap/clevertap-geofence-ios/tree/feature/SDK-104-geofence-support/Examples/CocoapodsExample) showing CocoaPods Installation.
 - A [demo application](https://github.com/CleverTap/clevertap-geofence-ios/tree/feature/SDK-104-geofence-support/Examples/CarthageExample) showing Carthage Installation.
 
-## Changelog
+## ChangeLog
 
 See the [CleverTap Geofence SDK Change Log](https://github.com/CleverTap/clevertap-geofence-ios/blob/feature/SDK-104-geofence-support/CHANGELOG.md)
 
-## Questions?
+## Help and Questions?
 
-If you have questions or concerns, you can reach out to the CleverTap support team at [support@clevertap.com](mailto:support@clevertap.com).
+If you have questions or concerns, you can reach out to the CleverTap support team from the CleverTap Dashboard
