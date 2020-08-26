@@ -10,7 +10,7 @@ CleverTap Geofence SDK provides Geofencing capabilities to CleverTap iOS SDK.
 
 ### CocoaPods
 
-[CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. To integrate CleverTap Geofence SDK into your Xcode project using CocoaPods, specify it in your `Podfile`:
+[CocoaPods](https://cocoapods.org) is a dependency manager for iOS projects. To integrate CleverTap Geofence SDK into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```
 pod 'CleverTapGeofence'
@@ -39,7 +39,7 @@ CleverTap Geofence SDK can also be integrated manually without any dependency ma
 
 CleverTap Geofence utilizes Core Location APIs to setup up Geofences Region monitoring.
  The CleverTap Geofence will **NOT** request Location permissions from the user. Location Permission has to requested by the app as deemed fit while onboarding the user to the app.
-
+Following are required -
 - CleverTap iOS SDK version 3.9.0 or above
 - Swift version 5.1 or above
 - iOS version 10.0 or above
@@ -177,6 +177,29 @@ An example of how an app can request location permission is below -
   [CleverTapGeofence setLogLevel:CleverTapGeofenceLogLevelDebug];
   // [CleverTapGeofence setLogLevel:CleverTapGeofenceLogLevelOff];
   [[CleverTapGeofence monitor] startWithDidFinishLaunchingWithOptions:launchOptions];
+  ```
+  
+- You can **subscribe** to Geofence Enter & Exit event notifications to perform any customized actions within the app. 
+`CleverTapGeofenceEntered` & `CleverTapGeofenceExited` notifications are fired by the CleverTap Geofence SDK whenever a users transits inside / outside a monitored geofence region. An example of subscribing to these notifications is as follows -
+  ```
+  // Swift 
+  NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "CleverTapGeofenceEntered"), object: nil, queue: OperationQueue.main) { (notification) in
+      print("Perform custom action on Geofence Enter event")
+  }
+
+  NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "CleverTapGeofenceExited"), object: nil, queue: OperationQueue.main) { (notification) in
+      print("Perform custom action on Geofence Exit event")
+  }
+
+  // Objective-C
+  [[NSNotificationCenter defaultCenter] addObserverForName:@"CleverTapGeofenceEntered" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+      NSLog(@"Perform custom action on Geofence Entered event");
+  }]
+
+  [[NSNotificationCenter defaultCenter] addObserverForName:@"CleverTapGeofenceExited" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+      NSLog(@"Perform custom action on Geofence Exit event");
+  }]
+
   ```
 
 ## Example Usage
