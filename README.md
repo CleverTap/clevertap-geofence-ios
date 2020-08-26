@@ -193,7 +193,7 @@ An example of how an app can request location permission is below -
 
   // Objective-C
   [[NSNotificationCenter defaultCenter] addObserverForName:@"CleverTapGeofenceEntered" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
-      NSLog(@"Perform custom action on Geofence Entered event");
+      NSLog(@"Perform custom action on Geofence Enter event");
   }]
 
   [[NSNotificationCenter defaultCenter] addObserverForName:@"CleverTapGeofenceExited" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
