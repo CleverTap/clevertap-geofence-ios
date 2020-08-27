@@ -85,7 +85,8 @@ Following are required -
 
 
 
-- In your AppDelegate file, import the CleverTapGeofence module -
+- In your `AppDelegate` file, import the CleverTapGeofence module:
+
   ```
   // Swift
   import CleverTapGeofence
@@ -93,7 +94,9 @@ Following are required -
   // Objective-C
   #import <CleverTapGeofence/CleverTapGeofence-Swift.h>
   ```
-- In your AppDelegate's `application:didFinishLaunchingWithOptions:` function, add the following the code snippet -
+  
+- In your AppDelegate's `application:didFinishLaunchingWithOptions:` function, add the following the code snippet:
+
   ```
   // Swift
   CleverTapGeofence.monitor.start(didFinishLaunchingWithOptions: launchOptions)
@@ -101,8 +104,11 @@ Following are required -
   // Objective-C
   [[CleverTapGeofence monitor] startWithDidFinishLaunchingWithOptions:launchOptions];
   ```
+  
 - CleverTap Geofence SDK requires location permission from users to provide the Geofencing capabilities. The App is expected to request Location permission from user at an appropriate time. Once CleverTap Geofence SDK detects that Location permission has been given by user, only then the module will start to perform it's functions.
-An example of how an app can request location permission is below -
+
+An example of how an app can request location permission is below:
+
   ```
   // Swift
   let locationManager = CLLocationManager()
@@ -113,8 +119,10 @@ An example of how an app can request location permission is below -
   [locationManager requestAlwaysAuthorization];
   ```
 
-#### Customization
-- You can **customize** the minimum distance & time filter for updating user's location using the following alternate initialization API -
+### Customization
+
+- You can **customize** the minimum distance & time filter for updating user's location using the following alternate initialization API:
+
   ```
   // Swift
   func start(didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]?, distanceFilter: CLLocationDistance = 200, timeFilter: TimeInterval = 1800)
@@ -123,8 +131,10 @@ An example of how an app can request location permission is below -
   - (void)startWithDidFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions distanceFilter:(CLLocationDistance)distanceFilter timeFilter:(NSTimeInterval)timeFilter;
   ```
   - `distanceFilter`: Specifies the minimum update distance in meters to be used by Geofence location manager. Client will not be notified of movements of less than the stated value, unless the accuracy has improved. By default, 200 meters is used.
+  
   - `timeFilter`: Specifies the minimum time in seconds after which location should be updated. Location updates will not be triggered within less than the stated `timeFilter` value. By default, 1800 seconds is used.
-  - Following is an example usage in AppDelegate's `application:didFinishLaunchingWithOptions:` function -
+  - Following is an example usage in AppDelegate's `application:didFinishLaunchingWithOptions:` function:
+  
     ```
     // Swift
     CleverTapGeofence.monitor.start(didFinishLaunchingWithOptions:launchOptions, distanceFilter: 200, timeFilter: 1800)
@@ -133,7 +143,8 @@ An example of how an app can request location permission is below -
     [[CleverTapGeofence monitor] startWithDidFinishLaunchingWithOptions:launchOptions distanceFilter:200 timeFilter:1800];
     ```
 
-- You can **stop** CleverTap Geofence monitoring at any time using the following API - 
+- You can **stop** CleverTap Geofence monitoring at any time using the following API:
+
   ```
   // Swift
   public func stop()
@@ -141,7 +152,9 @@ An example of how an app can request location permission is below -
   // Objective-C
   - (void)stop;
   ```
-  Following is an example usage within any function of app - 
+  
+  Following is an example usage within any function of app:
+  
   ```
   // Swift
   func someScenarioWhereLocationMonitoringShouldBeOff() {   
@@ -152,7 +165,8 @@ An example of how an app can request location permission is below -
   [[CleverTapGeofence monitor] stop];
   ```
 
-- You can customize **Logging** mode to view more, less or no logs from the Geofence module. This can be done by appropriately setting the `CleverTapGeofenceLogLevel` enum -
+- You can customize **Logging** mode to view more, less or no logs from the Geofence module. This can be done by appropriately setting the `CleverTapGeofenceLogLevel` enum:
+
   ```
   public enum CleverTapGeofenceLogLevel : Int {
 
@@ -166,7 +180,9 @@ An example of how an app can request location permission is below -
     case off
   }
   ```
-  Ensure that `CleverTapGeofenceLogLevel` is set before invoking `start` function of CleverTap Geofence SDK. An example usage is as follows - 
+  
+  Ensure that `CleverTapGeofenceLogLevel` is set before invoking `start` function of CleverTap Geofence SDK. An example usage is as follows:
+  
   ```
   // Swift
   CleverTapGeofence.logLevel = .debug
@@ -180,7 +196,8 @@ An example of how an app can request location permission is below -
   ```
   
 - You can **subscribe** to Geofence Enter & Exit event notifications to perform any customized actions within the app. 
-`CleverTapGeofenceEntered` & `CleverTapGeofenceExited` notifications are fired by the CleverTap Geofence SDK whenever a users transits inside / outside a monitored geofence region. An example of subscribing to these notifications is as follows -
+`CleverTapGeofenceEntered` & `CleverTapGeofenceExited` notifications are fired by the CleverTap Geofence SDK whenever a users transits inside / outside a monitored geofence region. An example of subscribing to these notifications is as follows:
+
   ```
   // Swift 
   NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "CleverTapGeofenceEntered"), object: nil, queue: OperationQueue.main) { (notification) in
@@ -200,6 +217,10 @@ An example of how an app can request location permission is below -
       NSLog(@"Perform custom action on Geofence Exit event");
   }]
   ```
+  
+### Callbacks/Listeners
+
+---- 
 
 ## Example Usage
 
