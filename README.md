@@ -6,10 +6,10 @@ CleverTap Geofence SDK provides Geofencing capabilities to CleverTap iOS SDK by 
 
 ## Contents
 
-- [Requirements](#requirements)
-- [Installation](#installation)
+- [Requirements](#-requirements)
+- [Installation](#-installation)
   - [Via CocoaPods](#via-cocoapods)
-- [Integration](#integration)
+- [Integration](#-integration)
 - [Customization](#customization)
 - [Example Usage](#example-usage)
 - [Change Log](#change-log)
@@ -24,9 +24,9 @@ Following are required for using CleverTap Geofence SDK -
 - iOS version 10.0 or above
 - CoreLocation iOS Framework
 
-## Installation
+## 🎉 Installation
 
-### Via CocoaPods
+#### Via CocoaPods
 
 [CocoaPods](https://cocoapods.org) is a dependency manager for iOS projects. To integrate CleverTap Geofence SDK into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
@@ -35,7 +35,7 @@ pod 'CleverTapGeofence'
 ```
 For installing CleverTap Geofence via [Carthage](Docs/Customization.md#carthage) or [Manually](Docs/Customization.md#manual), check out the steps in [Geofence Customization document](Docs/Customization.md#alternative-installation).
 
-## Integration
+## 🚀 Integration
 
 CleverTap Geofence utilizes Core Location APIs to setup up Geofences Region monitoring.
  The CleverTap Geofence will **NOT** request Location permissions from the user. Location Permission has to requested by the app as deemed fit while onboarding the user to the app.
@@ -139,6 +139,6 @@ See the [CleverTap Geofence SDK Change Log](https://github.com/CleverTap/clevert
 
 If you have questions or concerns, you can reach out to the CleverTap Support Team from your CleverTap Dashboard.
 
-## License
+## 📄 License
 CleverTap Geofence is MIT licensed, as found in the [LICENSE](https://github.com/CleverTap/clevertap-geofence-ios/blob/master/LICENSE) file.
 
