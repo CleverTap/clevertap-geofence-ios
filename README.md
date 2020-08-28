@@ -14,9 +14,10 @@ CleverTap Geofence SDK provides Geofencing capabilities to CleverTap iOS SDK by 
 - [Example Usage](#example-usage)
 - [Change Log](#change-log)
 - [Help and Questions](#help-and-questions)
+- [License](#license)
 
 
-## Requirements
+## 📋 Requirements
 Following are required for using CleverTap Geofence SDK -
 - [CleverTap iOS SDK version 3.9.0 or above](https://github.com/CleverTap/clevertap-ios-sdk/releases)
 - Swift version 5.1 or above
@@ -137,3 +138,7 @@ See the [CleverTap Geofence SDK Change Log](https://github.com/CleverTap/clevert
 ## Help and Questions
 
 If you have questions or concerns, you can reach out to the CleverTap Support Team from your CleverTap Dashboard.
+
+## License
+CleverTap Geofence is MIT licensed, as found in the [LICENSE](https://github.com/CleverTap/clevertap-geofence-ios/blob/master/LICENSE) file.
+
