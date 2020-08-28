@@ -140,4 +140,4 @@ You can **subscribe** to Geofence Enter & Exit event notifications to perform an
   }]
   ```
 
-![alt text](docs/GeofenceNotifications.png  "Geofence Notifications")
+![alt text](GeofenceNotifications.png  "Geofence Notifications")
