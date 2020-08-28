@@ -4,7 +4,22 @@
 
 ## Introduction
 
-CleverTap Geofence SDK provides Geofencing capabilities to CleverTap iOS SDK.
+CleverTap Geofence SDK provides Geofencing capabilities to CleverTap iOS SDK by using Core Location framework.
+
+## Table of Contents
+
+* [Installation](#installation)
+  - [CocoaPods](#cocoapods)
+  - [Carthage](#carthage)
+  - [Manual](#manual)
+* [Integration](#integration)
+* [Alternate Initialization](#alternate-initialization)
+* [Stop Monitoring](#stop-monitoring)
+* [Logging](#logging)
+* [Geofence Notifications](#geofence-notifications)
+* [Example Usage](#example-usage)
+* [ChangeLog](#changelog)
+* [Help and Questions](#help-and-questions)
 
 ## Installation
 
@@ -36,6 +51,7 @@ CleverTap Geofence SDK can also be integrated manually without any dependency ma
 
 
 ## Integration
+[(Back to Top)](#table-of-contents)
 
 CleverTap Geofence utilizes Core Location APIs to setup up Geofences Region monitoring.
  The CleverTap Geofence will **NOT** request Location permissions from the user. Location Permission has to requested by the app as deemed fit while onboarding the user to the app.
@@ -119,9 +135,11 @@ An example of how an app can request location permission is below:
   [locationManager requestAlwaysAuthorization];
   ```
 
-### Customization
 
-- You can **customize** the minimum distance & time filter for updating user's location using the following alternate initialization API:
+## Alternate Initialization
+[(Back to Top)](#table-of-contents)
+
+You can **customize** the minimum distance & time filter for updating user's location using the following alternate initialization API:
 
   ```
   // Swift
@@ -143,7 +161,10 @@ An example of how an app can request location permission is below:
     [[CleverTapGeofence monitor] startWithDidFinishLaunchingWithOptions:launchOptions distanceFilter:200 timeFilter:1800];
     ```
 
-- You can **stop** CleverTap Geofence monitoring at any time using the following API:
+## Stop Monitoring
+[(Back to Top)](#table-of-contents)
+
+You can **stop** CleverTap Geofence monitoring at any time using the following API:
 
   ```
   // Swift
@@ -165,7 +186,10 @@ An example of how an app can request location permission is below:
   [[CleverTapGeofence monitor] stop];
   ```
 
-- You can customize **Logging** mode to view more, less or no logs from the Geofence module. This can be done by appropriately setting the `CleverTapGeofenceLogLevel` enum:
+## Logging
+[(Back to Top)](#table-of-contents)
+
+You can customize **Logging** mode to view more, less or no logs from the Geofence module. This can be done by appropriately setting the `CleverTapGeofenceLogLevel` enum:
 
   ```
   public enum CleverTapGeofenceLogLevel : Int {
@@ -195,7 +219,10 @@ An example of how an app can request location permission is below:
   [[CleverTapGeofence monitor] startWithDidFinishLaunchingWithOptions:launchOptions];
   ```
   
-- You can **subscribe** to Geofence Enter & Exit event notifications to perform any customized actions within the app. 
+## Geofence Notifications
+[(Back to Top)](#table-of-contents)
+
+You can **subscribe** to Geofence Enter & Exit event notifications to perform any customized actions within the app. 
 `CleverTapGeofenceEntered` & `CleverTapGeofenceExited` notifications are fired by the CleverTap Geofence SDK whenever a users transits inside / outside a monitored geofence region. An example of subscribing to these notifications is as follows:
 
   ```
@@ -217,20 +244,21 @@ An example of how an app can request location permission is below:
       NSLog(@"Perform custom action on Geofence Exit event");
   }]
   ```
-  
-### Callbacks/Listeners
-
 ---- 
+
 
 ## Example Usage
 
 - A [demo application](https://github.com/CleverTap/clevertap-geofence-ios/tree/feature/SDK-104-geofence-support/Examples/CocoapodsExample) showing CocoaPods Installation.
 - A [demo application](https://github.com/CleverTap/clevertap-geofence-ios/tree/feature/SDK-104-geofence-support/Examples/CarthageExample) showing Carthage Installation.
 
+
 ## ChangeLog
 
 See the [CleverTap Geofence SDK Change Log](https://github.com/CleverTap/clevertap-geofence-ios/blob/feature/SDK-104-geofence-support/CHANGELOG.md)
 
-## Help and Questions?
+
+## Help and Questions
+[(Back to Top)](#table-of-contents)
 
 If you have questions or concerns, you can reach out to the CleverTap support team from the CleverTap Dashboard.
