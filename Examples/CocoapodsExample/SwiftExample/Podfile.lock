@@ -24,7 +24,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   CleverTap-iOS-SDK:
-    :commit: 446ee0389cc23d4dfbf8543480f768852b02c449
+    :commit: 82a916543c872bce7b0822cca1c0e8164034e597
     :git: https://github.com/CleverTap/clevertap-ios-sdk.git
 
 SPEC CHECKSUMS:
@@ -32,6 +32,6 @@ SPEC CHECKSUMS:
   CleverTapGeofence: eb7b78ea421a587d9d79c65b85f5b312a881fca9
   SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
 
-PODFILE CHECKSUM: 6c5fe32ae6986fb4332aaedc8f8b72745218f1eb
+PODFILE CHECKSUM: 98beebfd3a66b1afed4a1cd67edec0da8c4f9579
 
 COCOAPODS: 1.9.3

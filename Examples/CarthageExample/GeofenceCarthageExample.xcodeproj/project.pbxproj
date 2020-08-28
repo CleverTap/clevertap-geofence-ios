@@ -11,7 +11,6 @@
 		F94A480F24B76AEA00B641DC /* CleverTapGeofence.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F94A480E24B76AEA00B641DC /* CleverTapGeofence.framework */; };
 		F94A481024B76AEA00B641DC /* CleverTapGeofence.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F94A480E24B76AEA00B641DC /* CleverTapGeofence.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F99C567224B7675300FEA6AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99C567124B7675300FEA6AE /* AppDelegate.swift */; };
-		F99C567424B7675300FEA6AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99C567324B7675300FEA6AE /* SceneDelegate.swift */; };
 		F99C567624B7675300FEA6AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99C567524B7675300FEA6AE /* ViewController.swift */; };
 		F99C567924B7675300FEA6AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F99C567724B7675300FEA6AE /* Main.storyboard */; };
 		F99C567B24B7675300FEA6AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F99C567A24B7675300FEA6AE /* Assets.xcassets */; };
@@ -56,7 +55,6 @@
 		F94A480E24B76AEA00B641DC /* CleverTapGeofence.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CleverTapGeofence.framework; path = Carthage/Build/iOS/CleverTapGeofence.framework; sourceTree = "<group>"; };
 		F99C566E24B7675200FEA6AE /* GeofenceCarthageExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeofenceCarthageExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F99C567124B7675300FEA6AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F99C567324B7675300FEA6AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F99C567524B7675300FEA6AE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F99C567824B7675300FEA6AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F99C567A24B7675300FEA6AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				F99C567124B7675300FEA6AE /* AppDelegate.swift */,
-				F99C567324B7675300FEA6AE /* SceneDelegate.swift */,
 				F99C567524B7675300FEA6AE /* ViewController.swift */,
 				F99C567724B7675300FEA6AE /* Main.storyboard */,
 				F99C567A24B7675300FEA6AE /* Assets.xcassets */,
@@ -293,7 +290,6 @@
 			files = (
 				F99C567624B7675300FEA6AE /* ViewController.swift in Sources */,
 				F99C567224B7675300FEA6AE /* AppDelegate.swift in Sources */,
-				F99C567424B7675300FEA6AE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

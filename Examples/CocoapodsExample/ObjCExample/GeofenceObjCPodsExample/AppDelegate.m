@@ -18,11 +18,17 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    // perform other app launch functions
     
     [CleverTap autoIntegrate];
-    CleverTapGeofence.logLevel = CleverTapGeofenceLogLevelDebug;
+    
+//    CleverTapGeofence.logLevel = CleverTapGeofenceLogLevelDebug;
+//    CleverTapGeofence.logLevel = CleverTapGeofenceLogLevelOff;
+    
     [[CleverTapGeofence monitor] startWithDidFinishLaunchingWithOptions:launchOptions];
+//    [[CleverTapGeofence monitor] startWithDidFinishLaunchingWithOptions:launchOptions distanceFilter:200 timeFilter:1800];
+    
     return YES;
 }
 
