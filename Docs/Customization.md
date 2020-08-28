@@ -1,5 +1,5 @@
 ## CleverTap Geofence Customizations
-This document lists down further customization for Geofence Module.
+This document lists down further customization for Geofence Module. Ensure that you have read the [basic steps in ReadMe](../README.md) before using this document.
 
 ## Contents
 
