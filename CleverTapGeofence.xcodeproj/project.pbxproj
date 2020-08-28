@@ -92,9 +92,9 @@
 		F90875E924ADD75E00AFE67C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				ECBA6AB624EBEEDE007D8D6D /* CleverTapGeofence.h */,
 				F920422D24ADF30700E4492E /* CleverTapGeofence.swift */,
 				F9A0A4A324BF57FF008E3032 /* CleverTapGeofenceEngine.swift */,
-				ECBA6AB624EBEEDE007D8D6D /* CleverTapGeofence.h */,
 				F9CC0CA824C76D71009AD15C /* CleverTapGeofenceUtils.swift */,
 			);
 			path = Sources;
