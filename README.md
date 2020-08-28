@@ -12,8 +12,8 @@ CleverTap Geofence SDK provides Geofencing capabilities to CleverTap iOS SDK by 
 - [Integration](#-integration)
 - [Customization](#-customization)
 - [Example Usage](#-example-usage)
-- [Change Log](#change-log)
-- [Help and Questions](#help-and-questions)
+- [Change Log](#-change-log)
+- [Help and Questions](#-help-and-questions)
 - [License](#-license)
 
 
