@@ -244,7 +244,6 @@ You can **subscribe** to Geofence Enter & Exit event notifications to perform an
       NSLog(@"Perform custom action on Geofence Exit event");
   }]
   ```
----- 
 
 
 ## Example Usage
