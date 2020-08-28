@@ -1,3 +1,4 @@
+## CleverTap Geofence Customizations
 This document lists down further customization for Geofence Module.
 
 ## Contents
@@ -11,6 +12,8 @@ This document lists down further customization for Geofence Module.
 - [Geofence Notifications](#geofence-notifications)
 
 ## Alternative Installation
+
+Along with [CocoaPods installation](../README.md#via-cocoapods), CleverTap Geofence can be installed via Carthage or Manually.
 
 ### Carthage
 
