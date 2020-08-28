@@ -17,7 +17,7 @@ Along with [CocoaPods installation](../README.md#via-cocoapods), CleverTap Geofe
 
 ### Carthage
 
-[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate CleverTap Geofence SDK into your Xcode project using Carthage, specify it in your `Cartfile`:
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you binary frameworks. To integrate CleverTap Geofence SDK into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```
 github "CleverTap/clevertap-geofence-ios"
