@@ -66,6 +66,8 @@ Following are required -
   - Click on `+ Capability` button
   - Select the `Background Modes` option
   - Enable `Location Updates` by selecting the checkbox
+  ![alt text](docs/Capabilities.png  "Capabilities")
+  
 - In your Info.plist file, add the following keys -
   - `NSLocationAlwaysAndWhenInUseUsageDescription` also known as `Privacy - Location Always and When In Use Usage Description`
    This is a key which accepts a String description to be used by iOS while requesting Location permission from user.
@@ -98,6 +100,7 @@ Following are required -
     <string>processing</string>
   </array>
   ```
+  ![alt text](docs/Info-plist.png  "Example Info.plist")
 
 
 
