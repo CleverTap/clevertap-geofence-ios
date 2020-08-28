@@ -1,4 +1,4 @@
-![alt text](Docs/clevertap-logo.png  "CleverTap logo")
+![alt text](Docs/CleverTap-logo.png  "CleverTap logo")
 
 ## Introduction
 
@@ -38,7 +38,7 @@ Following are required -
   - Click on `+ Capability` button
   - Select the `Background Modes` option
   - Enable `Location Updates` by selecting the checkbox
-  ![alt text](docs/Capabilities.png  "Capabilities")
+  ![alt text](Docs/Capabilities.png  "Capabilities")
   
 - In your Info.plist file, add the following keys -
   - `NSLocationAlwaysAndWhenInUseUsageDescription` also known as `Privacy - Location Always and When In Use Usage Description`
@@ -72,7 +72,7 @@ Following are required -
     <string>processing</string>
   </array>
   ```
-  ![alt text](Docs/Info-plist.png  "Example Info.plist")
+  ![alt text](Docs/Info-plist.png "Info.plist")
 
 
 
