@@ -135,7 +135,7 @@ You can further *customize* your integration of CleverTap Geofence by following 
 See the [CleverTap Geofence SDK Change Log](https://github.com/CleverTap/clevertap-geofence-ios/blob/feature/SDK-104-geofence-support/CHANGELOG.md).
 
 
-## ⁉️ Help and Questions
+## 🤝 Help and Questions
 
 If you have questions or concerns, you can reach out to the CleverTap Support Team from your CleverTap Dashboard.
 
