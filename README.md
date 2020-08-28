@@ -47,7 +47,7 @@ CleverTap Geofence utilizes Core Location APIs to setup up Geofences Region moni
   - Enable `Location Updates` by selecting the checkbox
   ![alt text](Docs/Capabilities.png  "Capabilities")
   
-**2.** In your Info.plist file, add the following keys -
+**2.** In your `Info.plist` file, add the following keys -
   - `NSLocationAlwaysAndWhenInUseUsageDescription` also known as `Privacy - Location Always and When In Use Usage Description`
    This is a key which accepts a String description to be used by iOS while requesting Location permission from user.
 
@@ -90,7 +90,7 @@ CleverTap Geofence utilizes Core Location APIs to setup up Geofences Region moni
   import CleverTapGeofence
 
   // Objective-C
-  #import <CleverTapGeofence/CleverTapGeofence-Swift.h>
+  @import CleverTapGeofence;
   ```
   
 **4.** In your AppDelegate's `application:didFinishLaunchingWithOptions:` function, add the following the code snippet. Ensure that Geofence SDK initialization is done **after** CleverTap Main SDK initialization.
