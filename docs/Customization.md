@@ -2,7 +2,6 @@ This document lists down further customization for Geofence Module.
 
 ## Contents
 
-- [Contents](#contents)
 - [Alternative Installation](#alternative-installation)
   - [Carthage](#carthage)
   - [Manual](#manual)
