@@ -37,7 +37,7 @@ pod 'CleverTapGeofence'
 CleverTap Geofence utilizes Core Location APIs to setup up Geofences Region monitoring.
  The CleverTap Geofence will **NOT** request Location permissions from the user. Location Permission has to requested by the app as deemed fit while onboarding the user to the app.
 
-1. In Xcode, enable `Location Updates` in `Background Modes` for your App Target. You can enable this in Xcode by -
+**1.** In Xcode, enable `Location Updates` in `Background Modes` for your App Target. You can enable this in Xcode by -
   - Click on your `AppTarget` in Xcode Project Navigator
   - Click on `Signing & Capabilities` tab 
   - Click on `+ Capability` button
@@ -45,7 +45,7 @@ CleverTap Geofence utilizes Core Location APIs to setup up Geofences Region moni
   - Enable `Location Updates` by selecting the checkbox
   ![alt text](Docs/Capabilities.png  "Capabilities")
   
-2. In your Info.plist file, add the following keys -
+**2.** In your Info.plist file, add the following keys -
   - `NSLocationAlwaysAndWhenInUseUsageDescription` also known as `Privacy - Location Always and When In Use Usage Description`
    This is a key which accepts a String description to be used by iOS while requesting Location permission from user.
 
@@ -81,7 +81,7 @@ CleverTap Geofence utilizes Core Location APIs to setup up Geofences Region moni
 
 
 
-3. In your `AppDelegate` file, import the CleverTapGeofence module:
+**3.** In your `AppDelegate` file, import the CleverTapGeofence module:
 
   ```
   // Swift
@@ -91,7 +91,7 @@ CleverTap Geofence utilizes Core Location APIs to setup up Geofences Region moni
   #import <CleverTapGeofence/CleverTapGeofence-Swift.h>
   ```
   
-4. In your AppDelegate's `application:didFinishLaunchingWithOptions:` function, add the following the code snippet. Ensure that Geofence SDK initialization is done **after** CleverTap Main SDK initialization.
+**4.** In your AppDelegate's `application:didFinishLaunchingWithOptions:` function, add the following the code snippet. Ensure that Geofence SDK initialization is done **after** CleverTap Main SDK initialization.
 
   ```
   // Swift
@@ -101,9 +101,9 @@ CleverTap Geofence utilizes Core Location APIs to setup up Geofences Region moni
   [[CleverTapGeofence monitor] startWithDidFinishLaunchingWithOptions:launchOptions];
   ```
  
-5. CleverTap Geofence SDK requires location permission from users to provide the Geofencing capabilities. The App is expected to request Location permission from user at an appropriate time. Once CleverTap Geofence SDK detects that Location permission has been given by user, only then the module will start to perform it's functions.
+**5.** CleverTap Geofence SDK requires location permission from users to provide the Geofencing capabilities. The App is expected to request Location permission from user at an appropriate time. Once CleverTap Geofence SDK detects that Location permission has been given by user, only then the module will start to perform it's functions.
 
-An example of how an app can request location permission is below:
+  An example of how an app can request location permission is below:
 
   ```
   // Swift
