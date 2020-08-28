@@ -1,4 +1,4 @@
-![alt text](docs/clevertap-logo.png  "CleverTap logo")
+![alt text](Docs/clevertap-logo.png  "CleverTap logo")
 
 ## Introduction
 
@@ -72,7 +72,7 @@ Following are required -
     <string>processing</string>
   </array>
   ```
-  ![alt text](docs/Info-plist.png  "Example Info.plist")
+  ![alt text](Docs/Info-plist.png  "Example Info.plist")
 
 
 
@@ -111,7 +111,7 @@ An example of how an app can request location permission is below:
   ```
 
 
-![alt text](docs/StartGeofence.png  "Example AppDelegate.swift")
+![alt text](Docs/StartGeofence.png  "Example AppDelegate.swift")
 
 ## Example Usage
 
