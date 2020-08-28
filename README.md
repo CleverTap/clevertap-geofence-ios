@@ -10,6 +10,7 @@ CleverTap Geofence SDK provides Geofencing capabilities to CleverTap iOS SDK by 
 - [Installation](#installation)
   - [Via CocoaPods](#via-cocoapods)
 - [Integration](#integration)
+- [Customization](#customization)
 - [Example Usage](#example-usage)
 - [Change Log](#change-log)
 - [Help and Questions](#help-and-questions)
@@ -117,6 +118,9 @@ CleverTap Geofence utilizes Core Location APIs to setup up Geofences Region moni
 
 
 ![alt text](Docs/StartGeofence.png  "Example AppDelegate.swift")
+
+## Customization
+You can further *customize* your integration of CleverTap Geofence by following the [Customization document](Docs/Customization.md).
 
 ## Example Usage
 
