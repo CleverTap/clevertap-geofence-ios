@@ -1,20 +1,20 @@
 ![alt text](Docs/CleverTap-logo.png  "CleverTap logo")
 
-## Introduction
+## 👋 Introduction
 
 CleverTap Geofence SDK provides Geofencing capabilities to CleverTap iOS SDK by using Core Location framework. This document lists down steps to utilize CleverTap Geofence in your apps. You can further customize your integration of CleverTap Geofence by using the [Geofence Customization document](Docs/Customization.md).
 
-## Contents
+## ⍗ Contents
 
 - [Requirements](#-requirements)
 - [Installation](#-installation)
   - [Via CocoaPods](#via-cocoapods)
 - [Integration](#-integration)
-- [Customization](#customization)
-- [Example Usage](#example-usage)
+- [Customization](#-customization)
+- [Example Usage](#-example-usage)
 - [Change Log](#change-log)
 - [Help and Questions](#help-and-questions)
-- [License](#license)
+- [License](#-license)
 
 
 ## 📋 Requirements
@@ -121,21 +121,21 @@ CleverTap Geofence utilizes Core Location APIs to setup up Geofences Region moni
 
 ![alt text](Docs/StartGeofence.png  "Example AppDelegate.swift")
 
-## Customization
+## 📖 Customization
 You can further *customize* your integration of CleverTap Geofence by following the [Customization document](Docs/Customization.md).
 
-## Example Usage
+## 𝌡 Example Usage
 
 - A [demo application](https://github.com/CleverTap/clevertap-geofence-ios/tree/feature/SDK-104-geofence-support/Examples/CocoapodsExample) showing CocoaPods Installation.
 - A [demo application](https://github.com/CleverTap/clevertap-geofence-ios/tree/feature/SDK-104-geofence-support/Examples/CarthageExample) showing Carthage Installation.
 
 
-## Change Log
+## 🆕 Change Log
 
 See the [CleverTap Geofence SDK Change Log](https://github.com/CleverTap/clevertap-geofence-ios/blob/feature/SDK-104-geofence-support/CHANGELOG.md).
 
 
-## Help and Questions
+## ⁉️ Help and Questions
 
 If you have questions or concerns, you can reach out to the CleverTap Support Team from your CleverTap Dashboard.
 
