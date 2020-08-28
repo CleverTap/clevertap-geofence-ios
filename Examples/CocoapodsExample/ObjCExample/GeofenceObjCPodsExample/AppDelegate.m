@@ -9,7 +9,8 @@
 #import "AppDelegate.h"
 @import CleverTapSDK;
 @import CleverTapGeofence;
-// or you can use #import <CleverTapGeofence/CleverTapGeofence.h>
+// or you can use
+//#import <CleverTapGeofence/CleverTapGeofence.h>
 
 @interface AppDelegate ()
 
