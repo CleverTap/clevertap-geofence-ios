@@ -1,4 +1,6 @@
-![alt text](Docs/CleverTap-logo.png  "CleverTap logo")
+<p align="center">
+  <img src="https://github.com/CleverTap/clevertap-segment-ios/blob/master/clevertap-logo.png" width="300"/>
+</p>
 
 ## 👋 Introduction
 
