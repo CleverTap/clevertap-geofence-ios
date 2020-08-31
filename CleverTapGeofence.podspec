@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
 
   s.ios.framework         = 'CoreLocation'
   s.ios.deployment_target = '10.0'
-  s.ios.dependency          'CleverTap-iOS-SDK', '~> 3.8'
+  s.ios.dependency          'CleverTap-iOS-SDK', '~> 3.9'
 
   s.source_files    = 'Sources/*'
   s.swift_version   = '5.1'
