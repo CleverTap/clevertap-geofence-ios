@@ -1,11 +1,11 @@
 ---
 format_version: '8'
-default_step_lib_source: 'https://github.com/bitrise-io/bitrise-steplib.git'
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 project_type: other
 trigger_map:
-- pull_request_source_branch: '*'
+- pull_request_source_branch: "*"
   workflow: primary
-- tag: '*'
+- tag: "*"
   workflow: primary
 workflows:
   primary:
@@ -23,7 +23,7 @@ workflows:
             # debug log
             set -x
 
-            pod lib lint CleverTap-iOS-SDK.podspec
+            pod lib lint CleverTapGeofence.podspec
     - script@1:
         inputs:
         - content: |-
@@ -38,51 +38,31 @@ workflows:
     - script@1:
         title: Build Cocoapods ObjC Example App
         inputs:
-        - content: >-
+        - content: |-
             #!/usr/bin/env bash
-
             # fail if any commands fails
-
             set -e
-
             # debug log
-
             set -x
 
-
             cd Examples/CocoapodsExample/ObjCExample/
-
             pod install
-
             cat Podfile.lock
-
-            xcodebuild -workspace "GeofenceObjCPodsExample.xcworkspace" -scheme
-            "GeofenceObjCPodsExample" -sdk iphonesimulator -destination
-            'name=iPhone 11' build
+            xcodebuild -workspace "GeofenceObjCPodsExample.xcworkspace" -scheme "GeofenceObjCPodsExample" -sdk iphonesimulator -destination 'name=iPhone 11' build
     - script@1:
         title: Build Cocoapods Swift Example
         inputs:
-        - content: >-
+        - content: |-
             #!/usr/bin/env bash
-
             # fail if any commands fails
-
             set -e
-
             # debug log
-
             set -x
 
-
             cd Examples/CocoapodsExample/SwiftExample/
-
             pod install
-
             cat Podfile.lock
-
-            xcodebuild -workspace "GeofenceSwiftPodsExample.xcworkspace" -scheme
-            "GeofenceSwiftPodsExample" -sdk iphonesimulator -destination
-            'name=iPhone 11' build
+            xcodebuild -workspace "GeofenceSwiftPodsExample.xcworkspace" -scheme "GeofenceSwiftPodsExample" -sdk iphonesimulator -destination 'name=iPhone 11' build
     - script@1:
         title: Go to Carthage Example Folder
         inputs:
@@ -111,7 +91,7 @@ workflows:
     - deploy-to-bitrise-io@1: {}
     - slack@3:
         inputs:
-        - channel: '#sdk-alerts'
-        - emoji: ':bitrise:'
+        - channel: "#sdk-alerts"
+        - emoji: ":bitrise:"
         - text: iOS Geofences Build Completed!
-        - webhook_url: $SLACK_WEBHOOK
+        - webhook_url: "$SLACK_WEBHOOK"
