@@ -1,2 +1,2 @@
-github "CleverTap/clevertap-ios-sdk" "feature/geofence/SDK-255"
+github "CleverTap/clevertap-ios-sdk"
 github "SDWebImage/SDWebImage"

@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  GeofenceCarthageExample
 //
-//  Created by Yogesh Singh on 09/07/20.
+//  Created by Yogesh Singh on 02/09/20.
 //  Copyright © 2020 CleverTap. All rights reserved.
 //
 
@@ -10,14 +10,13 @@ import UIKit
 import CoreLocation
 
 class ViewController: UIViewController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        requestLocation()
+        // Do any additional setup after loading the view.
     }
-    
-    func requestLocation() {
+
+    @IBAction func requestLocationPermission(_ sender: UIButton) {
         let locationManager = CLLocationManager()
         locationManager.requestAlwaysAuthorization()
     }

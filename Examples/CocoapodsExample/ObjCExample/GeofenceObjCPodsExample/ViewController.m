@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+@import CoreLocation;
 
 @interface ViewController ()
 
@@ -19,5 +20,9 @@
     // Do any additional setup after loading the view.
 }
 
+- (IBAction)requestLocationPermission:(UIButton *)sender {
+    CLLocationManager *locationManager = [[CLLocationManager alloc] init];
+    [locationManager requestAlwaysAuthorization];
+}
 
 @end

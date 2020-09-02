@@ -176,7 +176,7 @@
 				F989564D24B75BFD00836D5D /* Sources */,
 				F989564E24B75BFD00836D5D /* Frameworks */,
 				F989564F24B75BFD00836D5D /* Resources */,
-				611A62A4C91CE40128C3A26D /* [CP] Embed Pods Frameworks */,
+				645B52C43D1C3247AB3DE3DE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -214,7 +214,7 @@
 				F989566E24B75BFE00836D5D /* Sources */,
 				F989566F24B75BFE00836D5D /* Frameworks */,
 				F989567024B75BFE00836D5D /* Resources */,
-				53819F6279C547EF584BB11B /* [CP] Embed Pods Frameworks */,
+				88A60CA46407DF56B4A2E751 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -319,24 +319,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		53819F6279C547EF584BB11B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GeofenceSwiftPodsExample-GeofenceSwiftPodsExampleUITests/Pods-GeofenceSwiftPodsExample-GeofenceSwiftPodsExampleUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GeofenceSwiftPodsExample-GeofenceSwiftPodsExampleUITests/Pods-GeofenceSwiftPodsExample-GeofenceSwiftPodsExampleUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GeofenceSwiftPodsExample-GeofenceSwiftPodsExampleUITests/Pods-GeofenceSwiftPodsExample-GeofenceSwiftPodsExampleUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		611A62A4C91CE40128C3A26D /* [CP] Embed Pods Frameworks */ = {
+		645B52C43D1C3247AB3DE3DE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -351,6 +334,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GeofenceSwiftPodsExample/Pods-GeofenceSwiftPodsExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		88A60CA46407DF56B4A2E751 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GeofenceSwiftPodsExample-GeofenceSwiftPodsExampleUITests/Pods-GeofenceSwiftPodsExample-GeofenceSwiftPodsExampleUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GeofenceSwiftPodsExample-GeofenceSwiftPodsExampleUITests/Pods-GeofenceSwiftPodsExample-GeofenceSwiftPodsExampleUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GeofenceSwiftPodsExample-GeofenceSwiftPodsExampleUITests/Pods-GeofenceSwiftPodsExample-GeofenceSwiftPodsExampleUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		929654F4B54D4BC62639C606 /* [CP] Check Pods Manifest.lock */ = {

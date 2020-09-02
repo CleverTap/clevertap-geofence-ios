@@ -20,12 +20,16 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-    <string>App needs your location to provide enhanced features.</string>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>App needs your location to provide enhanced features.</string>
-    <key>NSLocationAlwaysUsageDescription</key>
-    <string>App needs your location to provide enhanced features.</string>
+	<key>CleverTapAccountID</key>
+	<string>69R-Z7W-W54Z</string>
+	<key>CleverTapToken</key>
+	<string>0a1-2c6</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>App needs your location to provide enhanced features.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>App needs your location to provide enhanced features.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>App needs your location to provide enhanced features.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

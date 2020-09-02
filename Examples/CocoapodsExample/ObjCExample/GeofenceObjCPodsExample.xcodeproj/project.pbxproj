@@ -189,7 +189,7 @@
 				F989560C24B7578C00836D5D /* Sources */,
 				F989560D24B7578C00836D5D /* Frameworks */,
 				F989560E24B7578C00836D5D /* Resources */,
-				47D2EFDE4F4B027F28BB9DC1 /* [CP] Embed Pods Frameworks */,
+				A066F08B121ED8F65620284E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -227,7 +227,7 @@
 				F989563224B7578D00836D5D /* Sources */,
 				F989563324B7578D00836D5D /* Frameworks */,
 				F989563424B7578D00836D5D /* Resources */,
-				70A7B98CB930722C5B0CD221 /* [CP] Embed Pods Frameworks */,
+				82D33C0B19717B68AA2F527D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -331,23 +331,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		47D2EFDE4F4B027F28BB9DC1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GeofenceObjCPodsExample/Pods-GeofenceObjCPodsExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GeofenceObjCPodsExample/Pods-GeofenceObjCPodsExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GeofenceObjCPodsExample/Pods-GeofenceObjCPodsExample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		547E07BCC4E148D84EAEF2E1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -392,7 +375,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		70A7B98CB930722C5B0CD221 /* [CP] Embed Pods Frameworks */ = {
+		82D33C0B19717B68AA2F527D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -407,6 +390,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GeofenceObjCPodsExample-GeofenceObjCPodsExampleUITests/Pods-GeofenceObjCPodsExample-GeofenceObjCPodsExampleUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A066F08B121ED8F65620284E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GeofenceObjCPodsExample/Pods-GeofenceObjCPodsExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GeofenceObjCPodsExample/Pods-GeofenceObjCPodsExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GeofenceObjCPodsExample/Pods-GeofenceObjCPodsExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

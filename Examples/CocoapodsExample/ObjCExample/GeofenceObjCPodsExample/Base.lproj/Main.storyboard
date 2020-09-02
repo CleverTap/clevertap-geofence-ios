@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wTL-g9-onk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wTL-g9-onk">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="oSR-jm-uh8">
             <objects>
-                <viewController id="wTL-g9-onk" sceneMemberID="viewController">
+                <viewController id="wTL-g9-onk" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fm4-q4-ZdU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +23,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CleverTap Geofence Example" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NeT-0t-GaB">
-                                <rect key="frame" x="44" y="426" width="326" height="44"/>
+                                <rect key="frame" x="74" y="426" width="266.5" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="axp-Fa-XKt"/>
                                 </constraints>
@@ -31,22 +31,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTa-Oy-eST">
+                                <rect key="frame" x="57.5" y="534" width="299" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Request Location Permission"/>
+                                <connections>
+                                    <action selector="requestLocationPermission:" destination="wTL-g9-onk" eventType="touchUpInside" id="KZT-iJ-J6t"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="rIr-hE-jAA" firstAttribute="top" secondItem="nZw-cc-zM2" secondAttribute="top" constant="64" id="5kR-lR-zwL"/>
                             <constraint firstItem="nZw-cc-zM2" firstAttribute="trailing" secondItem="rIr-hE-jAA" secondAttribute="trailing" constant="44" id="9Cm-KU-iFX"/>
-                            <constraint firstItem="nZw-cc-zM2" firstAttribute="trailing" secondItem="NeT-0t-GaB" secondAttribute="trailing" constant="44" id="9p4-Df-Xza"/>
                             <constraint firstItem="NeT-0t-GaB" firstAttribute="centerY" secondItem="Fm4-q4-ZdU" secondAttribute="centerY" id="AaW-au-Nfv"/>
+                            <constraint firstItem="vTa-Oy-eST" firstAttribute="top" secondItem="NeT-0t-GaB" secondAttribute="bottom" constant="64" id="FRF-vf-VDS"/>
+                            <constraint firstItem="NeT-0t-GaB" firstAttribute="centerX" secondItem="Fm4-q4-ZdU" secondAttribute="centerX" id="Fu8-JZ-KOg"/>
+                            <constraint firstItem="vTa-Oy-eST" firstAttribute="centerX" secondItem="Fm4-q4-ZdU" secondAttribute="centerX" id="YCF-BB-KNK"/>
                             <constraint firstItem="rIr-hE-jAA" firstAttribute="leading" secondItem="nZw-cc-zM2" secondAttribute="leading" constant="44" id="jqH-A8-O7o"/>
-                            <constraint firstItem="NeT-0t-GaB" firstAttribute="leading" secondItem="nZw-cc-zM2" secondAttribute="leading" constant="44" id="uFy-F4-M7d"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nZw-cc-zM2"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Foj-Rb-R6A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-313" y="39"/>
+            <point key="canvasLocation" x="-110" y="42"/>
         </scene>
     </scenes>
     <resources>

@@ -1122,15 +1122,7 @@ static NSMutableArray<CTInAppDisplayViewController*> *pendingNotificationControl
         evtData[@"wifi"] = @(self.deviceInfo.wifi);
     }
     
-    if (self.deviceInfo.advertisingIdentitier) {
-        evtData[@"ifaA"] = @YES;
-        evtData[@"ifaL"] = self.deviceInfo.advertisingTrackingEnabled ? @NO : @YES;
-        NSString *ifaString = [self deviceIsMultiUser] ?  [NSString stringWithFormat:@"%@%@", kMultiUserPrefix, @"ifa"] : @"ifa";
-        evtData[ifaString] = self.deviceInfo.advertisingIdentitier;
-    } else {
-        evtData[@"ifaA"] = @NO;
-    }
-    
+    evtData[@"ifaA"] = @NO;
     if (self.deviceInfo.vendorIdentifier) {
         NSString *ifvString = [self deviceIsMultiUser] ?  [NSString stringWithFormat:@"%@%@", kMultiUserPrefix, @"ifv"] : @"ifv";
         evtData[ifvString] = self.deviceInfo.vendorIdentifier;
@@ -4984,24 +4976,17 @@ static NSMutableArray<CTInAppDisplayViewController*> *pendingNotificationControl
 }
 
 - (void)recordGeofenceEnteredEvent:(NSDictionary *_Nonnull)geofenceDetails {
-#if !defined(CLEVERTAP_TVOS)
-    [self runSerialAsync:^{
-        [CTEventBuilder buildGeofenceStateEvent:YES forGeofenceDetails:geofenceDetails completionHandler:^(NSDictionary *event, NSArray<CTValidationResult*>*errors) {
-            if (event) {
-                [self queueEvent:event withType:CleverTapEventTypeRaised];
-            };
-            if (errors) {
-                [self pushValidationResults:errors];
-            }
-        }];
-    }];
-#endif
+    [self _buildGeofenceStateEvent:YES forGeofenceDetails:geofenceDetails];
 }
 
 - (void)recordGeofenceExitedEvent:(NSDictionary *_Nonnull)geofenceDetails {
+    [self _buildGeofenceStateEvent:NO forGeofenceDetails:geofenceDetails];
+}
+
+- (void)_buildGeofenceStateEvent:(BOOL)entered forGeofenceDetails:(NSDictionary *_Nonnull)geofenceDetails {
 #if !defined(CLEVERTAP_TVOS)
     [self runSerialAsync:^{
-        [CTEventBuilder buildGeofenceStateEvent:NO forGeofenceDetails:geofenceDetails completionHandler:^(NSDictionary *event, NSArray<CTValidationResult*>*errors) {
+        [CTEventBuilder buildGeofenceStateEvent:entered forGeofenceDetails:geofenceDetails completionHandler:^(NSDictionary *event, NSArray<CTValidationResult*>*errors) {
             if (event) {
                 [self queueEvent:event withType:CleverTapEventTypeRaised];
             };
