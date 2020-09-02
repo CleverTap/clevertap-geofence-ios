@@ -5,6 +5,8 @@ project_type: other
 trigger_map:
 - pull_request_source_branch: '*'
   workflow: primary
+- tag: '*'
+  workflow: primary
 workflows:
   primary:
     steps:
