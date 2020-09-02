@@ -1,0 +1,115 @@
+---
+format_version: '8'
+default_step_lib_source: 'https://github.com/bitrise-io/bitrise-steplib.git'
+project_type: other
+trigger_map:
+- pull_request_source_branch: '*'
+  workflow: primary
+workflows:
+  primary:
+    steps:
+    - activate-ssh-key@4:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone@4: {}
+    - script@1:
+        title: Pod Lint
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            pod lib lint CleverTap-iOS-SDK.podspec
+    - script@1:
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            xcodebuild
+        title: Build Project
+    - script@1:
+        title: Build Cocoapods ObjC Example App
+        inputs:
+        - content: >-
+            #!/usr/bin/env bash
+
+            # fail if any commands fails
+
+            set -e
+
+            # debug log
+
+            set -x
+
+
+            cd Examples/CocoapodsExample/ObjCExample/
+
+            pod install
+
+            cat Podfile.lock
+
+            xcodebuild -workspace "GeofenceObjCPodsExample.xcworkspace" -scheme
+            "GeofenceObjCPodsExample" -sdk iphonesimulator -destination
+            'name=iPhone 11' build
+    - script@1:
+        title: Build Cocoapods Swift Example
+        inputs:
+        - content: >-
+            #!/usr/bin/env bash
+
+            # fail if any commands fails
+
+            set -e
+
+            # debug log
+
+            set -x
+
+
+            cd Examples/CocoapodsExample/SwiftExample/
+
+            pod install
+
+            cat Podfile.lock
+
+            xcodebuild -workspace "GeofenceSwiftPodsExample.xcworkspace" -scheme
+            "GeofenceSwiftPodsExample" -sdk iphonesimulator -destination
+            'name=iPhone 11' build
+    - script@1:
+        title: Go to Carthage Example Folder
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            cd Examples/CarthageExample/
+    - carthage@3:
+        inputs:
+        - carthage_command: update
+    - script@1:
+        title: Build Carthage Example
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            xcodebuild
+    - deploy-to-bitrise-io@1: {}
+    - slack@3:
+        inputs:
+        - channel: '#sdk-alerts'
+        - emoji: ':bitrise:'
+        - text: iOS Geofences Build Completed!
+        - webhook_url: $SLACK_WEBHOOK
