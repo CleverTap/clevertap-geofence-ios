@@ -45,6 +45,7 @@
 		867AAB4F0F85B075554706EE /* Pods-GeofenceSwiftPodsExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofenceSwiftPodsExample.release.xcconfig"; path = "Target Support Files/Pods-GeofenceSwiftPodsExample/Pods-GeofenceSwiftPodsExample.release.xcconfig"; sourceTree = "<group>"; };
 		8B9044BF07CBE0423CD4F008 /* Pods_GeofenceSwiftPodsExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeofenceSwiftPodsExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E0DDC5B2186EFE54C4C25B6 /* Pods-GeofenceSwiftPodsExample-GeofenceSwiftPodsExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofenceSwiftPodsExample-GeofenceSwiftPodsExampleUITests.debug.xcconfig"; path = "Target Support Files/Pods-GeofenceSwiftPodsExample-GeofenceSwiftPodsExampleUITests/Pods-GeofenceSwiftPodsExample-GeofenceSwiftPodsExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		EC3A156824FF9C2100C6ED32 /* GeofenceSwiftPodsExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GeofenceSwiftPodsExample.entitlements; sourceTree = "<group>"; };
 		F1653F652E922D8AADD5B04C /* Pods-GeofenceSwiftPodsExample-GeofenceSwiftPodsExampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofenceSwiftPodsExample-GeofenceSwiftPodsExampleUITests.release.xcconfig"; path = "Target Support Files/Pods-GeofenceSwiftPodsExample-GeofenceSwiftPodsExampleUITests/Pods-GeofenceSwiftPodsExample-GeofenceSwiftPodsExampleUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F989565124B75BFD00836D5D /* GeofenceSwiftPodsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeofenceSwiftPodsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F989565424B75BFD00836D5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +138,7 @@
 		F989565324B75BFD00836D5D /* GeofenceSwiftPodsExample */ = {
 			isa = PBXGroup;
 			children = (
+				EC3A156824FF9C2100C6ED32 /* GeofenceSwiftPodsExample.entitlements */,
 				F989565424B75BFD00836D5D /* AppDelegate.swift */,
 				F989565824B75BFD00836D5D /* ViewController.swift */,
 				F989565A24B75BFD00836D5D /* Main.storyboard */,
@@ -581,6 +583,7 @@
 			baseConfigurationReference = 1904981DE0224E38FF357025 /* Pods-GeofenceSwiftPodsExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GeofenceSwiftPodsExample/GeofenceSwiftPodsExample.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A5J34NR598;
 				INFOPLIST_FILE = GeofenceSwiftPodsExample/Info.plist;
@@ -601,6 +604,7 @@
 			baseConfigurationReference = 867AAB4F0F85B075554706EE /* Pods-GeofenceSwiftPodsExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GeofenceSwiftPodsExample/GeofenceSwiftPodsExample.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A5J34NR598;
 				INFOPLIST_FILE = GeofenceSwiftPodsExample/Info.plist;

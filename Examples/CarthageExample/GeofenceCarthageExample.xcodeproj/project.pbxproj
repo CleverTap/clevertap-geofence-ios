@@ -74,6 +74,7 @@
 		EC2454E424FF955B00D36217 /* CleverTapSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CleverTapSDK.framework; path = Carthage/Build/iOS/CleverTapSDK.framework; sourceTree = "<group>"; };
 		EC2454E524FF955B00D36217 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
 		EC2454E624FF955B00D36217 /* CleverTapGeofence.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CleverTapGeofence.framework; path = Carthage/Build/iOS/CleverTapGeofence.framework; sourceTree = "<group>"; };
+		EC3A156624FF9BF400C6ED32 /* GeofenceCarthageExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GeofenceCarthageExample.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +129,7 @@
 		EC139EDD24FF90FD00193E28 /* GeofenceCarthageExample */ = {
 			isa = PBXGroup;
 			children = (
+				EC3A156624FF9BF400C6ED32 /* GeofenceCarthageExample.entitlements */,
 				EC139EDE24FF90FD00193E28 /* AppDelegate.swift */,
 				EC139EE024FF90FD00193E28 /* SceneDelegate.swift */,
 				EC139EE224FF90FD00193E28 /* ViewController.swift */,
@@ -474,7 +476,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GeofenceCarthageExample/GeofenceCarthageExample.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A5J34NR598;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -496,7 +500,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GeofenceCarthageExample/GeofenceCarthageExample.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A5J34NR598;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
