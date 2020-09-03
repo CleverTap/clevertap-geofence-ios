@@ -55,7 +55,7 @@ internal struct CleverTapGeofenceUtils {
         var generatedError: Error
         
         if let error = error as NSError? {
-
+            
             let description = message.rawValue + " | " + error.domain + " | " + "\(error.code)" + " | " + error.localizedDescription
             
             generatedError = NSError(domain: "CleverTapGeofence",
@@ -79,17 +79,14 @@ internal struct CleverTapGeofenceUtils {
         
         log("%@", type: .debug, #function)
         
-        if let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            let filePath = path.appendingPathComponent(geofencesKey)
-            let data = NSKeyedArchiver.archivedData(withRootObject: geofences)
-            do {
-                try data.write(to: filePath)
-                log("Successfully wrote geofences to disk: %@", type: .debug, geofences)
-            } catch {
-                recordError(message: .diskWrite)
-            }
-        } else {
-            recordError(message: .diskFilePath)
+        guard let filePath = getFilePath() else { return }
+        
+        let data = NSKeyedArchiver.archivedData(withRootObject: geofences)
+        do {
+            try data.write(to: filePath)
+            log("Successfully wrote geofences to disk: %@", type: .debug, geofences)
+        } catch {
+            recordError(message: .diskWrite)
         }
     }
     
@@ -97,34 +94,44 @@ internal struct CleverTapGeofenceUtils {
         
         log("%@", type: .debug, #function, remove)
         
-        if let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            let filePath = path.appendingPathComponent(geofencesKey)
+        guard let filePath = getFilePath() else { return nil }
             
-            do {
-                let data = try Data(contentsOf: filePath)
+        do {
+            let data = try Data(contentsOf: filePath)
+            
+            if let geofences = NSKeyedUnarchiver.unarchiveObject(with: data) as? [[AnyHashable: Any]]{
                 
-                if let geofences = NSKeyedUnarchiver.unarchiveObject(with: data) as? [[AnyHashable: Any]]{
-                    
-                    if remove {
-                        do {
-                            try FileManager.default.removeItem(at: filePath)
-                        } catch {
-                            recordError(error, message: .diskRemove)
-                        }
-                    }
-                    log("Geofences list as read from disk: %@", type: .debug, geofences)
-                    return geofences
-                } else {
-                    recordError(message: .diskRead)
+                if remove {
+                    removeFile(at: filePath)
                 }
-            } catch {
-                recordError(error, message: .diskRead)
+                log("Geofences list as read from disk: %@", type: .debug, geofences)
+                return geofences
+            } else {
+                recordError(message: .diskRead)
             }
-        } else {
-            recordError(message: .diskFilePath)
+        } catch {
+            recordError(error, message: .diskRead)
         }
         
         return nil
+    }
+    
+    private static func getFilePath() -> URL? {
+        
+        if let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            return path.appendingPathComponent(geofencesKey)
+        } else {
+            recordError(message: .diskFilePath)
+            return nil
+        }
+    }
+    
+    private static func removeFile(at path: URL) {
+        do {
+            try FileManager.default.removeItem(at: path)
+        } catch {
+            recordError(error, message: .diskRemove)
+        }
     }
 }
 
@@ -162,3 +169,4 @@ extension CLLocationCoordinate2D: Equatable {
         return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
     }
 }
+
