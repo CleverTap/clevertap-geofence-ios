@@ -5,6 +5,7 @@
 [![Version](https://img.shields.io/cocoapods/v/CleverTapGeofence.svg?style=flat)](http://cocoapods.org/pods/CleverTapGeofence)
 [![License](https://img.shields.io/cocoapods/l/CleverTapGeofence.svg?style=flat)](http://cocoapods.org/pods/CleverTapGeofence)
 [![Build Status](https://app.bitrise.io/app/e6c73ea4fb3e93f6/status.svg?token=N8nHxAr-vC2I92731k_e9w&branch=master)](https://app.bitrise.io/app/e6c73ea4fb3e93f6)
+[![codebeat badge](https://codebeat.co/badges/72d5f95b-6d33-4811-97fb-7c7cff001815)](https://codebeat.co/projects/github-com-clevertap-clevertap-geofence-ios-master)
 [![Language](https://img.shields.io/badge/swift-5.1-orange.svg)](https://developer.apple.com/swift)
 [![Platform](http://img.shields.io/badge/platform-iOS-lightgrey.svg?style=flat)](https://developer.apple.com/resources/)
 ![iOS 10.0+](https://img.shields.io/badge/iOS-10.0%2B-blue.svg)
