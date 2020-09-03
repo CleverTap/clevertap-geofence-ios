@@ -7,45 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC34D5F02501094F00A72409 /* CleverTapGeofence.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC34D5EC2501094100A72409 /* CleverTapGeofence.framework */; };
-		EC34D5F12501094F00A72409 /* CleverTapGeofence.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC34D5EC2501094100A72409 /* CleverTapGeofence.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC34D5F22501094F00A72409 /* CleverTapSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC34D5D62501091700A72409 /* CleverTapSDK.framework */; };
-		EC34D5F32501094F00A72409 /* CleverTapSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC34D5D62501091700A72409 /* CleverTapSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC0D19C72501175A00B081B5 /* CleverTapGeofence.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC0D19C42501174D00B081B5 /* CleverTapGeofence.framework */; };
+		EC0D19C82501175A00B081B5 /* CleverTapGeofence.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC0D19C42501174D00B081B5 /* CleverTapGeofence.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC0D19C92501175A00B081B5 /* CleverTapSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC0D19BA2501172D00B081B5 /* CleverTapSDK.framework */; };
+		EC0D19CA2501175A00B081B5 /* CleverTapSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC0D19BA2501172D00B081B5 /* CleverTapSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ECBBF59A25010320004589EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBBF59925010320004589EF /* AppDelegate.swift */; };
 		ECBBF59C25010320004589EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBBF59B25010320004589EF /* SceneDelegate.swift */; };
 		ECBBF59E25010320004589EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBBF59D25010320004589EF /* ViewController.swift */; };
 		ECBBF5A125010320004589EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECBBF59F25010320004589EF /* Main.storyboard */; };
 		ECBBF5A325010322004589EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECBBF5A225010322004589EF /* Assets.xcassets */; };
 		ECBBF5A625010322004589EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECBBF5A425010322004589EF /* LaunchScreen.storyboard */; };
-		ECBBF5B125010322004589EF /* GeofenceManualExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBBF5B025010322004589EF /* GeofenceManualExampleTests.swift */; };
-		ECBBF5BC25010322004589EF /* GeofenceManualExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBBF5BB25010322004589EF /* GeofenceManualExampleUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		EC34D5D52501091700A72409 /* PBXContainerItemProxy */ = {
+		EC0D19B92501172D00B081B5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EC34D5D02501091700A72409 /* CleverTapSDK.xcodeproj */;
+			containerPortal = EC0D19B42501172D00B081B5 /* CleverTapSDK.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D0C7BBBD207D82C0001345EF;
 			remoteInfo = CleverTapSDK;
 		};
-		EC34D5D72501091700A72409 /* PBXContainerItemProxy */ = {
+		EC0D19BB2501172D00B081B5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EC34D5D02501091700A72409 /* CleverTapSDK.xcodeproj */;
+			containerPortal = EC0D19B42501172D00B081B5 /* CleverTapSDK.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D014B8D720E2F963001E0780;
 			remoteInfo = CleverTapSDK_TVOS;
 		};
-		EC34D5EB2501094100A72409 /* PBXContainerItemProxy */ = {
+		EC0D19C32501174D00B081B5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EC34D5E52501094100A72409 /* CleverTapGeofence.xcodeproj */;
+			containerPortal = EC0D19BD2501174C00B081B5 /* CleverTapGeofence.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = "CleverTapGeofence::CleverTapGeofence::Product";
 			remoteInfo = CleverTapGeofence;
 		};
-		EC34D5ED2501094100A72409 /* PBXContainerItemProxy */ = {
+		EC0D19C52501174D00B081B5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EC34D5E52501094100A72409 /* CleverTapGeofence.xcodeproj */;
+			containerPortal = EC0D19BD2501174C00B081B5 /* CleverTapGeofence.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = "CleverTapGeofence::CleverTapGeofenceTests::Product";
 			remoteInfo = CleverTapGeofenceTests;
@@ -73,8 +71,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EC34D5F32501094F00A72409 /* CleverTapSDK.framework in Embed Frameworks */,
-				EC34D5F12501094F00A72409 /* CleverTapGeofence.framework in Embed Frameworks */,
+				EC0D19CA2501175A00B081B5 /* CleverTapSDK.framework in Embed Frameworks */,
+				EC0D19C82501175A00B081B5 /* CleverTapGeofence.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,8 +80,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		EC34D5D02501091700A72409 /* CleverTapSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CleverTapSDK.xcodeproj; path = ../../Vendors/CleverTap/CleverTapSDK.xcodeproj; sourceTree = "<group>"; };
-		EC34D5E52501094100A72409 /* CleverTapGeofence.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CleverTapGeofence.xcodeproj; path = ../../CleverTapGeofence.xcodeproj; sourceTree = "<group>"; };
+		EC0D19B42501172D00B081B5 /* CleverTapSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CleverTapSDK.xcodeproj; path = ../../Vendors/CleverTap/CleverTapSDK.xcodeproj; sourceTree = "<group>"; };
+		EC0D19BD2501174C00B081B5 /* CleverTapGeofence.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CleverTapGeofence.xcodeproj; path = ../../CleverTapGeofence.xcodeproj; sourceTree = "<group>"; };
 		EC34D5EF2501094F00A72409 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECBBF59625010320004589EF /* GeofenceManualExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeofenceManualExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECBBF59925010320004589EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -94,11 +92,7 @@
 		ECBBF5A525010322004589EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECBBF5A725010322004589EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECBBF5AC25010322004589EF /* GeofenceManualExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeofenceManualExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECBBF5B025010322004589EF /* GeofenceManualExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceManualExampleTests.swift; sourceTree = "<group>"; };
-		ECBBF5B225010322004589EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECBBF5B725010322004589EF /* GeofenceManualExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeofenceManualExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECBBF5BB25010322004589EF /* GeofenceManualExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceManualExampleUITests.swift; sourceTree = "<group>"; };
-		ECBBF5BD25010322004589EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECBBF5C9250103AE004589EF /* GeofenceManualExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GeofenceManualExample.entitlements; sourceTree = "<group>"; };
 		ECBBF5D82501057D004589EF /* CleverTapGeofence.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CleverTapGeofence.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECBBF5D92501057D004589EF /* CleverTapSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CleverTapSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,8 +104,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC34D5F22501094F00A72409 /* CleverTapSDK.framework in Frameworks */,
-				EC34D5F02501094F00A72409 /* CleverTapGeofence.framework in Frameworks */,
+				EC0D19C92501175A00B081B5 /* CleverTapSDK.framework in Frameworks */,
+				EC0D19C72501175A00B081B5 /* CleverTapGeofence.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,20 +126,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EC34D5D12501091700A72409 /* Products */ = {
+		EC0D19B52501172D00B081B5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EC34D5D62501091700A72409 /* CleverTapSDK.framework */,
-				EC34D5D82501091700A72409 /* CleverTapSDK.framework */,
+				EC0D19BA2501172D00B081B5 /* CleverTapSDK.framework */,
+				EC0D19BC2501172D00B081B5 /* CleverTapSDK.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EC34D5E62501094100A72409 /* Products */ = {
+		EC0D19BE2501174C00B081B5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EC34D5EC2501094100A72409 /* CleverTapGeofence.framework */,
-				EC34D5EE2501094100A72409 /* CleverTapGeofenceTests.xctest */,
+				EC0D19C42501174D00B081B5 /* CleverTapGeofence.framework */,
+				EC0D19C62501174D00B081B5 /* CleverTapGeofenceTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -153,11 +147,9 @@
 		ECBBF58D25010320004589EF = {
 			isa = PBXGroup;
 			children = (
-				EC34D5E52501094100A72409 /* CleverTapGeofence.xcodeproj */,
-				EC34D5D02501091700A72409 /* CleverTapSDK.xcodeproj */,
+				EC0D19BD2501174C00B081B5 /* CleverTapGeofence.xcodeproj */,
+				EC0D19B42501172D00B081B5 /* CleverTapSDK.xcodeproj */,
 				ECBBF59825010320004589EF /* GeofenceManualExample */,
-				ECBBF5AF25010322004589EF /* GeofenceManualExampleTests */,
-				ECBBF5BA25010322004589EF /* GeofenceManualExampleUITests */,
 				ECBBF59725010320004589EF /* Products */,
 				ECBBF5D72501057D004589EF /* Frameworks */,
 			);
@@ -186,24 +178,6 @@
 				ECBBF5A725010322004589EF /* Info.plist */,
 			);
 			path = GeofenceManualExample;
-			sourceTree = "<group>";
-		};
-		ECBBF5AF25010322004589EF /* GeofenceManualExampleTests */ = {
-			isa = PBXGroup;
-			children = (
-				ECBBF5B025010322004589EF /* GeofenceManualExampleTests.swift */,
-				ECBBF5B225010322004589EF /* Info.plist */,
-			);
-			path = GeofenceManualExampleTests;
-			sourceTree = "<group>";
-		};
-		ECBBF5BA25010322004589EF /* GeofenceManualExampleUITests */ = {
-			isa = PBXGroup;
-			children = (
-				ECBBF5BB25010322004589EF /* GeofenceManualExampleUITests.swift */,
-				ECBBF5BD25010322004589EF /* Info.plist */,
-			);
-			path = GeofenceManualExampleUITests;
 			sourceTree = "<group>";
 		};
 		ECBBF5D72501057D004589EF /* Frameworks */ = {
@@ -310,12 +284,12 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = EC34D5E62501094100A72409 /* Products */;
-					ProjectRef = EC34D5E52501094100A72409 /* CleverTapGeofence.xcodeproj */;
+					ProductGroup = EC0D19BE2501174C00B081B5 /* Products */;
+					ProjectRef = EC0D19BD2501174C00B081B5 /* CleverTapGeofence.xcodeproj */;
 				},
 				{
-					ProductGroup = EC34D5D12501091700A72409 /* Products */;
-					ProjectRef = EC34D5D02501091700A72409 /* CleverTapSDK.xcodeproj */;
+					ProductGroup = EC0D19B52501172D00B081B5 /* Products */;
+					ProjectRef = EC0D19B42501172D00B081B5 /* CleverTapSDK.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -328,32 +302,32 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		EC34D5D62501091700A72409 /* CleverTapSDK.framework */ = {
+		EC0D19BA2501172D00B081B5 /* CleverTapSDK.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = CleverTapSDK.framework;
-			remoteRef = EC34D5D52501091700A72409 /* PBXContainerItemProxy */;
+			remoteRef = EC0D19B92501172D00B081B5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		EC34D5D82501091700A72409 /* CleverTapSDK.framework */ = {
+		EC0D19BC2501172D00B081B5 /* CleverTapSDK.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = CleverTapSDK.framework;
-			remoteRef = EC34D5D72501091700A72409 /* PBXContainerItemProxy */;
+			remoteRef = EC0D19BB2501172D00B081B5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		EC34D5EC2501094100A72409 /* CleverTapGeofence.framework */ = {
+		EC0D19C42501174D00B081B5 /* CleverTapGeofence.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = CleverTapGeofence.framework;
-			remoteRef = EC34D5EB2501094100A72409 /* PBXContainerItemProxy */;
+			remoteRef = EC0D19C32501174D00B081B5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		EC34D5EE2501094100A72409 /* CleverTapGeofenceTests.xctest */ = {
+		EC0D19C62501174D00B081B5 /* CleverTapGeofenceTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = CleverTapGeofenceTests.xctest;
-			remoteRef = EC34D5ED2501094100A72409 /* PBXContainerItemProxy */;
+			remoteRef = EC0D19C52501174D00B081B5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -400,7 +374,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECBBF5B125010322004589EF /* GeofenceManualExampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,7 +381,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECBBF5BC25010322004589EF /* GeofenceManualExampleUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
