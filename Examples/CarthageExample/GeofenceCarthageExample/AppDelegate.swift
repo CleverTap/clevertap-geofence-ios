@@ -31,6 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
+    func someScenarioWhereLocationMonitoringShouldBeOff() {
+        
+        CleverTapGeofence.monitor.stop()
+    }
 
     // MARK: UISceneSession Lifecycle
 
