@@ -2,6 +2,12 @@
   <img src="https://github.com/CleverTap/clevertap-segment-ios/blob/master/clevertap-logo.png" width="300"/>
 </p>
 
+[![Version](https://img.shields.io/cocoapods/v/CleverTapGeofence.svg?style=flat)](http://cocoapods.org/pods/CleverTapGeofence)
+[![License](https://img.shields.io/cocoapods/l/CleverTapGeofence.svg?style=flat)](http://cocoapods.org/pods/CleverTapGeofence)
+[![Build Status](https://app.bitrise.io/app/e6c73ea4fb3e93f6/status.svg?token=N8nHxAr-vC2I92731k_e9w&branch=master)](https://app.bitrise.io/app/e6c73ea4fb3e93f6)
+![iOS 10.0+](https://img.shields.io/badge/iOS-10.0%2B-blue.svg)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
 ## 👋 Introduction
 
 CleverTap Geofence SDK provides Geofencing capabilities to CleverTap iOS SDK by using Core Location framework. This document lists down steps to utilize CleverTap Geofence in your apps. You can further customize your integration of CleverTap Geofence by using the [Geofence Customization document](Docs/Customization.md).
