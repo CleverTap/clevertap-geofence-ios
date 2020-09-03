@@ -22,6 +22,9 @@ Along with [CocoaPods installation](../README.md#via-cocoapods), CleverTap Geofe
 ```
 github "CleverTap/clevertap-geofence-ios"
 ```
+Ensure that you add the `CleverTapGeofence`, `CleverTapSDK` & `SDWebImage` frameworks to Xcode's *Frameworks, Libraries, and Embedded Content* section.
+
+![Carthage Copy Frameworks](CarthageCopyFrameworks.png  "Geofence Notifications")
 
 ### Manual
 
@@ -142,4 +145,4 @@ You can **subscribe** to Geofence Enter & Exit event notifications to perform an
   }]
   ```
 
-![alt text](GeofenceNotifications.png  "Geofence Notifications")
+![Geofence Notifications](GeofenceNotifications.png  "Geofence Notifications")

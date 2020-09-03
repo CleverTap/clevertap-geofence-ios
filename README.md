@@ -19,7 +19,7 @@ CleverTap Geofence SDK provides Geofencing capabilities to CleverTap iOS SDK by 
 
 - [Requirements](#-requirements)
 - [Installation](#-installation)
-  - [Via CocoaPods](#via-cocoapods)
+    - [Via CocoaPods](#via-cocoapods)
 - [Integration](#-integration)
 - [Customization](#-customization)
 - [Example Usage](#-example-usage)
@@ -57,7 +57,8 @@ CleverTap Geofence utilizes Core Location APIs to setup up Geofences Region moni
   - Click on `+ Capability` button
   - Select the `Background Modes` option
   - Enable `Location Updates` by selecting the checkbox
-  ![alt text](Docs/Capabilities.png  "Capabilities")
+  
+  ![Xcode Capabilities](Docs/Capabilities.png  "Capabilities")
   
 **2.** In your `Info.plist` file, add the following keys -
   - `NSLocationAlwaysAndWhenInUseUsageDescription` also known as `Privacy - Location Always and When In Use Usage Description`
@@ -91,7 +92,8 @@ CleverTap Geofence utilizes Core Location APIs to setup up Geofences Region moni
     <string>processing</string>
   </array>
   ```
-  ![alt text](Docs/Info-plist.png "Info.plist")
+  
+  ![Xcode Info.plist](Docs/Info-plist.png "Info.plist")
 
 
 
@@ -131,7 +133,7 @@ Ensure that Geofence SDK initialization is done after CleverTap Main SDK initial
   ```
 
 
-![alt text](Docs/StartGeofence.png  "Example AppDelegate.swift")
+![Xcode Start Geofence Snippet](Docs/StartGeofence.png  "Example AppDelegate.swift")
 
 ## 📖 Customization
 You can further *customize* your integration of CleverTap Geofence by following the [Customization document](Docs/Customization.md).
