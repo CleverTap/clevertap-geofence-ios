@@ -38,6 +38,9 @@ CleverTap Geofence SDK can also be integrated manually without any dependency ma
 
 - Embed the framework. Select your app.xcodeproj file. Under "General", add the CleverTapGeofence framework as an embedded binary.
 
+You can refer to [Manual Demo Application](https://github.com/CleverTap/clevertap-geofence-ios/tree/feature/SDK-104-geofence-support/Examples/Manual) showcasing Manual Installation.
+
+![Manual Example](ManualExample.png  "Geofence Notifications")
 
 ## Alternative Initialization
 
