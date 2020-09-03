@@ -24,6 +24,8 @@ github "CleverTap/clevertap-geofence-ios"
 ```
 Ensure that you add the `CleverTapGeofence`, `CleverTapSDK` & `SDWebImage` frameworks to Xcode's *Frameworks, Libraries, and Embedded Content* section.
 
+You can refer to [Carthage Demo Application](https://github.com/CleverTap/clevertap-geofence-ios/tree/feature/SDK-104-geofence-support/Examples/CarthageExample) showcasing Carthage Installation.
+
 ![Carthage Copy Frameworks](CarthageCopyFrameworks.png  "Geofence Notifications")
 
 ### Manual

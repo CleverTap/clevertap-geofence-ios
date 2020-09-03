@@ -44,6 +44,8 @@ Following are required for using CleverTap Geofence SDK -
 ```
 pod 'CleverTapGeofence'
 ```
+You can refer to [Demo Applications](https://github.com/CleverTap/clevertap-geofence-ios/tree/feature/SDK-104-geofence-support/Examples/CocoapodsExample) showcasing CocoaPods Installation.
+
 For installing CleverTap Geofence via [Carthage](Docs/Customization.md#carthage) or [Manually](Docs/Customization.md#manual), check out the steps in [Geofence Customization document](Docs/Customization.md#alternative-installation).
 
 ## 🚀 Integration
