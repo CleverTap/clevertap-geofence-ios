@@ -23,6 +23,6 @@ DerivedData/
 *.dSYM
 timeline.xctimeline
 playground.xcworkspace
-Examples/Cocoapods\ Examples/Objective\ C\ Example/Pods/
-Examples/Cocoapods\ Examples/Swift\ Example/Pods/
-Examples/Carthage Examples/Carthage/
+Examples/CocoapodsExample/ObjCExample/Pods
+Examples/CocoapodsExample/SwiftExample/Pods
+Examples/CarthageExample
