@@ -10,7 +10,7 @@
 
 ## 👋 Introduction
 
-CleverTap Geofence SDK provides Geofencing capabilities to CleverTap iOS SDK by using Core Location framework. This document lists down steps to utilize CleverTap Geofence in your apps. You can further customize your integration of CleverTap Geofence by using the [Geofence Customization document](Docs/Customization.md).
+CleverTap Geofence SDK provides Geofencing capabilities to CleverTap iOS SDK by using the Core Location framework. This document lists down steps to utilize CleverTap Geofence in your apps. You can further customize your integration of CleverTap Geofence by using the [Geofence Customization document](Docs/Customization.md).
 
 ## ⍗ Contents
 
@@ -58,17 +58,17 @@ CleverTap Geofence utilizes Core Location APIs to setup up Geofences Region moni
   
 **2.** In your `Info.plist` file, add the following keys -
   - `NSLocationAlwaysAndWhenInUseUsageDescription` also known as `Privacy - Location Always and When In Use Usage Description`
-   This is a key which accepts a String description to be used by iOS while requesting Location permission from user.
+   This is a key that accepts a String description to be used by iOS while requesting Location permission from the user.
 
   - `NSLocationWhenInUseUsageDescription` also known as `Privacy - Location When In Use Usage Description`
-  This is a key which accepts a String description to be used by iOS while requesting Location permission from user.
+  This is a key that accepts a String description to be used by iOS while requesting Location permission from the user.
 
   - `UIBackgroundModes` also known as `Required background modes`
-  This is a key which accepts an Array of items. This should include the `location` also known as `App registers for location updates` item to enable Background Location monitoring.
+  This is a key that accepts an Array of items. This should include the `location` also known as `App registers for location updates` item to enable Background Location monitoring.
 
-  *For iOS 11 only*: If your app targets iOS 11 then along with the above mentioned 3 Info.plist keys, the following key is also required. If your app target is iOS 12 or above, following is not required -
+  *For iOS 11 only*: If your app targets iOS 11 then along with the above mentioned 3 Info.plist keys, the following key is also required. If your app target is iOS 12 or above, the following is not required -
   - `NSLocationAlwaysUsageDescription` also know as `Privacy - Location Always Usage Description`
-  This is a key which accepts a String description to be used by iOS while requesting Location permission from user. Only required for iOS 11.
+  This is a key that accepts a String description to be used by iOS while requesting Location permission from the user. Only required for iOS 11.
 
 
   Following is an example of all the Info.plist keys in Source Code format -
@@ -102,7 +102,8 @@ CleverTap Geofence utilizes Core Location APIs to setup up Geofences Region moni
   @import CleverTapGeofence;
   ```
   
-**4.** In your AppDelegate's `application:didFinishLaunchingWithOptions:` function, add the following the code snippet. Ensure that Geofence SDK initialization is done **after** CleverTap Main SDK initialization.
+**4.** In your AppDelegate's `application:didFinishLaunchingWithOptions:` function, add the following the code snippet. 
+Ensure that Geofence SDK initialization is done after CleverTap Main SDK initialization.
 
   ```
   // Swift
@@ -112,7 +113,7 @@ CleverTap Geofence utilizes Core Location APIs to setup up Geofences Region moni
   [[CleverTapGeofence monitor] startWithDidFinishLaunchingWithOptions:launchOptions];
   ```
  
-**5.** CleverTap Geofence SDK requires location permission from users to provide the Geofencing capabilities. The App is expected to request Location permission from user at an appropriate time. Once CleverTap Geofence SDK detects that Location permission has been given by user, only then the module will start to perform it's functions.
+**5.** CleverTap Geofence SDK requires location permission from users to provide the Geofencing capabilities. The App is expected to request Location permission from the user at an appropriate time. Once CleverTap Geofence SDK detects that Location permission has been given by the user, only then the module will start to perform its functions.
 
   An example of how an app can request location permission is below:
 
@@ -140,7 +141,7 @@ You can further *customize* your integration of CleverTap Geofence by following 
 
 ## 🆕 Change Log
 
-See the [CleverTap Geofence SDK Change Log](https://github.com/CleverTap/clevertap-geofence-ios/blob/feature/SDK-104-geofence-support/CHANGELOG.md).
+Refer to the [CleverTap Geofence SDK Change Log](https://github.com/CleverTap/clevertap-geofence-ios/blob/feature/SDK-104-geofence-support/CHANGELOG.md).
 
 
 ## 🤝 Help and Questions
