@@ -1,6 +1,7 @@
-# CHANGE LOG
+# Change Log
+All notable changes to this project will be documented in this file.
 
-## Version 1.0.0 (September 31, 2020)
+### [Version 1.0.0](https://github.com/CleverTap/clevertap-geofence-ios/releases/tag/1.0.0) (September 3, 2020)
 * First release of CleverTap iOS Geofence SDK 
 
 
