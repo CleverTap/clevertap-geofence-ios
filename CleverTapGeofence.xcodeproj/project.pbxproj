@@ -24,55 +24,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		49C9F19C2502492C0004F047 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 49C9F1972502492C0004F047 /* CleverTapSDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D0C7BBBD207D82C0001345EF;
-			remoteInfo = CleverTapSDK;
-		};
-		49C9F19E2502492C0004F047 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 49C9F1972502492C0004F047 /* CleverTapSDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D014B8D720E2F963001E0780;
-			remoteInfo = CleverTapSDK_TVOS;
-		};
-		49C9F1A8250249320004F047 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 49C9F1A3250249320004F047 /* CleverTapSDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D0C7BBBD207D82C0001345EF;
-			remoteInfo = CleverTapSDK;
-		};
-		49C9F1AA250249320004F047 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 49C9F1A3250249320004F047 /* CleverTapSDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D014B8D720E2F963001E0780;
-			remoteInfo = CleverTapSDK_TVOS;
-		};
-		ECBBF5D02501053E004589EF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ECBBF5CA2501053E004589EF /* SDWebImage.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 53761325155AD0D5005750A4;
-			remoteInfo = "SDWebImage static";
-		};
-		ECBBF5D22501053E004589EF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ECBBF5CA2501053E004589EF /* SDWebImage.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4A2CADFF1AB4BB5300B6BC39;
-			remoteInfo = SDWebImage;
-		};
-		ECBBF5D42501053E004589EF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ECBBF5CA2501053E004589EF /* SDWebImage.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 80B6DFEE2142B71600BCB334;
-			remoteInfo = SDWebImageMapKit;
-		};
 		F9D1B18424ADD31B00778450 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
@@ -101,14 +52,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		49C9F1972502492C0004F047 /* CleverTapSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CleverTapSDK.xcodeproj; path = Vendors/CleverTap/CleverTapSDK.xcodeproj; sourceTree = "<group>"; };
-		49C9F1A3250249320004F047 /* CleverTapSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CleverTapSDK.xcodeproj; path = Vendors/CleverTap/CleverTapSDK.xcodeproj; sourceTree = "<group>"; };
 		49FA01A924C6EBAD005FC1E4 /* CleverTapSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CleverTapSDK.framework; path = Vendors/CleverTapSDK.framework; sourceTree = "<group>"; };
 		49FA01AC24C6EE34005FC1E4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
 		"CleverTapGeofence::CleverTapGeofence::Product" /* CleverTapGeofence.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CleverTapGeofence.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"CleverTapGeofence::CleverTapGeofenceTests::Product" /* CleverTapGeofenceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = CleverTapGeofenceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECBA6AB624EBEEDE007D8D6D /* CleverTapGeofence.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CleverTapGeofence.h; sourceTree = "<group>"; };
-		ECBBF5CA2501053E004589EF /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = "../Clevertap-iOS-SDK/Vendors/SDWebImage/SDWebImage.xcodeproj"; sourceTree = "<group>"; };
 		ECE7A2C324DC11E60016F503 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = Carthage/Build/iOS/OCMock.framework; sourceTree = "<group>"; };
 		ECE7A2C424DC11E60016F503 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		ECE7A2C524DC11E70016F503 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
@@ -141,34 +89,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		49C9F1982502492C0004F047 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				49C9F19D2502492C0004F047 /* CleverTapSDK.framework */,
-				49C9F19F2502492C0004F047 /* CleverTapSDK.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		49C9F1A4250249320004F047 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				49C9F1A9250249320004F047 /* CleverTapSDK.framework */,
-				49C9F1AB250249320004F047 /* CleverTapSDK.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		ECBBF5CB2501053E004589EF /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				ECBBF5D12501053E004589EF /* libSDWebImage.a */,
-				ECBBF5D32501053E004589EF /* SDWebImage.framework */,
-				ECBBF5D52501053E004589EF /* SDWebImageMapKit.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		F90875E924ADD75E00AFE67C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,9 +143,6 @@
 		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
-				49C9F1972502492C0004F047 /* CleverTapSDK.xcodeproj */,
-				49C9F1A3250249320004F047 /* CleverTapSDK.xcodeproj */,
-				ECBBF5CA2501053E004589EF /* SDWebImage.xcodeproj */,
 				F90875E924ADD75E00AFE67C /* Sources */,
 				OBJ_10 /* Tests */,
 				OBJ_14 /* Products */,
@@ -308,20 +225,6 @@
 			mainGroup = OBJ_5;
 			productRefGroup = OBJ_14 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 49C9F1982502492C0004F047 /* Products */;
-					ProjectRef = 49C9F1972502492C0004F047 /* CleverTapSDK.xcodeproj */;
-				},
-				{
-					ProductGroup = 49C9F1A4250249320004F047 /* Products */;
-					ProjectRef = 49C9F1A3250249320004F047 /* CleverTapSDK.xcodeproj */;
-				},
-				{
-					ProductGroup = ECBBF5CB2501053E004589EF /* Products */;
-					ProjectRef = ECBBF5CA2501053E004589EF /* SDWebImage.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				"CleverTapGeofence::CleverTapGeofence" /* CleverTapGeofence */,
@@ -329,58 +232,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		49C9F19D2502492C0004F047 /* CleverTapSDK.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CleverTapSDK.framework;
-			remoteRef = 49C9F19C2502492C0004F047 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		49C9F19F2502492C0004F047 /* CleverTapSDK.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CleverTapSDK.framework;
-			remoteRef = 49C9F19E2502492C0004F047 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		49C9F1A9250249320004F047 /* CleverTapSDK.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CleverTapSDK.framework;
-			remoteRef = 49C9F1A8250249320004F047 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		49C9F1AB250249320004F047 /* CleverTapSDK.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CleverTapSDK.framework;
-			remoteRef = 49C9F1AA250249320004F047 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		ECBBF5D12501053E004589EF /* libSDWebImage.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libSDWebImage.a;
-			remoteRef = ECBBF5D02501053E004589EF /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		ECBBF5D32501053E004589EF /* SDWebImage.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SDWebImage.framework;
-			remoteRef = ECBBF5D22501053E004589EF /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		ECBBF5D52501053E004589EF /* SDWebImageMapKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SDWebImageMapKit.framework;
-			remoteRef = ECBBF5D42501053E004589EF /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
 		OBJ_23 /* Sources */ = {
