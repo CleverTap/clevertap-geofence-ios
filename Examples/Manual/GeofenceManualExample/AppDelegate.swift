@@ -1,3 +1,10 @@
+//
+//  AppDelegate.swift
+//  GeofenceManualExample
+//
+//  Created by Yogesh Singh on 03/09/20.
+//  Copyright © 2020 CleverTap. All rights reserved.
+//
 
 import UIKit
 import CleverTapSDK
