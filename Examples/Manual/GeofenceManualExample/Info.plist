@@ -15,15 +15,15 @@
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
-	<string>$(MARKETING_VERSION)</string>
+	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
 	<key>CleverTapAccountID</key>
 	<string>69R-Z7W-W54Z</string>
 	<key>CleverTapToken</key>
 	<string>0a1-2c6</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>App needs your location to provide enhanced features.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

@@ -1,5 +1,5 @@
-github "CleverTap/clevertap-ios-sdk" "f1296bfbe5dfd1d721f3bcbf7517972c303a7dec"
-github "Quick/Nimble" "v8.1.1"
+github "CleverTap/clevertap-ios-sdk" "3.9.0"
+github "Quick/Nimble" "v8.1.2"
 github "Quick/Quick" "v3.0.0"
-github "SDWebImage/SDWebImage" "5.8.4"
+github "SDWebImage/SDWebImage" "5.9.0"
 github "erikdoe/ocmock" "v3.7.1"
