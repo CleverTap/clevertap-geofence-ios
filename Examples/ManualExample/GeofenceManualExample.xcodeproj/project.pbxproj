@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49C9F18925020ADB0004F047 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49C9F18825020ADB0004F047 /* Default-568h@2x.png */; };
 		EC0D19C72501175A00B081B5 /* CleverTapGeofence.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC0D19C42501174D00B081B5 /* CleverTapGeofence.framework */; };
 		EC0D19C82501175A00B081B5 /* CleverTapGeofence.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC0D19C42501174D00B081B5 /* CleverTapGeofence.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EC0D19C92501175A00B081B5 /* CleverTapSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC0D19BA2501172D00B081B5 /* CleverTapSDK.framework */; };
@@ -80,6 +81,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		49C9F18825020ADB0004F047 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		EC0D19B42501172D00B081B5 /* CleverTapSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CleverTapSDK.xcodeproj; path = ../../Vendors/CleverTap/CleverTapSDK.xcodeproj; sourceTree = "<group>"; };
 		EC0D19BD2501174C00B081B5 /* CleverTapGeofence.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CleverTapGeofence.xcodeproj; path = ../../CleverTapGeofence.xcodeproj; sourceTree = "<group>"; };
 		EC34D5EF2501094F00A72409 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +149,7 @@
 		ECBBF58D25010320004589EF = {
 			isa = PBXGroup;
 			children = (
+				49C9F18825020ADB0004F047 /* Default-568h@2x.png */,
 				EC0D19BD2501174C00B081B5 /* CleverTapGeofence.xcodeproj */,
 				EC0D19B42501172D00B081B5 /* CleverTapSDK.xcodeproj */,
 				ECBBF59825010320004589EF /* GeofenceManualExample */,
@@ -338,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECBBF5A625010322004589EF /* LaunchScreen.storyboard in Resources */,
+				49C9F18925020ADB0004F047 /* Default-568h@2x.png in Resources */,
 				ECBBF5A325010322004589EF /* Assets.xcassets in Resources */,
 				ECBBF5A125010320004589EF /* Main.storyboard in Resources */,
 			);
@@ -469,7 +473,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -523,7 +527,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -581,7 +585,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A5J34NR598;
 				INFOPLIST_FILE = GeofenceManualExampleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -603,7 +607,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A5J34NR598;
 				INFOPLIST_FILE = GeofenceManualExampleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
