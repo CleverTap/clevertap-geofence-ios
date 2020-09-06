@@ -44,7 +44,7 @@ Following are required for using CleverTap Geofence SDK -
 ```
 pod 'CleverTapGeofence'
 ```
-You can refer to [Demo Applications](https://github.com/CleverTap/clevertap-geofence-ios/tree/feature/SDK-104-geofence-support/Examples/CocoapodsExample) showcasing CocoaPods Installation.
+You can refer to [Demo Applications](https://github.com/CleverTap/clevertap-geofence-ios/tree/master/Examples/CocoapodsExample) showcasing CocoaPods Installation.
 
 For installing CleverTap Geofence via [Carthage](Docs/Customization.md#carthage) or [Manually](Docs/Customization.md#manual), check out the steps in [Geofence Customization document](Docs/Customization.md#alternative-installation).
 
@@ -142,13 +142,13 @@ You can further *customize* your integration of CleverTap Geofence by following 
 
 ## 𝌡 Example Usage
 
-- A [demo application](https://github.com/CleverTap/clevertap-geofence-ios/tree/feature/SDK-104-geofence-support/Examples/CocoapodsExample) showing CocoaPods Installation.
-- A [demo application](https://github.com/CleverTap/clevertap-geofence-ios/tree/feature/SDK-104-geofence-support/Examples/CarthageExample) showing Carthage Installation.
-- A [demo application](https://github.com/CleverTap/clevertap-geofence-ios/tree/feature/SDK-104-geofence-support/Examples/Manual) showing Manual Installation.
+- A [demo application](https://github.com/CleverTap/clevertap-geofence-ios/tree/master/Examples/CocoapodsExample) showing CocoaPods Installation.
+- A [demo application](https://github.com/CleverTap/clevertap-geofence-ios/tree/master/Examples/CarthageExample) showing Carthage Installation.
+- A [demo application](https://github.com/CleverTap/clevertap-geofence-ios/tree/master/Examples/Manual) showing Manual Installation.
 
 ## 🆕 Change Log
 
-Refer to the [CleverTap Geofence SDK Change Log](https://github.com/CleverTap/clevertap-geofence-ios/blob/feature/SDK-104-geofence-support/CHANGELOG.md).
+Refer to the [CleverTap Geofence SDK Change Log](https://github.com/CleverTap/clevertap-geofence-ios/blob/master/CHANGELOG.md).
 
 
 ## 🤝 Help and Questions

@@ -1,3 +1,4 @@
+
 import os.log
 import Foundation
 import CleverTapSDK
@@ -6,7 +7,7 @@ internal struct CleverTapGeofenceUtils {
     
     // MARK: - Static Constants
     
-    internal static let pluginVersion = "100000"
+    internal static let pluginVersion = "10000"
     internal static let geofenceErrorCode = 515
     internal static let defaultDistanceFilter: CLLocationDistance = 200
     internal static let defaultTimeFilter: TimeInterval = 1800
@@ -18,7 +19,6 @@ internal struct CleverTapGeofenceUtils {
     internal static let timeStampKey = "timeStamp"
     internal static let formatter = ISO8601DateFormatter()
     private static let logger = OSLog(subsystem: "com.clevertap.CleverTapGeofence", category: "CleverTapGeofence")
-    
     
     
     // MARK: - Util Functions
@@ -95,7 +95,7 @@ internal struct CleverTapGeofenceUtils {
         log("%@", type: .debug, #function, remove)
         
         guard let filePath = getFilePath() else { return nil }
-            
+        
         do {
             let data = try Data(contentsOf: filePath)
             
