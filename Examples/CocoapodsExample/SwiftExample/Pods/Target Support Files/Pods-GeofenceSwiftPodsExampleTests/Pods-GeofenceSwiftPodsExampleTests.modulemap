@@ -1,0 +1,6 @@
+framework module Pods_GeofenceSwiftPodsExampleTests {
+  umbrella header "Pods-GeofenceSwiftPodsExampleTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

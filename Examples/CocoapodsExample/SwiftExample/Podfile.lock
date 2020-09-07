@@ -1,0 +1,30 @@
+PODS:
+  - CleverTap-iOS-SDK (3.9.0):
+    - SDWebImage (~> 5.1)
+  - CleverTapGeofence (1.0.0):
+    - CleverTap-iOS-SDK (~> 3.9)
+  - SDWebImage (5.9.0):
+    - SDWebImage/Core (= 5.9.0)
+  - SDWebImage/Core (5.9.0)
+
+DEPENDENCIES:
+  - CleverTap-iOS-SDK
+  - CleverTapGeofence (from `../../../`)
+
+SPEC REPOS:
+  trunk:
+    - CleverTap-iOS-SDK
+    - SDWebImage
+
+EXTERNAL SOURCES:
+  CleverTapGeofence:
+    :path: "../../../"
+
+SPEC CHECKSUMS:
+  CleverTap-iOS-SDK: df8a7d7697a1190bee0fd3fc660701489ef7275e
+  CleverTapGeofence: b8ff622e7e87552b23b8a87f1b083c57011f82dd
+  SDWebImage: 62ae4a18473520c67b79e9724c31a63599cc9423
+
+PODFILE CHECKSUM: f5e244990f887966786440c5a234dd3e0d9a1d35
+
+COCOAPODS: 1.9.3

@@ -1,0 +1,32 @@
+{
+  "configurations" : [
+    {
+      "id" : "E3024C0F-7B56-46D7-8348-E3C181B9D080",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:CleverTapGeofence.xcodeproj",
+          "identifier" : "CleverTapGeofence::CleverTapGeofence",
+          "name" : "CleverTapGeofence"
+        }
+      ]
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:CleverTapGeofence.xcodeproj",
+        "identifier" : "CleverTapGeofence::CleverTapGeofenceTests",
+        "name" : "CleverTapGeofenceTests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -1,0 +1,20 @@
+
+platform :ios, '10.0'
+
+target 'GeofenceObjCPodsExample' do
+
+  use_frameworks!
+
+  pod 'CleverTap-iOS-SDK'
+  pod 'CleverTapGeofence', :path => '../../../'
+
+  target 'GeofenceObjCPodsExampleTests' do
+    inherit! :search_paths
+
+  end
+
+  target 'GeofenceObjCPodsExampleUITests' do
+
+  end
+
+end

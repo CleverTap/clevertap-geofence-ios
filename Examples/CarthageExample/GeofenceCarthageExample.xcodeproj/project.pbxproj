@@ -1,0 +1,645 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EC139EDF24FF90FD00193E28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139EDE24FF90FD00193E28 /* AppDelegate.swift */; };
+		EC139EE124FF90FD00193E28 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139EE024FF90FD00193E28 /* SceneDelegate.swift */; };
+		EC139EE324FF90FD00193E28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139EE224FF90FD00193E28 /* ViewController.swift */; };
+		EC139EE624FF90FD00193E28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC139EE424FF90FD00193E28 /* Main.storyboard */; };
+		EC139EE824FF90FE00193E28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC139EE724FF90FE00193E28 /* Assets.xcassets */; };
+		EC139EEB24FF90FE00193E28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC139EE924FF90FE00193E28 /* LaunchScreen.storyboard */; };
+		EC139EF624FF90FE00193E28 /* GeofenceCarthageExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139EF524FF90FE00193E28 /* GeofenceCarthageExampleTests.swift */; };
+		EC139F0124FF90FE00193E28 /* GeofenceCarthageExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139F0024FF90FE00193E28 /* GeofenceCarthageExampleUITests.swift */; };
+		EC2454E724FF955B00D36217 /* CleverTapSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC2454E424FF955B00D36217 /* CleverTapSDK.framework */; };
+		EC2454E824FF955B00D36217 /* CleverTapSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC2454E424FF955B00D36217 /* CleverTapSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC2454E924FF955B00D36217 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC2454E524FF955B00D36217 /* SDWebImage.framework */; };
+		EC2454EA24FF955B00D36217 /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC2454E524FF955B00D36217 /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC2454EB24FF955B00D36217 /* CleverTapGeofence.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC2454E624FF955B00D36217 /* CleverTapGeofence.framework */; };
+		EC2454EC24FF955B00D36217 /* CleverTapGeofence.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC2454E624FF955B00D36217 /* CleverTapGeofence.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EC139EF224FF90FE00193E28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC139ED324FF90FD00193E28 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC139EDA24FF90FD00193E28;
+			remoteInfo = GeofenceCarthageExample;
+		};
+		EC139EFD24FF90FE00193E28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC139ED324FF90FD00193E28 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC139EDA24FF90FD00193E28;
+			remoteInfo = GeofenceCarthageExample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EC2454ED24FF955B00D36217 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EC2454EA24FF955B00D36217 /* SDWebImage.framework in Embed Frameworks */,
+				EC2454E824FF955B00D36217 /* CleverTapSDK.framework in Embed Frameworks */,
+				EC2454EC24FF955B00D36217 /* CleverTapGeofence.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		EC139EDB24FF90FD00193E28 /* GeofenceCarthageExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeofenceCarthageExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC139EDE24FF90FD00193E28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EC139EE024FF90FD00193E28 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EC139EE224FF90FD00193E28 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EC139EE524FF90FD00193E28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EC139EE724FF90FE00193E28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EC139EEA24FF90FE00193E28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EC139EEC24FF90FE00193E28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC139EF124FF90FE00193E28 /* GeofenceCarthageExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeofenceCarthageExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC139EF524FF90FE00193E28 /* GeofenceCarthageExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceCarthageExampleTests.swift; sourceTree = "<group>"; };
+		EC139EF724FF90FE00193E28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC139EFC24FF90FE00193E28 /* GeofenceCarthageExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeofenceCarthageExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC139F0024FF90FE00193E28 /* GeofenceCarthageExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceCarthageExampleUITests.swift; sourceTree = "<group>"; };
+		EC139F0224FF90FE00193E28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC2454E424FF955B00D36217 /* CleverTapSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CleverTapSDK.framework; path = Carthage/Build/iOS/CleverTapSDK.framework; sourceTree = "<group>"; };
+		EC2454E524FF955B00D36217 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
+		EC2454E624FF955B00D36217 /* CleverTapGeofence.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CleverTapGeofence.framework; path = Carthage/Build/iOS/CleverTapGeofence.framework; sourceTree = "<group>"; };
+		EC3A156624FF9BF400C6ED32 /* GeofenceCarthageExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GeofenceCarthageExample.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EC139ED824FF90FD00193E28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC2454E924FF955B00D36217 /* SDWebImage.framework in Frameworks */,
+				EC2454E724FF955B00D36217 /* CleverTapSDK.framework in Frameworks */,
+				EC2454EB24FF955B00D36217 /* CleverTapGeofence.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC139EEE24FF90FE00193E28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC139EF924FF90FE00193E28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EC139ED224FF90FD00193E28 = {
+			isa = PBXGroup;
+			children = (
+				EC139EDD24FF90FD00193E28 /* GeofenceCarthageExample */,
+				EC139EF424FF90FE00193E28 /* GeofenceCarthageExampleTests */,
+				EC139EFF24FF90FE00193E28 /* GeofenceCarthageExampleUITests */,
+				EC139EDC24FF90FD00193E28 /* Products */,
+				EC2454E324FF955B00D36217 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EC139EDC24FF90FD00193E28 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC139EDB24FF90FD00193E28 /* GeofenceCarthageExample.app */,
+				EC139EF124FF90FE00193E28 /* GeofenceCarthageExampleTests.xctest */,
+				EC139EFC24FF90FE00193E28 /* GeofenceCarthageExampleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC139EDD24FF90FD00193E28 /* GeofenceCarthageExample */ = {
+			isa = PBXGroup;
+			children = (
+				EC3A156624FF9BF400C6ED32 /* GeofenceCarthageExample.entitlements */,
+				EC139EDE24FF90FD00193E28 /* AppDelegate.swift */,
+				EC139EE024FF90FD00193E28 /* SceneDelegate.swift */,
+				EC139EE224FF90FD00193E28 /* ViewController.swift */,
+				EC139EE424FF90FD00193E28 /* Main.storyboard */,
+				EC139EE724FF90FE00193E28 /* Assets.xcassets */,
+				EC139EE924FF90FE00193E28 /* LaunchScreen.storyboard */,
+				EC139EEC24FF90FE00193E28 /* Info.plist */,
+			);
+			path = GeofenceCarthageExample;
+			sourceTree = "<group>";
+		};
+		EC139EF424FF90FE00193E28 /* GeofenceCarthageExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				EC139EF524FF90FE00193E28 /* GeofenceCarthageExampleTests.swift */,
+				EC139EF724FF90FE00193E28 /* Info.plist */,
+			);
+			path = GeofenceCarthageExampleTests;
+			sourceTree = "<group>";
+		};
+		EC139EFF24FF90FE00193E28 /* GeofenceCarthageExampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EC139F0024FF90FE00193E28 /* GeofenceCarthageExampleUITests.swift */,
+				EC139F0224FF90FE00193E28 /* Info.plist */,
+			);
+			path = GeofenceCarthageExampleUITests;
+			sourceTree = "<group>";
+		};
+		EC2454E324FF955B00D36217 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC2454E624FF955B00D36217 /* CleverTapGeofence.framework */,
+				EC2454E424FF955B00D36217 /* CleverTapSDK.framework */,
+				EC2454E524FF955B00D36217 /* SDWebImage.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EC139EDA24FF90FD00193E28 /* GeofenceCarthageExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC139F0524FF90FE00193E28 /* Build configuration list for PBXNativeTarget "GeofenceCarthageExample" */;
+			buildPhases = (
+				EC139ED724FF90FD00193E28 /* Sources */,
+				EC139ED824FF90FD00193E28 /* Frameworks */,
+				EC139ED924FF90FD00193E28 /* Resources */,
+				EC2454ED24FF955B00D36217 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GeofenceCarthageExample;
+			productName = GeofenceCarthageExample;
+			productReference = EC139EDB24FF90FD00193E28 /* GeofenceCarthageExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EC139EF024FF90FE00193E28 /* GeofenceCarthageExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC139F0824FF90FE00193E28 /* Build configuration list for PBXNativeTarget "GeofenceCarthageExampleTests" */;
+			buildPhases = (
+				EC139EED24FF90FE00193E28 /* Sources */,
+				EC139EEE24FF90FE00193E28 /* Frameworks */,
+				EC139EEF24FF90FE00193E28 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EC139EF324FF90FE00193E28 /* PBXTargetDependency */,
+			);
+			name = GeofenceCarthageExampleTests;
+			productName = GeofenceCarthageExampleTests;
+			productReference = EC139EF124FF90FE00193E28 /* GeofenceCarthageExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EC139EFB24FF90FE00193E28 /* GeofenceCarthageExampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC139F0B24FF90FE00193E28 /* Build configuration list for PBXNativeTarget "GeofenceCarthageExampleUITests" */;
+			buildPhases = (
+				EC139EF824FF90FE00193E28 /* Sources */,
+				EC139EF924FF90FE00193E28 /* Frameworks */,
+				EC139EFA24FF90FE00193E28 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EC139EFE24FF90FE00193E28 /* PBXTargetDependency */,
+			);
+			name = GeofenceCarthageExampleUITests;
+			productName = GeofenceCarthageExampleUITests;
+			productReference = EC139EFC24FF90FE00193E28 /* GeofenceCarthageExampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EC139ED324FF90FD00193E28 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1160;
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = CleverTap;
+				TargetAttributes = {
+					EC139EDA24FF90FD00193E28 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+					EC139EF024FF90FE00193E28 = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = EC139EDA24FF90FD00193E28;
+					};
+					EC139EFB24FF90FE00193E28 = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = EC139EDA24FF90FD00193E28;
+					};
+				};
+			};
+			buildConfigurationList = EC139ED624FF90FD00193E28 /* Build configuration list for PBXProject "GeofenceCarthageExample" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EC139ED224FF90FD00193E28;
+			productRefGroup = EC139EDC24FF90FD00193E28 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EC139EDA24FF90FD00193E28 /* GeofenceCarthageExample */,
+				EC139EF024FF90FE00193E28 /* GeofenceCarthageExampleTests */,
+				EC139EFB24FF90FE00193E28 /* GeofenceCarthageExampleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EC139ED924FF90FD00193E28 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC139EEB24FF90FE00193E28 /* LaunchScreen.storyboard in Resources */,
+				EC139EE824FF90FE00193E28 /* Assets.xcassets in Resources */,
+				EC139EE624FF90FD00193E28 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC139EEF24FF90FE00193E28 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC139EFA24FF90FE00193E28 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EC139ED724FF90FD00193E28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC139EE324FF90FD00193E28 /* ViewController.swift in Sources */,
+				EC139EDF24FF90FD00193E28 /* AppDelegate.swift in Sources */,
+				EC139EE124FF90FD00193E28 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC139EED24FF90FE00193E28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC139EF624FF90FE00193E28 /* GeofenceCarthageExampleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC139EF824FF90FE00193E28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC139F0124FF90FE00193E28 /* GeofenceCarthageExampleUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EC139EF324FF90FE00193E28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC139EDA24FF90FD00193E28 /* GeofenceCarthageExample */;
+			targetProxy = EC139EF224FF90FE00193E28 /* PBXContainerItemProxy */;
+		};
+		EC139EFE24FF90FE00193E28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC139EDA24FF90FD00193E28 /* GeofenceCarthageExample */;
+			targetProxy = EC139EFD24FF90FE00193E28 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EC139EE424FF90FD00193E28 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC139EE524FF90FD00193E28 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EC139EE924FF90FE00193E28 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC139EEA24FF90FE00193E28 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EC139F0324FF90FE00193E28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EC139F0424FF90FE00193E28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EC139F0624FF90FE00193E28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GeofenceCarthageExample/GeofenceCarthageExample.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A5J34NR598;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = GeofenceCarthageExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.clevertap.GeofenceCarthageExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EC139F0724FF90FE00193E28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GeofenceCarthageExample/GeofenceCarthageExample.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A5J34NR598;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = GeofenceCarthageExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.clevertap.GeofenceCarthageExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EC139F0924FF90FE00193E28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GeofenceCarthageExampleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.clevertap.GeofenceCarthageExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GeofenceCarthageExample.app/GeofenceCarthageExample";
+			};
+			name = Debug;
+		};
+		EC139F0A24FF90FE00193E28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GeofenceCarthageExampleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.clevertap.GeofenceCarthageExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GeofenceCarthageExample.app/GeofenceCarthageExample";
+			};
+			name = Release;
+		};
+		EC139F0C24FF90FE00193E28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GeofenceCarthageExampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.clevertap.GeofenceCarthageExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GeofenceCarthageExample;
+			};
+			name = Debug;
+		};
+		EC139F0D24FF90FE00193E28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GeofenceCarthageExampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.clevertap.GeofenceCarthageExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GeofenceCarthageExample;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EC139ED624FF90FD00193E28 /* Build configuration list for PBXProject "GeofenceCarthageExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC139F0324FF90FE00193E28 /* Debug */,
+				EC139F0424FF90FE00193E28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC139F0524FF90FE00193E28 /* Build configuration list for PBXNativeTarget "GeofenceCarthageExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC139F0624FF90FE00193E28 /* Debug */,
+				EC139F0724FF90FE00193E28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC139F0824FF90FE00193E28 /* Build configuration list for PBXNativeTarget "GeofenceCarthageExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC139F0924FF90FE00193E28 /* Debug */,
+				EC139F0A24FF90FE00193E28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC139F0B24FF90FE00193E28 /* Build configuration list for PBXNativeTarget "GeofenceCarthageExampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC139F0C24FF90FE00193E28 /* Debug */,
+				EC139F0D24FF90FE00193E28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EC139ED324FF90FD00193E28 /* Project object */;
+}
