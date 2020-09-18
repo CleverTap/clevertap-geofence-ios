@@ -72,8 +72,12 @@ public final class CleverTapGeofence: NSObject {
     /**
      Initiates the monitoring of Geofences set on CleverTap Dashboard.
      - Parameter launchOptions: A dictionary indicating the reason the app was launched.
-     - Parameter distanceFilter: Specifies the minimum update distance in meters to be used by Geofence location manager. Client will not be notified of movements of less than the stated value, unless the accuracy has improved. By default, 200 meters is used.
-     - Parameter timeFilter: Specifies the minimum time in seconds after which location should be updated. Location updates will not be triggered within less than the stated `timeFilter` value. By default, 1800 seconds is used.
+     - Parameter distanceFilter: Specifies the minimum update distance in meters used by Geofence location manager.
+     Client will not be notified of movements of less than the stated value, unless the accuracy has improved.
+     By default, 200 meters is used.
+     - Parameter timeFilter: Specifies the minimum time in seconds after which location should be updated.
+     Location updates will not be triggered within less than the stated `timeFilter` value.
+     By default, 1800 seconds is used.
      
      ~~~
      // Swift usage
