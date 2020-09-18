@@ -279,7 +279,38 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
         
         CleverTapGeofenceUtils.log(#function, type: .debug)
         
-        switch status {
+        if #available(iOS 14, *) {
+            // do nothing
+        } else {
+            
+            switch status {
+            case .authorizedAlways:
+                CleverTapGeofenceUtils.log("User set Always permission, app can get location data in active & background state.", type: .debug)
+                locationManager?.startUpdatingLocation()
+            case .authorizedWhenInUse:
+                locationManager?.startUpdatingLocation()
+                CleverTapGeofenceUtils.recordError(message: .permissionOnlyWhileUsing)
+            case .denied:
+                CleverTapGeofenceUtils.recordError(message: .permissionDenied)
+            case .restricted:
+                CleverTapGeofenceUtils.recordError(message: .permissionRestricted)
+            case .notDetermined:
+                CleverTapGeofenceUtils.recordError(message: .permissionUndetermined)
+            @unknown default:
+                CleverTapGeofenceUtils.recordError(message: .permissionUnknownState)
+                break
+            }
+        }
+    }
+    
+    
+    /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
+    @available(iOS 14, *)
+    internal func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        
+        CleverTapGeofenceUtils.log(#function, type: .debug)
+        
+        switch manager.authorizationStatus {
         case .authorizedAlways:
             CleverTapGeofenceUtils.log("User set Always permission, app can get location data in active & background state.", type: .debug)
             locationManager?.startUpdatingLocation()
@@ -293,6 +324,20 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
         case .notDetermined:
             CleverTapGeofenceUtils.recordError(message: .permissionUndetermined)
         @unknown default:
+            CleverTapGeofenceUtils.recordError(message: .permissionUnknownState)
+            break
+        }
+        
+        switch manager.accuracyAuthorization {
+        case .fullAccuracy:
+            CleverTapGeofenceUtils.log("User set Full Accuracy permission, app can get accurate location data.", type: .debug)
+            // locationManager?.startUpdatingLocation()
+            
+        case .reducedAccuracy:
+            // locationManager?.startUpdatingLocation()
+            CleverTapGeofenceUtils.recordError(message: .permissionReduced)
+        
+        default:
             CleverTapGeofenceUtils.recordError(message: .permissionUnknownState)
             break
         }
