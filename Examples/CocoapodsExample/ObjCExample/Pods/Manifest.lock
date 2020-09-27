@@ -1,7 +1,7 @@
 PODS:
   - CleverTap-iOS-SDK (3.9.0):
     - SDWebImage (~> 5.1)
-  - CleverTapGeofence (1.0.0):
+  - CleverTapGeofence (1.0.1):
     - CleverTap-iOS-SDK (~> 3.9)
   - SDWebImage (5.9.0):
     - SDWebImage/Core (= 5.9.0)
@@ -22,7 +22,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   CleverTap-iOS-SDK: df8a7d7697a1190bee0fd3fc660701489ef7275e
-  CleverTapGeofence: b8ff622e7e87552b23b8a87f1b083c57011f82dd
+  CleverTapGeofence: 68797ee7ed168f8d807bf4a3501a31df55c4c807
   SDWebImage: 62ae4a18473520c67b79e9724c31a63599cc9423
 
 PODFILE CHECKSUM: dbb52c37eb7d475c1be6159ce5385ac0e3886e92
