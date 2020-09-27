@@ -32,6 +32,7 @@ Following are required for using CleverTap Geofence SDK -
 - [CleverTap iOS SDK version 3.9.0 or above](https://github.com/CleverTap/clevertap-ios-sdk/releases)
 - Swift version 5.1 or above
 - iOS version 10.0 or above
+- Xcode 12 for targeting iOS 14.x.x
 - CoreLocation iOS Framework
 
 ## 🎉 Installation
