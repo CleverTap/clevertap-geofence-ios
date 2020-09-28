@@ -122,6 +122,8 @@ Ensure that Geofence SDK initialization is done after CleverTap Main SDK initial
  
 **5.** CleverTap Geofence SDK requires location permission from users to provide the Geofencing capabilities. The App is expected to request Location permission from the user at an appropriate time. Once CleverTap Geofence SDK detects that Location permission has been given by the user, only then the module will start to perform its functions.
 
+*iOS 14 Update:* If user has opted for `reducedAccuracy` option of the `accuracyAuthorization` settings then CleverTap Geofence will not work as expected since the app cannot reliably utilize Core Location's Region Monitoring APIs.
+
   An example of how an app can request location permission is below:
 
   ```
