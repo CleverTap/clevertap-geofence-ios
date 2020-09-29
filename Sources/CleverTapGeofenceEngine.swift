@@ -174,6 +174,27 @@ internal final class CleverTapGeofenceEngine: NSObject {
         CleverTapGeofenceUtils.write(geofences)
     }
     
+    private func handlePermission(for status: CLAuthorizationStatus) {
+        
+        switch status {
+        case .authorizedAlways:
+            locationManager?.startUpdatingLocation()
+            CleverTapGeofenceUtils.log("User set Always permission, app can get location data in active & background state.", type: .debug)
+        case .authorizedWhenInUse:
+            locationManager?.startUpdatingLocation()
+            CleverTapGeofenceUtils.recordError(message: .permissionOnlyWhileUsing)
+        case .denied:
+            CleverTapGeofenceUtils.recordError(message: .permissionDenied)
+        case .restricted:
+            CleverTapGeofenceUtils.recordError(message: .permissionRestricted)
+        case .notDetermined:
+            CleverTapGeofenceUtils.recordError(message: .permissionUndetermined)
+        @unknown default:
+            CleverTapGeofenceUtils.recordError(message: .permissionUnknownState)
+            break
+        }
+    }
+    
     private func getDetails(for region: CLRegion) -> ([AnyHashable: Any], CleverTap)? {
         
         guard let instance = CleverTap.sharedInstance(),
@@ -279,20 +300,26 @@ extension CleverTapGeofenceEngine: CLLocationManagerDelegate {
         
         CleverTapGeofenceUtils.log(#function, type: .debug)
         
-        switch status {
-        case .authorizedAlways:
-            CleverTapGeofenceUtils.log("User set Always permission, app can get location data in active & background state.", type: .debug)
-            locationManager?.startUpdatingLocation()
-        case .authorizedWhenInUse:
-            locationManager?.startUpdatingLocation()
-            CleverTapGeofenceUtils.recordError(message: .permissionOnlyWhileUsing)
-        case .denied:
-            CleverTapGeofenceUtils.recordError(message: .permissionDenied)
-        case .restricted:
-            CleverTapGeofenceUtils.recordError(message: .permissionRestricted)
-        case .notDetermined:
-            CleverTapGeofenceUtils.recordError(message: .permissionUndetermined)
-        @unknown default:
+        handlePermission(for: status)
+    }
+    
+    
+    /// - Warning: Client apps are __NOT__ expected to handle or interact with this function.
+    @available(iOS 14, *)
+    internal func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        
+        CleverTapGeofenceUtils.log(#function, type: .debug)
+        
+        handlePermission(for: manager.authorizationStatus)
+        
+        switch manager.accuracyAuthorization {
+        case .fullAccuracy:
+            CleverTapGeofenceUtils.log("User set Full Accuracy permission, app can get accurate location data.", type: .debug)
+            
+        case .reducedAccuracy:
+            CleverTapGeofenceUtils.recordError(message: .permissionReduced)
+        
+        default:
             CleverTapGeofenceUtils.recordError(message: .permissionUnknownState)
             break
         }

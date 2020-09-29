@@ -7,7 +7,7 @@ internal struct CleverTapGeofenceUtils {
     
     // MARK: - Static Constants
     
-    internal static let pluginVersion = "10000"
+    internal static let pluginVersion = "10001"
     internal static let geofenceErrorCode = 515
     internal static let defaultDistanceFilter: CLLocationDistance = 200
     internal static let defaultTimeFilter: TimeInterval = 1800
@@ -99,7 +99,7 @@ internal struct CleverTapGeofenceUtils {
         do {
             let data = try Data(contentsOf: filePath)
             
-            if let geofences = NSKeyedUnarchiver.unarchiveObject(with: data) as? [[AnyHashable: Any]]{
+            if let geofences = NSKeyedUnarchiver.unarchiveObject(with: data) as? [[AnyHashable: Any]] {
                 
                 if remove {
                     removeFile(at: filePath)
@@ -148,8 +148,9 @@ internal enum ErrorMessages: String {
     case permissionOnlyWhileUsing   = "User allowed app to get location data only when app is active."
     case permissionDenied           = "User tapped 'disallow' on the permission dialog, cannot get location data."
     case permissionRestricted       = "Access to location data is restricted."
-    case permissionUndetermined     = "The location permission dialog has not been shown yet, user hasn't tap allow/disallow."
+    case permissionUndetermined     = "Location permission dialog not shown yet, user has not tapped allow/disallow."
     case permissionUnknownState     = "Unkown location permission status detected."
+    case permissionReduced          = "Only Reduced accuracy permission granted by user."
     case emptyLocation              = "Locations array updated by delegate is empty."
     case currentLocation            = "Error in getting user's current location."
     case deferredUpdates            = "Finished deferred location updates."
@@ -169,4 +170,3 @@ extension CLLocationCoordinate2D: Equatable {
         return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
     }
 }
-

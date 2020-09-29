@@ -32,6 +32,7 @@ Following are required for using CleverTap Geofence SDK -
 - [CleverTap iOS SDK version 3.9.0 or above](https://github.com/CleverTap/clevertap-ios-sdk/releases)
 - Swift version 5.1 or above
 - iOS version 10.0 or above
+- Xcode 12 for targeting iOS 14.x.x
 - CoreLocation iOS Framework
 
 ## 🎉 Installation
@@ -120,6 +121,8 @@ Ensure that Geofence SDK initialization is done after CleverTap Main SDK initial
   ```
  
 **5.** CleverTap Geofence SDK requires location permission from users to provide the Geofencing capabilities. The App is expected to request Location permission from the user at an appropriate time. Once CleverTap Geofence SDK detects that Location permission has been given by the user, only then the module will start to perform its functions.
+
+*iOS 14 Update:* If user has opted for `reducedAccuracy` option of the `accuracyAuthorization` settings then CleverTap Geofence will not work as expected since the app cannot reliably utilize Core Location's Region Monitoring APIs.
 
   An example of how an app can request location permission is below:
 
