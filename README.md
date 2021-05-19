@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/CleverTap/clevertap-segment-ios/blob/master/clevertap-logo.png" width="300"/>
+    <img src="https://github.com/CleverTap/clevertap-ios-sdk/blob/master/docs/images/clevertap-logo.png" width="50%"/>
 </p>
 
 [![Version](https://img.shields.io/cocoapods/v/CleverTapGeofence.svg?style=flat)](http://cocoapods.org/pods/CleverTapGeofence)
