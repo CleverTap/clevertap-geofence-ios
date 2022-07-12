@@ -12,7 +12,7 @@
 @property (strong, readonly) NSString *osName;
 @property (strong, readonly) NSString *osVersion;
 @property (strong, readonly) NSString *manufacturer;
-@property (strong, readonly) NSString *model;
+@property (atomic, readonly) NSString *model;
 @property (strong, readonly) NSString *carrier;
 @property (strong, readonly) NSString *countryCode;
 @property (strong, readonly) NSString *timeZone;
@@ -21,16 +21,16 @@
 @property (strong, readonly) NSString *deviceWidth;
 @property (strong, readonly) NSString *deviceHeight;
 @property (atomic, readonly) NSString *deviceId;
-@property (atomic, readonly) NSString *deviceName;
 @property (atomic, readonly) NSString *fallbackDeviceId;
 @property (atomic, readwrite) NSString *library;
 @property (assign, readonly) BOOL wifi;
 @property (strong, readonly) NSMutableArray<CTValidationResult*>* validationErrors;
+@property (strong, readonly) NSString *directCallSDKVersion;
 
 - (instancetype)initWithConfig:(CleverTapInstanceConfig *)config andCleverTapID:(NSString *)cleverTapID;
 - (void)forceUpdateDeviceID:(NSString *)newDeviceID;
 - (void)forceNewDeviceID;
 - (void)forceUpdateCustomDeviceID:(NSString *)cleverTapID;
 - (BOOL)isErrorDeviceID;
-
+- (void)setDirectCallSDKVersion: (NSString *)version;
 @end

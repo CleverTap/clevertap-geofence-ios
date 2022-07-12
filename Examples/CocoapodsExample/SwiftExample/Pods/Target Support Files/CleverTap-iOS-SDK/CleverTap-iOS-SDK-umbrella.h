@@ -21,11 +21,13 @@
 #import "CleverTapTrackedViewController.h"
 #import "CleverTapUTMDetail.h"
 #import "CleverTapJSInterface.h"
-#import "CleverTap+ABTesting.h"
 #import "CleverTap+DisplayUnit.h"
 #import "CleverTap+FeatureFlags.h"
 #import "CleverTap+ProductConfig.h"
 #import "CleverTapPushNotificationDelegate.h"
+#import "CleverTapURLDelegate.h"
+#import "CleverTap+InAppNotifications.h"
+#import "CleverTap+DCDomain.h"
 
 FOUNDATION_EXPORT double CleverTapSDKVersionNumber;
 FOUNDATION_EXPORT const unsigned char CleverTapSDKVersionString[];
