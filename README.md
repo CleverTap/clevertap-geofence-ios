@@ -42,7 +42,7 @@ Following are required for using CleverTap Geofence SDK -
 [CocoaPods](https://cocoapods.org) is a dependency manager for iOS projects. To integrate CleverTap Geofence SDK into your Xcode project using CocoaPods, specify the following in your `Podfile`:
 
 ```
-pod 'CleverTapGeofence'
+pod 'CleverTap-Geofence-SDK'
 pod 'CleverTap-iOS-SDK', :git => 'https://github.com/CleverTap/clevertap-ios-sdk.git'
 ```
 You can refer to [Demo Applications](https://github.com/CleverTap/clevertap-geofence-ios/tree/master/Examples/CocoapodsExample) showcasing CocoaPods Installation.
