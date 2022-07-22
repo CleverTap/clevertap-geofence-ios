@@ -1,4 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-GeofenceObjCPodsExample/Pods-GeofenceObjCPodsExample-frameworks.sh
+${BUILT_PRODUCTS_DIR}/CleverTap-Geofence-SDK/CleverTapGeofence.framework
 ${BUILT_PRODUCTS_DIR}/CleverTap-iOS-SDK/CleverTapSDK.framework
-${BUILT_PRODUCTS_DIR}/CleverTapGeofence/CleverTapGeofence.framework
 ${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework

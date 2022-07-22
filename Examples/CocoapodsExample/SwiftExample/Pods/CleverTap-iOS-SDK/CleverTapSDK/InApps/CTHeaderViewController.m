@@ -1,6 +1,6 @@
 #import "CTHeaderViewController.h"
 #import "CTBaseHeaderFooterViewControllerPrivate.h"
-#import "CTInAppResources.h"
+#import "CTUIUtils.h"
 
 @interface CTHeaderViewController () {
 }
@@ -13,7 +13,7 @@
 
 - (void)loadView {
     [super loadView];
-    [[CTInAppUtils bundle] loadNibNamed:[CTInAppUtils XibNameForControllerName:NSStringFromClass([CTHeaderViewController class])] owner:self options:nil];
+    [[CTInAppUtils bundle] loadNibNamed:[CTInAppUtils getXibNameForControllerName:NSStringFromClass([CTHeaderViewController class])] owner:self options:nil];
 }
 
 
@@ -21,12 +21,21 @@
 
 - (void)layoutNotification {
     [super layoutNotification];
-    
-    CGFloat statusBarFrame = [[CTInAppResources getSharedApplication] statusBarFrame].size.height;
-    [[NSLayoutConstraint constraintWithItem: self.containerView
-                                  attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual
-                                     toItem:self.view attribute:NSLayoutAttributeTop
-                                 multiplier:1.0 constant:statusBarFrame] setActive:YES];
 }
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    CGFloat topLength;
+    if (@available(iOS 11.0, *)) {
+        topLength = self.view.safeAreaInsets.top;
+    } else {
+        topLength = self.topLayoutGuide.length;
+    }
+    [[NSLayoutConstraint constraintWithItem: self.containerView
+                                  attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationGreaterThanOrEqual
+                                     toItem:self.view attribute:NSLayoutAttributeTop
+                                 multiplier:1.0 constant:topLength] setActive:YES];
+}
+
 
 @end

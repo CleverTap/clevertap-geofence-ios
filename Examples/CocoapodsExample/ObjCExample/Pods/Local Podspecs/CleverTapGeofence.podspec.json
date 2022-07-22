@@ -18,7 +18,7 @@
     "frameworks": "CoreLocation",
     "dependencies": {
       "CleverTap-iOS-SDK": [
-        "~> 3.9"
+        ">= 3.9"
       ]
     }
   },

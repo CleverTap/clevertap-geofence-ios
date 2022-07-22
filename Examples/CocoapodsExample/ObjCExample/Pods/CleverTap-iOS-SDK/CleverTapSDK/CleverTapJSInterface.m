@@ -57,6 +57,15 @@
     } else if ([action isEqual: @"profileRemoveMultiValues"]) {
         [cleverTap profileRemoveMultiValues: message[@"values"] forKey: message[@"key"]];
     }
+    else if ([action isEqual: @"recordChargedEvent"]) {
+        [cleverTap recordChargedEventWithDetails: message[@"chargeDetails"] andItems: message[@"items"]];
+    }else if ([action isEqual: @"onUserLogin"]) {
+        [cleverTap onUserLogin: message[@"properties"]];
+    }else if ([action isEqual: @"profileIncrementValueBy"]) {
+        [cleverTap profileIncrementValueBy: message[@"value"] forKey: message[@"key"]];
+    }else if ([action isEqual: @"profileDecrementValueBy"]) {
+        [cleverTap profileDecrementValueBy: message[@"value"] forKey: message[@"key"]];
+    }
 }
 
 @end
