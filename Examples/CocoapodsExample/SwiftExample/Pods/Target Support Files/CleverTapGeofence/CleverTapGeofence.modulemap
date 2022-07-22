@@ -1,6 +1,0 @@
-framework module CleverTapGeofence {
-  umbrella header "CleverTapGeofence-umbrella.h"
-
-  export *
-  module * { export * }
-}

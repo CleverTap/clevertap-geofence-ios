@@ -5,8 +5,8 @@ target 'GeofenceObjCPodsExample' do
 
   use_frameworks!
 
-  pod 'CleverTap-iOS-SDK'
-  pod 'CleverTapGeofence', :path => '../../../'
+  pod 'CleverTap-iOS-SDK', :git => 'https://github.com/CleverTap/clevertap-ios-sdk.git'
+  pod 'CleverTap-Geofence-SDK', :path => '../../../'
 
   target 'GeofenceObjCPodsExampleTests' do
     inherit! :search_paths

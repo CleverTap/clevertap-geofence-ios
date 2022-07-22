@@ -1,7 +1,8 @@
+
 #import "CTBaseHeaderFooterViewController.h"
 #import "CTBaseHeaderFooterViewControllerPrivate.h"
 #import "CTInAppDisplayViewControllerPrivate.h"
-#import "CTInAppResources.h"
+#import "CTUIUtils.h"
 
 typedef enum {
     kWRSlideStatusNormal = 0,
@@ -71,12 +72,16 @@ typedef enum {
 
 - (void)layoutNotification {
     
-    self.containerView.backgroundColor = [CTInAppUtils ct_colorWithHexString:self.notification.backgroundColor];
-    
+    self.containerView.backgroundColor = [CTUIUtils ct_colorWithHexString:self.notification.backgroundColor];
     if (self.notification.darkenScreen) {
         self.view.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.75f];
     }
-    
+    [self setUpImage];
+    [self setUpContent];
+    [self setUpButtons];
+}
+
+- (void)setUpImage {
     // set image
     if (self.notification.image) {
         self.imageView.clipsToBounds = YES;
@@ -84,28 +89,40 @@ typedef enum {
         self.imageView.contentMode = UIViewContentModeScaleAspectFill;
         self.imageView.image = [UIImage imageWithData:self.notification.image];
     } else {
-        [[NSLayoutConstraint constraintWithItem:self.imageContainer attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute
-                                     multiplier:1 constant:20] setActive:YES];
         self.imageView.hidden = YES;
     }
+    [[NSLayoutConstraint constraintWithItem:self.imageContainer
+                                  attribute:NSLayoutAttributeWidth
+                                  relatedBy:NSLayoutRelationEqual
+                                     toItem:nil
+                                  attribute:NSLayoutAttributeNotAnAttribute
+                                 multiplier:1 constant:self.notification.image ? 124 : 20] setActive:YES];
+}
+
+- (void)setUpContent {
     
     if (self.notification.title) {
         self.titleLabel.textAlignment = NSTextAlignmentLeft;
         self.titleLabel.backgroundColor = [UIColor clearColor];
-        self.titleLabel.textColor = [CTInAppUtils ct_colorWithHexString:self.notification.titleColor];
+        self.titleLabel.textColor = [CTUIUtils ct_colorWithHexString:self.notification.titleColor];
         self.titleLabel.text = self.notification.title;
     }
     
     if (self.notification.message) {
         self.bodyLabel.textAlignment = NSTextAlignmentLeft;
         self.bodyLabel.backgroundColor = [UIColor clearColor];
-        self.bodyLabel.textColor = [CTInAppUtils ct_colorWithHexString:self.notification.messageColor];
+        self.bodyLabel.textColor = [CTUIUtils ct_colorWithHexString:self.notification.messageColor];
         self.bodyLabel.numberOfLines = 0;
         self.bodyLabel.text = self.notification.message;
     }
+}
+
+- (void)setUpButtons {
     
     if (!self.notification.showClose) {
-        _panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureHandle:)];
+        _panGesture = [[UIPanGestureRecognizer alloc]
+                       initWithTarget:self
+                       action:@selector(panGestureHandle:)];
         _panGesture.delegate = self;
         [self.containerView addGestureRecognizer:_panGesture];
     }
@@ -118,7 +135,9 @@ typedef enum {
         if (self.notification.buttons.count == 2) {
             _secondButton = [self setupViewForButton:_secondButton withData:self.notification.buttons[1] withIndex:1];
         } else {
-            [[NSLayoutConstraint constraintWithItem:self.secondButtonContainer attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual
+            [[NSLayoutConstraint constraintWithItem:self.secondButtonContainer
+                                          attribute:NSLayoutAttributeWidth
+                                          relatedBy:NSLayoutRelationEqual
                                              toItem:nil attribute:NSLayoutAttributeNotAnAttribute
                                          multiplier:1 constant:0] setActive:YES];
         }
@@ -337,7 +356,7 @@ typedef enum {
 - (void)showFromWindow:(BOOL)animated {
     if (!self.notification) return;
     if (@available(iOS 13, *)) {
-        NSSet *connectedScenes = [CTInAppResources getSharedApplication].connectedScenes;
+        NSSet *connectedScenes = [CTUIUtils getSharedApplication].connectedScenes;
         for (UIScene *scene in connectedScenes) {
             if (scene.activationState == UISceneActivationStateForegroundActive && [scene isKindOfClass:[UIWindowScene class]]) {
                 UIWindowScene *windowScene = (UIWindowScene *)scene;
@@ -382,5 +401,6 @@ typedef enum {
 - (void)hide:(BOOL)animated {
     [self hideFromWindow:animated];
 }
+
 
 @end
