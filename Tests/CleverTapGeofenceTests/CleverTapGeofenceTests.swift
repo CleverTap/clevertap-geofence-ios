@@ -1,6 +1,5 @@
 import Quick
 import Nimble
-import OCMock
 import CleverTapSDK
 import CleverTapGeofence
 
