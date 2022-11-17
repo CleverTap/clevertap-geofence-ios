@@ -4,8 +4,8 @@
 import PackageDescription
 
 let package = Package(
-    name: "clevertap-geofence-ios",
-    platforms: [.iOS(.v11)],
+    name: "CleverTapGeofence",
+    platforms: [.iOS(.v10)],
     products: [
         .library(
             name: "CleverTapGeofence",
@@ -13,7 +13,7 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/CleverTap/clevertap-ios-sdk.git", .upToNextMajor(from: "3.9.0")),
+        .package(url: "https://github.com/CleverTap/clevertap-ios-sdk.git", .upToNextMajor(from: "4.0.0")),
         .package(url: "https://github.com/Quick/Quick.git", .upToNextMajor(from: "3.0.0")),
         .package(url: "https://github.com/Quick/Nimble.git", .upToNextMajor(from: "8.1.2")),
     ],

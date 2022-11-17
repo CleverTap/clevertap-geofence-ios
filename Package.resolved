@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/CleverTap/clevertap-ios-sdk.git",
         "state": {
           "branch": null,
-          "revision": "189f51732f304a8e5747f301c49f26bc25aeb6b4",
-          "version": "3.10.0"
+          "revision": "b8a824a10245a99144f1ec2feefb9a6a6e01bcd9",
+          "version": "4.1.4"
         }
       },
       {
@@ -33,8 +33,8 @@
         "repositoryURL": "https://github.com/SDWebImage/SDWebImage.git",
         "state": {
           "branch": null,
-          "revision": "3e48cb68d8e668d146dc59c73fb98cb628616236",
-          "version": "5.13.2"
+          "revision": "3312bf5e67b52fbce7c3caf431b0cda721a9f7bb",
+          "version": "5.14.2"
         }
       }
     ]
