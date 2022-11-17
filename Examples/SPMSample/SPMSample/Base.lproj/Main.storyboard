@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Vc-zp-EIP">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="Pfk-7b-vBs">
+            <objects>
+                <viewController id="2Vc-zp-EIP" customClass="ViewController" customModule="GeofenceSwiftPodsExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1fa-b3-y94">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="4Wa-vs-6Li">
+                                <rect key="frame" x="44" y="108" width="326" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="JQC-tY-MoK"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CleverTap Geofence Example" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x33-m8-Mwe">
+                                <rect key="frame" x="74" y="426" width="266.5" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="dhb-gN-2WE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5NX-bH-qoi">
+                                <rect key="frame" x="57.5" y="534" width="299" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Request Location Permission"/>
+                                <connections>
+                                    <action selector="requestLocationPermission:" destination="2Vc-zp-EIP" eventType="touchUpInside" id="k26-K0-1Je"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="4Wa-vs-6Li" firstAttribute="leading" secondItem="gtk-2E-68R" secondAttribute="leading" constant="44" id="0w0-YM-efm"/>
+                            <constraint firstItem="gtk-2E-68R" firstAttribute="trailing" secondItem="4Wa-vs-6Li" secondAttribute="trailing" constant="44" id="5BP-Mk-qix"/>
+                            <constraint firstItem="5NX-bH-qoi" firstAttribute="top" secondItem="x33-m8-Mwe" secondAttribute="bottom" constant="64" id="FS7-ps-vWo"/>
+                            <constraint firstItem="x33-m8-Mwe" firstAttribute="centerY" secondItem="1fa-b3-y94" secondAttribute="centerY" id="RDU-rn-xyj"/>
+                            <constraint firstItem="x33-m8-Mwe" firstAttribute="centerX" secondItem="1fa-b3-y94" secondAttribute="centerX" id="VLF-6R-ZbG"/>
+                            <constraint firstItem="4Wa-vs-6Li" firstAttribute="top" secondItem="gtk-2E-68R" secondAttribute="top" constant="64" id="dx6-Hb-rUf"/>
+                            <constraint firstItem="5NX-bH-qoi" firstAttribute="centerX" secondItem="1fa-b3-y94" secondAttribute="centerX" id="v7Q-X8-jEY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gtk-2E-68R"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BYK-yf-eXa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-436" y="-31"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logo" width="500" height="141.5"/>
+    </resources>
+</document>
