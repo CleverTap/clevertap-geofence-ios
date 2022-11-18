@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jo5-bI-TdR">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="Ud6-8X-TNb">
+            <objects>
+                <viewController id="jo5-bI-TdR" customClass="ViewController" customModule="SPMSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wXh-mT-5a6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Rpp-Qt-5dt">
+                                <rect key="frame" x="44" y="112" width="326" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="rnt-aY-o0W"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CleverTap Geofence Example" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elb-xI-4gh">
+                                <rect key="frame" x="73.5" y="426" width="267" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Qdb-im-Er1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uR5-oX-dxl">
+                                <rect key="frame" x="57.5" y="534" width="299" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Request Location Permission"/>
+                                <connections>
+                                    <action selector="requestLocationPermission:" destination="jo5-bI-TdR" eventType="touchUpInside" id="nen-Vd-j8T"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7bl-6C-7W4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Rpp-Qt-5dt" firstAttribute="leading" secondItem="7bl-6C-7W4" secondAttribute="leading" constant="44" id="Ccp-wM-Rht"/>
+                            <constraint firstItem="Rpp-Qt-5dt" firstAttribute="top" secondItem="7bl-6C-7W4" secondAttribute="top" constant="64" id="Wxx-iv-RwR"/>
+                            <constraint firstItem="elb-xI-4gh" firstAttribute="centerY" secondItem="wXh-mT-5a6" secondAttribute="centerY" id="i9t-VE-dZd"/>
+                            <constraint firstItem="uR5-oX-dxl" firstAttribute="centerX" secondItem="wXh-mT-5a6" secondAttribute="centerX" id="j2D-K8-Coa"/>
+                            <constraint firstItem="uR5-oX-dxl" firstAttribute="top" secondItem="elb-xI-4gh" secondAttribute="bottom" constant="64" id="k3a-CZ-UbP"/>
+                            <constraint firstItem="elb-xI-4gh" firstAttribute="centerX" secondItem="wXh-mT-5a6" secondAttribute="centerX" id="kpC-mz-b5I"/>
+                            <constraint firstItem="7bl-6C-7W4" firstAttribute="trailing" secondItem="Rpp-Qt-5dt" secondAttribute="trailing" constant="44" id="szR-ew-hIj"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sng-i9-nWF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-436" y="-31"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logo" width="171" height="63"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

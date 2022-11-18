@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OSv-mG-Ksc">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="YUS-tl-f0b">
+            <objects>
+                <viewController id="OSv-mG-Ksc" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="68a-HB-HGU">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CleverTap-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="wV5-SL-Mkh">
+                                <rect key="frame" x="0.0" y="265.66666666666669" width="390" height="313.00000000000006"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wbJ-jG-HgJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wV5-SL-Mkh" firstAttribute="centerY" secondItem="68a-HB-HGU" secondAttribute="centerY" id="7Gp-V8-Hir"/>
+                            <constraint firstItem="wV5-SL-Mkh" firstAttribute="leading" secondItem="wbJ-jG-HgJ" secondAttribute="leading" id="Jto-g3-Ozk"/>
+                            <constraint firstItem="wbJ-jG-HgJ" firstAttribute="trailing" secondItem="wV5-SL-Mkh" secondAttribute="trailing" id="KUD-E6-FcB"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ymy-B3-gZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-145" y="331"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CleverTap-logo.png" width="757.44000244140625" height="300.48001098632812"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
