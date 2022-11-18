@@ -9,6 +9,7 @@
 [![Platform](http://img.shields.io/badge/platform-iOS-lightgrey.svg?style=flat)](https://developer.apple.com/resources/)
 ![iOS 10.0+](https://img.shields.io/badge/iOS-10.0%2B-blue.svg)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
 
 ## 👋 Introduction
 
@@ -19,6 +20,7 @@ CleverTap Geofence SDK provides Geofencing capabilities to CleverTap iOS SDK by 
 - [Requirements](#-requirements)
 - [Installation](#-installation)
     - [Via CocoaPods](#via-cocoapods)
+    - [Via Swift Package Manager](#via-Swift Package Manager)   
 - [Integration](#-integration)
 - [Customization](#-customization)
 - [Example Usage](#-example-usage)
@@ -45,7 +47,19 @@ Following are required for using CleverTap Geofence SDK -
 pod 'CleverTap-Geofence-SDK'
 pod 'CleverTap-iOS-SDK', :git => 'https://github.com/CleverTap/clevertap-ios-sdk.git'
 ```
+
 You can refer to [Demo Applications](https://github.com/CleverTap/clevertap-geofence-ios/tree/master/Examples/CocoapodsExample) showcasing CocoaPods Installation.
+
+#### Via Swift Package Manager
+
+Swift Package Manager is an Xcode tool that installs project dependencies. To use it to install CleverTap Geofence SDK, follow these steps:
+
+- In Xcode, navigate to **File -> Swift Package Manager -> Add Package Dependency.**
+- Enter **https://github.com/CleverTap/clevertap-geofence-ios.git** when choosing package repo and Click **Next.**
+- On the next screen, Select an SDK version (by default, Xcode selects the latest stable version). Click **Next.**
+- Click **Finish** and ensure that the **CleverTap-Geofence-SDK** has been added to the appropriate target.
+
+You can refer to [Demo Applications](https://github.com/CleverTap/clevertap-geofence-ios/tree/master/Examples/SPMSample) showcasing SPM Installation.
 
 For installing CleverTap Geofence via [Carthage](Docs/Customization.md#carthage) or [Manually](Docs/Customization.md#manual), check out the steps in [Geofence Customization document](Docs/Customization.md#alternative-installation).
 
@@ -148,6 +162,7 @@ You can further *customize* your integration of CleverTap Geofence by following 
 - A [demo application](https://github.com/CleverTap/clevertap-geofence-ios/tree/master/Examples/CocoapodsExample) showing CocoaPods Installation.
 - A [demo application](https://github.com/CleverTap/clevertap-geofence-ios/tree/master/Examples/CarthageExample) showing Carthage Installation.
 - A [demo application](https://github.com/CleverTap/clevertap-geofence-ios/tree/master/Examples/Manual) showing Manual Installation.
+- A [demo application](https://github.com/CleverTap/clevertap-geofence-ios/tree/master/Examples/SPMSample) showing SPM Installation.
 
 ## 🆕 Change Log
 
