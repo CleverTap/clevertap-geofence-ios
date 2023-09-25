@@ -100,6 +100,27 @@ static NSManagedObjectContext *privateContext;
     [self _deleteMessages:@[message]];
 }
 
+- (void)deleteMessagesWithId:(NSArray *_Nonnull)messageIds {
+    NSMutableArray *toDeleteInboxMessages = [NSMutableArray new];
+    for (NSString *ids in messageIds) {
+        if (ids != nil && ![ids isEqualToString:@""]){
+            CTMessageMO *msg = [self _messageForId:ids];
+            if (msg) {
+                [toDeleteInboxMessages addObject:msg];
+            }
+            else {
+                CleverTapLogStaticDebug(@"Cannot delete App Inbox Message because Message ID %@ is invalid.", ids)
+            }
+        }
+        else {
+            CleverTapLogStaticDebug(@"Cannot delete App Inbox Message because Message ID is null or not a string.");
+        }
+    }
+    if ([toDeleteInboxMessages count] > 0) {
+        [self _deleteMessages:toDeleteInboxMessages];
+    }
+}
+
 - (void)markReadMessageWithId:(NSString *)messageId {
     [privateContext performBlock:^{
         CTMessageMO *message = [self _messageForId:messageId];
@@ -108,6 +129,27 @@ static NSManagedObjectContext *privateContext;
             [self _save];
             [self notifyUpdate];
         }
+    }];
+}
+
+- (void)markReadMessagesWithId:(NSArray *_Nonnull)messageIds {
+    [privateContext performBlock:^{
+        for (NSString *ids in messageIds) {
+            if (ids != nil && ![ids isEqualToString:@""]){
+                CTMessageMO *message = [self _messageForId:ids];
+                if (message) {
+                    [message setValue:@YES forKey:@"isRead"];
+                }
+                else {
+                    CleverTapLogStaticDebug(@"Cannot mark App Inbox Message as read because Message ID %@ is invalid.", ids);
+                }
+            }
+            else {
+                CleverTapLogStaticDebug(@"Cannot mark App Inbox Message as read because Message ID is null or not a string.");
+            }
+        }
+        [self _save];
+        [self notifyUpdate];
     }];
 }
 
@@ -135,8 +177,11 @@ static NSManagedObjectContext *privateContext;
     NSTimeInterval now = (int)[[NSDate date] timeIntervalSince1970];
     NSMutableArray *messages = [NSMutableArray new];
     NSMutableArray *toDelete = [NSMutableArray new];
-    NSOrderedSet *userMessages = [[NSOrderedSet alloc] initWithOrderedSet:self.user.messages];
-    for (CTMessageMO *msg in userMessages) {
+    
+    BOOL hasMessages = ([[self.user.entity propertiesByName] objectForKey:@"messages"] != nil);
+    if (!hasMessages) return nil;
+    
+    for (CTMessageMO *msg in self.user.messages) {
         int ttl = (int)msg.expires;
         if (ttl > 0 && now >= ttl) {
             CleverTapLogStaticInternal(@"%@: message expires: %@, deleting", self, msg);
@@ -159,8 +204,11 @@ static NSManagedObjectContext *privateContext;
     NSTimeInterval now = (int)[[NSDate date] timeIntervalSince1970];
     NSMutableArray *messages = [NSMutableArray new];
     NSMutableArray *toDelete = [NSMutableArray new];
-    NSOrderedSet *userMessages = [[NSOrderedSet alloc] initWithOrderedSet:self.user.messages];
-    NSOrderedSet *results = [userMessages filteredOrderedSetUsingPredicate:[NSPredicate predicateWithFormat:@"isRead == NO"]];
+    
+    BOOL hasMessages = ([[self.user.entity propertiesByName] objectForKey:@"messages"] != nil);
+    if (!hasMessages) return nil;
+    
+    NSOrderedSet *results = [self.user.messages filteredOrderedSetUsingPredicate:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"isRead == NO"]]];
     for (CTMessageMO *msg in results) {
         int ttl = (int)msg.expires;
         if (ttl > 0 && now >= ttl) {
@@ -184,14 +232,17 @@ static NSManagedObjectContext *privateContext;
 
 - (CTMessageMO *)_messageForId:(NSString *)messageId {
     if (!self.isInitialized) return nil;
-    NSOrderedSet *userMessages = [[NSOrderedSet alloc] initWithOrderedSet:self.user.messages];
-    NSOrderedSet *results = [userMessages filteredOrderedSetUsingPredicate:[NSPredicate predicateWithFormat:@"id == %@", messageId]];
+    
+    BOOL hasMessages = ([[self.user.entity propertiesByName] objectForKey:@"messages"] != nil);
+    if (!hasMessages) return nil;
+    
+    NSOrderedSet *results = [self.user.messages filteredOrderedSetUsingPredicate:[NSPredicate predicateWithFormat:@"id == %@", messageId]];
     BOOL existing = results && [results count] > 0;
     return existing ? results[0] : nil;
 }
 
 - (void)_deleteMessages:(NSArray<CTMessageMO*>*)messages {
-    [privateContext performBlock:^{
+    [privateContext performBlockAndWait:^{
         for (CTMessageMO *msg in messages) {
             [privateContext deleteObject:msg];
         }
