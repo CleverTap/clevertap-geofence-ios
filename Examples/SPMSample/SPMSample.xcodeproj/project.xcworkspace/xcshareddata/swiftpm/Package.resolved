@@ -3,10 +3,10 @@
     {
       "identity" : "clevertap-geofence-ios",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/dscyrescotti/clevertap-geofence-ios.git",
+      "location" : "https://github.com/CleverTap/clevertap-geofence-ios.git",
       "state" : {
-        "branch" : "master",
-        "revision" : "5fd81144eb995910bce0b9c3b58b9a7243d03802"
+        "branch" : "SDK-3292_Update_SPM-CTSdk",
+        "revision" : "f53df278a27de3cab067f9bbcc6776f72e9843c5"
       }
     },
     {
@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/CleverTap/clevertap-ios-sdk.git",
       "state" : {
-        "revision" : "b8a824a10245a99144f1ec2feefb9a6a6e01bcd9",
-        "version" : "4.1.4"
+        "revision" : "465d0ce457481d1a566dddeb26a3cb5a2796ff71",
+        "version" : "5.2.0"
       }
     },
     {
@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SDWebImage/SDWebImage.git",
       "state" : {
-        "revision" : "3312bf5e67b52fbce7c3caf431b0cda721a9f7bb",
-        "version" : "5.14.2"
+        "revision" : "936f1c7067728d16c362ba4fb93c17df78b5fd79",
+        "version" : "5.18.2"
       }
     }
   ],

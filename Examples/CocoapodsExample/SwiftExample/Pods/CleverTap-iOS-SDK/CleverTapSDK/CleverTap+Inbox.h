@@ -189,10 +189,28 @@ typedef void (^CleverTapInboxUpdatedBlock)(void);
  @method
  
  @abstract
+ This method deletes `CleverTapInboxMessage` objects for the given `Message Id` as a collection.
+ */
+
+- (void)deleteInboxMessagesForIDs:(NSArray<NSString *> *_Nonnull)messageIds;
+
+/*!
+ @method
+ 
+ @abstract
  This method marks the `CleverTapInboxMessage` object as read for given 'Message Id` as String.
  */
 
 - (void)markReadInboxMessageForID:(NSString * _Nonnull)messageId;
+
+/*!
+ @method
+ 
+ @abstract
+ This method marks the `CleverTapInboxMessage` object as read for given 'Message Ids` as Collection.
+ */
+
+- (void)markReadInboxMessagesForIDs:(NSArray<NSString *> *_Nonnull)messageIds;
 
 /*!
  @method
@@ -233,5 +251,12 @@ typedef void (^CleverTapInboxUpdatedBlock)(void);
  */
 - (void)recordInboxNotificationClickedEventForID:(NSString * _Nonnull)messageId;
 
+/*!
+ @method
+ 
+ @abstract
+ This method dismisses the inbox controller
+ */
+- (void)dismissAppInbox;
 
 @end

@@ -2,8 +2,64 @@
 #import "CleverTapInstanceConfigPrivate.h"
 #import "CTPlistInfo.h"
 #import "CTConstants.h"
+#import "CTAES.h"
 
 @implementation CleverTapInstanceConfig
+
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:_accountId forKey:@"accountId"];
+    [coder encodeObject:_accountToken forKey:@"accountToken"];
+    [coder encodeObject:_accountRegion forKey:@"accountRegion"];
+    [coder encodeObject:_proxyDomain forKey:@"proxyDomain"];
+    [coder encodeObject:_spikyProxyDomain forKey:@"spikyProxyDomain"];
+    [coder encodeBool:_analyticsOnly forKey:@"analyticsOnly"];
+    [coder encodeBool:_disableAppLaunchedEvent forKey:@"disableAppLaunchedEvent"];
+    [coder encodeBool:_enablePersonalization forKey:@"enablePersonalization"];
+    [coder encodeBool:_useCustomCleverTapId forKey:@"useCustomCleverTapId"];
+    [coder encodeBool:_disableIDFV forKey:@"disableIDFV"];
+    [coder encodeInt:_logLevel forKey:@"logLevel"];
+    [coder encodeObject:_identityKeys forKey:@"identityKeys"];
+    
+    [coder encodeBool: _isDefaultInstance forKey:@"isDefaultInstance"];
+    [coder encodeObject: _queueLabel forKey:@"queueLabel"];
+    [coder encodeBool: _isCreatedPostAppLaunched forKey:@"isCreatedPostAppLaunched"];
+    [coder encodeBool: _beta forKey:@"beta"];
+    [coder encodeBool: _wv_init forKey:@"wv_init"];
+    [coder encodeBool: _encryptionLevel forKey:@"encryptionLevel"];
+    [coder encodeBool: _aesCrypt forKey:@"aesCrypt"];
+}
+
+- (nullable instancetype)initWithCoder:(nonnull NSCoder *)coder {
+    if (self = [super init]) {
+        _accountId = [coder decodeObjectForKey:@"accountId"];
+        _accountToken = [coder decodeObjectForKey:@"accountToken"];
+        _accountRegion = [coder decodeObjectForKey:@"accountRegion"];
+        _proxyDomain = [coder decodeObjectForKey:@"proxyDomain"];
+        _spikyProxyDomain = [coder decodeObjectForKey:@"spikyProxyDomain"];
+        _analyticsOnly = [coder decodeBoolForKey:@"analyticsOnly"];
+        _disableAppLaunchedEvent = [coder decodeBoolForKey:@"disableAppLaunchedEvent"];
+        _enablePersonalization = [coder decodeBoolForKey:@"enablePersonalization"];
+        _useCustomCleverTapId = [coder decodeBoolForKey:@"useCustomCleverTapId"];
+        _disableIDFV = [coder decodeBoolForKey:@"disableIDFV"];
+        _logLevel = [coder decodeIntForKey:@"logLevel"];
+        _identityKeys = [coder decodeObjectForKey:@"identityKeys"];
+        
+        _isDefaultInstance = [coder decodeBoolForKey:@"isDefaultInstance"];
+        _queueLabel = [coder decodeObjectForKey:@"queueLabel"];
+        _isCreatedPostAppLaunched = [coder decodeBoolForKey:@"isCreatedPostAppLaunched"];
+        _beta = [coder decodeBoolForKey:@"beta"];
+        _wv_init = [coder decodeBoolForKey:@"wv_init"];
+        _encryptionLevel = [coder decodeIntForKey:@"encryptionLevel"];
+        _aesCrypt = [coder decodeObjectForKey:@"aesCrypt"];
+    }
+    return self;
+}
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 
 - (instancetype)initWithAccountId:(NSString *)accountId
                      accountToken:(NSString *)accountToken {
@@ -99,6 +155,10 @@
     return self;
 }
 
++ (NSString*)dataArchiveFileNameWithAccountId:(NSString*)accountId {
+    return [NSString stringWithFormat:@"clevertap-%@-instance-config.plist", accountId];
+}
+
 - (instancetype)copyWithZone:(NSZone*)zone {
     CleverTapInstanceConfig *copy;
     NSString *proxyDomain = [self.proxyDomain stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -121,6 +181,8 @@
     copy.disableIDFV = self.disableIDFV;
     copy.identityKeys = self.identityKeys;
     copy.beta = self.beta;
+    copy.encryptionLevel = self.encryptionLevel;
+    copy.aesCrypt = self.aesCrypt;
     return copy;
 }
 
@@ -142,6 +204,10 @@
     _enablePersonalization = YES;
     _logLevel = 0;
     _beta = plist.beta;
+    _encryptionLevel = isDefault ? plist.encryptionLevel : CleverTapEncryptionNone;
+    if (isDefault) {
+        _aesCrypt = [[CTAES alloc] initWithAccountID:_accountId encryptionLevel:_encryptionLevel isDefaultInstance:isDefault];
+    }
 }
 
 - (void) checkIfAvailableAccountId:(NSString *)accountId
@@ -152,6 +218,15 @@
     
     if (accountToken.length <= 0) {
         CleverTapLogStaticInfo("CleverTap accountToken is empty");
+    }
+}
+
+- (void)setEncryptionLevel:(CleverTapEncryptionLevel)encryptionLevel {
+    if (!_isDefaultInstance) {
+        _encryptionLevel = encryptionLevel;
+        _aesCrypt = [[CTAES alloc] initWithAccountID:_accountId encryptionLevel:_encryptionLevel isDefaultInstance:_isDefaultInstance];
+    } else {
+        CleverTapLogStaticInfo("CleverTap Encryption level for default instance can't be updated from setEncryptionLevel method");
     }
 }
 @end
