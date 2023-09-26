@@ -7,7 +7,7 @@ internal struct CleverTapGeofenceUtils {
     
     // MARK: - Static Constants
     
-    internal static let pluginVersion = "10001"
+    internal static let pluginVersion = "10004"
     internal static let geofenceErrorCode = 515
     internal static let defaultDistanceFilter: CLLocationDistance = 200
     internal static let defaultTimeFilter: TimeInterval = 1800
