@@ -1,0 +1,32 @@
+{
+  "pins" : [
+    {
+      "identity" : "clevertap-geofence-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/CleverTap/clevertap-geofence-ios.git",
+      "state" : {
+        "branch" : "task/SDK-3681/Add-XCPrivacy-file-to-Geofence-SDK",
+        "revision" : "e983324220937a0fd502b7e56237060a797b82f5"
+      }
+    },
+    {
+      "identity" : "clevertap-ios-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/CleverTap/clevertap-ios-sdk.git",
+      "state" : {
+        "revision" : "465d0ce457481d1a566dddeb26a3cb5a2796ff71",
+        "version" : "5.2.0"
+      }
+    },
+    {
+      "identity" : "sdwebimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SDWebImage/SDWebImage.git",
+      "state" : {
+        "revision" : "936f1c7067728d16c362ba4fb93c17df78b5fd79",
+        "version" : "5.18.2"
+      }
+    }
+  ],
+  "version" : 2
+}
