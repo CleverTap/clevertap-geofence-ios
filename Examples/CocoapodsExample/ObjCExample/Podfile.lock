@@ -27,7 +27,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/CleverTap/clevertap-ios-sdk.git
 
 SPEC CHECKSUMS:
-  CleverTap-Geofence-SDK: 653af52347e77c0fd1d74b7ac93238bbd477e9a5
+  CleverTap-Geofence-SDK: a549e43e51d96378a15ca839c917a00ee33f3f57
   CleverTap-iOS-SDK: 9d8d5def08d2f51a3a071831b6049ea857c35013
   SDWebImage: 981fd7e860af070920f249fd092420006014c3eb
 

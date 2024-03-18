@@ -97,6 +97,7 @@
 				F920422D24ADF30700E4492E /* CleverTapGeofence.swift */,
 				F9A0A4A324BF57FF008E3032 /* CleverTapGeofenceEngine.swift */,
 				F9CC0CA824C76D71009AD15C /* CleverTapGeofenceUtils.swift */,
+				0B83D5822B9F0209001A5A9B /* PrivacyInfo.xcprivacy */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -144,7 +145,6 @@
 		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
-				0B83D5822B9F0209001A5A9B /* PrivacyInfo.xcprivacy */,
 				F90875E924ADD75E00AFE67C /* Sources */,
 				OBJ_10 /* Tests */,
 				OBJ_14 /* Products */,

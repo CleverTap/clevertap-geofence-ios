@@ -23,7 +23,10 @@ let package = Package(
             dependencies: [
                 .product(name: "CleverTapSDK", package: "clevertap-ios-sdk")
             ],
-            path: "Sources"
+            path: "Sources",
+            resources: [
+                .copy("PrivacyInfo.xcprivacy")
+            ],
         ),
         .testTarget(
             name: "CleverTapGeofenceTests",
