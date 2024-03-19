@@ -26,7 +26,7 @@ let package = Package(
             path: "Sources",
             resources: [
                 .copy("PrivacyInfo.xcprivacy")
-            ],
+            ]
         ),
         .testTarget(
             name: "CleverTapGeofenceTests",
