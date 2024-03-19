@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		327528452AC1B923005A6763 /* CleverTapGeofence in Frameworks */ = {isa = PBXBuildFile; productRef = 327528442AC1B923005A6763 /* CleverTapGeofence */; };
+		0B83A89E2BA853CC00D35208 /* CleverTapGeofence in Frameworks */ = {isa = PBXBuildFile; productRef = 0B83A89D2BA853CC00D35208 /* CleverTapGeofence */; };
 		32B7A19E29255E77008C9AA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7A19D29255E77008C9AA4 /* AppDelegate.swift */; };
 		32B7A1A029255E77008C9AA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7A19F29255E77008C9AA4 /* SceneDelegate.swift */; };
 		32B7A1A229255E77008C9AA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7A1A129255E77008C9AA4 /* ViewController.swift */; };
@@ -32,18 +32,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				327528452AC1B923005A6763 /* CleverTapGeofence in Frameworks */,
+				0B83A89E2BA853CC00D35208 /* CleverTapGeofence in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B9DCEC32BA44190006EEBF3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		32B7A19129255E77008C9AA4 = {
 			isa = PBXGroup;
 			children = (
 				32B7A19C29255E77008C9AA4 /* SPMSample */,
 				32B7A19B29255E77008C9AA4 /* Products */,
+				0B9DCEC32BA44190006EEBF3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,7 +94,7 @@
 			);
 			name = SPMSample;
 			packageProductDependencies = (
-				327528442AC1B923005A6763 /* CleverTapGeofence */,
+				0B83A89D2BA853CC00D35208 /* CleverTapGeofence */,
 			);
 			productName = SPMSample;
 			productReference = 32B7A19A29255E77008C9AA4 /* SPMSample.app */;
@@ -117,7 +125,7 @@
 			);
 			mainGroup = 32B7A19129255E77008C9AA4;
 			packageReferences = (
-				327528432AC1B923005A6763 /* XCRemoteSwiftPackageReference "clevertap-geofence-ios" */,
+				0B83A89C2BA853CC00D35208 /* XCRemoteSwiftPackageReference "clevertap-geofence-ios" */,
 			);
 			productRefGroup = 32B7A19B29255E77008C9AA4 /* Products */;
 			projectDirPath = "";
@@ -368,20 +376,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		327528432AC1B923005A6763 /* XCRemoteSwiftPackageReference "clevertap-geofence-ios" */ = {
+		0B83A89C2BA853CC00D35208 /* XCRemoteSwiftPackageReference "clevertap-geofence-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/CleverTap/clevertap-geofence-ios.git";
 			requirement = {
-				branch = "SDK-3292_Update_SPM-CTSdk";
+				branch = "task/SDK-3681/Add-XCPrivacy-file-to-Geofence-SDK";
 				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		327528442AC1B923005A6763 /* CleverTapGeofence */ = {
+		0B83A89D2BA853CC00D35208 /* CleverTapGeofence */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 327528432AC1B923005A6763 /* XCRemoteSwiftPackageReference "clevertap-geofence-ios" */;
+			package = 0B83A89C2BA853CC00D35208 /* XCRemoteSwiftPackageReference "clevertap-geofence-ios" */;
 			productName = CleverTapGeofence;
 		};
 /* End XCSwiftPackageProductDependency section */

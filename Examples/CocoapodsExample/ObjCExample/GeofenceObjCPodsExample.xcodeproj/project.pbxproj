@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		108ABAB49603D241458F737E /* Pods_GeofenceObjCPodsExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4D581791AED2EE298B0FE4 /* Pods_GeofenceObjCPodsExampleTests.framework */; };
-		87C019B8243B1367230D00F2 /* Pods_GeofenceObjCPodsExample_GeofenceObjCPodsExampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8945D560D4C0F128ACDED065 /* Pods_GeofenceObjCPodsExample_GeofenceObjCPodsExampleUITests.framework */; };
-		B1DDC384AB40FF69DDB0DBA1 /* Pods_GeofenceObjCPodsExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6C2115499867751D1D340D /* Pods_GeofenceObjCPodsExample.framework */; };
+		5C871890BD4BDE950E1511D9 /* Pods_GeofenceObjCPodsExample_GeofenceObjCPodsExampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A899C735DAE2DE13617276D3 /* Pods_GeofenceObjCPodsExample_GeofenceObjCPodsExampleUITests.framework */; };
+		C55D1F0106A9C05F936BE7A1 /* Pods_GeofenceObjCPodsExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CB861FF552FDE3D62626434 /* Pods_GeofenceObjCPodsExample.framework */; };
+		E40783C1188B36DD590C3288 /* Pods_GeofenceObjCPodsExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E3DF80CF57CE1524D048046 /* Pods_GeofenceObjCPodsExampleTests.framework */; };
 		F9589EB124B761420051161E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9589EB024B761420051161E /* CoreLocation.framework */; };
 		F989561524B7578C00836D5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F989561424B7578C00836D5D /* AppDelegate.m */; };
 		F989561B24B7578C00836D5D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F989561A24B7578C00836D5D /* ViewController.m */; };
@@ -39,16 +39,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		104670996E7D56DE874411C5 /* Pods-GeofenceObjCPodsExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofenceObjCPodsExample.debug.xcconfig"; path = "Target Support Files/Pods-GeofenceObjCPodsExample/Pods-GeofenceObjCPodsExample.debug.xcconfig"; sourceTree = "<group>"; };
-		2CD1722A869F3328B2B500C9 /* Pods-GeofenceObjCPodsExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofenceObjCPodsExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-GeofenceObjCPodsExampleTests/Pods-GeofenceObjCPodsExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		2F6C2115499867751D1D340D /* Pods_GeofenceObjCPodsExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeofenceObjCPodsExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6549A586B03BAF1A9C7D7C69 /* Pods-GeofenceObjCPodsExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofenceObjCPodsExampleTests.release.xcconfig"; path = "Target Support Files/Pods-GeofenceObjCPodsExampleTests/Pods-GeofenceObjCPodsExampleTests.release.xcconfig"; sourceTree = "<group>"; };
-		8945D560D4C0F128ACDED065 /* Pods_GeofenceObjCPodsExample_GeofenceObjCPodsExampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeofenceObjCPodsExample_GeofenceObjCPodsExampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB4D581791AED2EE298B0FE4 /* Pods_GeofenceObjCPodsExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeofenceObjCPodsExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D8FA1789F1E17D3F9681C303 /* Pods-GeofenceObjCPodsExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofenceObjCPodsExample.release.xcconfig"; path = "Target Support Files/Pods-GeofenceObjCPodsExample/Pods-GeofenceObjCPodsExample.release.xcconfig"; sourceTree = "<group>"; };
-		E47D4D0E03BE3D8E67B10D03 /* Pods-GeofenceObjCPodsExample-GeofenceObjCPodsExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofenceObjCPodsExample-GeofenceObjCPodsExampleUITests.debug.xcconfig"; path = "Target Support Files/Pods-GeofenceObjCPodsExample-GeofenceObjCPodsExampleUITests/Pods-GeofenceObjCPodsExample-GeofenceObjCPodsExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		EB6CE8FA0795CB565977D588 /* Pods-GeofenceObjCPodsExample-GeofenceObjCPodsExampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofenceObjCPodsExample-GeofenceObjCPodsExampleUITests.release.xcconfig"; path = "Target Support Files/Pods-GeofenceObjCPodsExample-GeofenceObjCPodsExampleUITests/Pods-GeofenceObjCPodsExample-GeofenceObjCPodsExampleUITests.release.xcconfig"; sourceTree = "<group>"; };
+		0E3DF80CF57CE1524D048046 /* Pods_GeofenceObjCPodsExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeofenceObjCPodsExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CB861FF552FDE3D62626434 /* Pods_GeofenceObjCPodsExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeofenceObjCPodsExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		44E25BD3B5437ED0AA36BDC9 /* Pods-GeofenceObjCPodsExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofenceObjCPodsExampleTests.release.xcconfig"; path = "Target Support Files/Pods-GeofenceObjCPodsExampleTests/Pods-GeofenceObjCPodsExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		4540A4AE7A501F4672679A95 /* Pods-GeofenceObjCPodsExample-GeofenceObjCPodsExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofenceObjCPodsExample-GeofenceObjCPodsExampleUITests.debug.xcconfig"; path = "Target Support Files/Pods-GeofenceObjCPodsExample-GeofenceObjCPodsExampleUITests/Pods-GeofenceObjCPodsExample-GeofenceObjCPodsExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		937A2C12827576EDAAEA675E /* Pods-GeofenceObjCPodsExample-GeofenceObjCPodsExampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofenceObjCPodsExample-GeofenceObjCPodsExampleUITests.release.xcconfig"; path = "Target Support Files/Pods-GeofenceObjCPodsExample-GeofenceObjCPodsExampleUITests/Pods-GeofenceObjCPodsExample-GeofenceObjCPodsExampleUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A899C735DAE2DE13617276D3 /* Pods_GeofenceObjCPodsExample_GeofenceObjCPodsExampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeofenceObjCPodsExample_GeofenceObjCPodsExampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5F461455E56031B76055839 /* Pods-GeofenceObjCPodsExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofenceObjCPodsExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-GeofenceObjCPodsExampleTests/Pods-GeofenceObjCPodsExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BF9E3F00F0C1F35101556ACF /* Pods-GeofenceObjCPodsExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofenceObjCPodsExample.release.xcconfig"; path = "Target Support Files/Pods-GeofenceObjCPodsExample/Pods-GeofenceObjCPodsExample.release.xcconfig"; sourceTree = "<group>"; };
 		EC3A156724FF9C0F00C6ED32 /* GeofenceObjCPodsExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GeofenceObjCPodsExample.entitlements; sourceTree = "<group>"; };
+		F14F56E121A9F3A26DB42373 /* Pods-GeofenceObjCPodsExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofenceObjCPodsExample.debug.xcconfig"; path = "Target Support Files/Pods-GeofenceObjCPodsExample/Pods-GeofenceObjCPodsExample.debug.xcconfig"; sourceTree = "<group>"; };
 		F9589EAC24B760990051161E /* CleverTapGeofence.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CleverTapGeofence.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9589EB024B761420051161E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F989561024B7578C00836D5D /* GeofenceObjCPodsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeofenceObjCPodsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,7 +75,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9589EB124B761420051161E /* CoreLocation.framework in Frameworks */,
-				B1DDC384AB40FF69DDB0DBA1 /* Pods_GeofenceObjCPodsExample.framework in Frameworks */,
+				C55D1F0106A9C05F936BE7A1 /* Pods_GeofenceObjCPodsExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				108ABAB49603D241458F737E /* Pods_GeofenceObjCPodsExampleTests.framework in Frameworks */,
+				E40783C1188B36DD590C3288 /* Pods_GeofenceObjCPodsExampleTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,7 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87C019B8243B1367230D00F2 /* Pods_GeofenceObjCPodsExample_GeofenceObjCPodsExampleUITests.framework in Frameworks */,
+				5C871890BD4BDE950E1511D9 /* Pods_GeofenceObjCPodsExample_GeofenceObjCPodsExampleUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,9 +103,9 @@
 			children = (
 				F9589EB024B761420051161E /* CoreLocation.framework */,
 				F9589EAC24B760990051161E /* CleverTapGeofence.framework */,
-				2F6C2115499867751D1D340D /* Pods_GeofenceObjCPodsExample.framework */,
-				8945D560D4C0F128ACDED065 /* Pods_GeofenceObjCPodsExample_GeofenceObjCPodsExampleUITests.framework */,
-				CB4D581791AED2EE298B0FE4 /* Pods_GeofenceObjCPodsExampleTests.framework */,
+				3CB861FF552FDE3D62626434 /* Pods_GeofenceObjCPodsExample.framework */,
+				A899C735DAE2DE13617276D3 /* Pods_GeofenceObjCPodsExample_GeofenceObjCPodsExampleUITests.framework */,
+				0E3DF80CF57CE1524D048046 /* Pods_GeofenceObjCPodsExampleTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -113,12 +113,12 @@
 		EF92B2C23D40A8C71D00C998 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				104670996E7D56DE874411C5 /* Pods-GeofenceObjCPodsExample.debug.xcconfig */,
-				D8FA1789F1E17D3F9681C303 /* Pods-GeofenceObjCPodsExample.release.xcconfig */,
-				E47D4D0E03BE3D8E67B10D03 /* Pods-GeofenceObjCPodsExample-GeofenceObjCPodsExampleUITests.debug.xcconfig */,
-				EB6CE8FA0795CB565977D588 /* Pods-GeofenceObjCPodsExample-GeofenceObjCPodsExampleUITests.release.xcconfig */,
-				2CD1722A869F3328B2B500C9 /* Pods-GeofenceObjCPodsExampleTests.debug.xcconfig */,
-				6549A586B03BAF1A9C7D7C69 /* Pods-GeofenceObjCPodsExampleTests.release.xcconfig */,
+				F14F56E121A9F3A26DB42373 /* Pods-GeofenceObjCPodsExample.debug.xcconfig */,
+				BF9E3F00F0C1F35101556ACF /* Pods-GeofenceObjCPodsExample.release.xcconfig */,
+				4540A4AE7A501F4672679A95 /* Pods-GeofenceObjCPodsExample-GeofenceObjCPodsExampleUITests.debug.xcconfig */,
+				937A2C12827576EDAAEA675E /* Pods-GeofenceObjCPodsExample-GeofenceObjCPodsExampleUITests.release.xcconfig */,
+				B5F461455E56031B76055839 /* Pods-GeofenceObjCPodsExampleTests.debug.xcconfig */,
+				44E25BD3B5437ED0AA36BDC9 /* Pods-GeofenceObjCPodsExampleTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -187,11 +187,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F989563F24B7578D00836D5D /* Build configuration list for PBXNativeTarget "GeofenceObjCPodsExample" */;
 			buildPhases = (
-				297713F45BC04824526BB96B /* [CP] Check Pods Manifest.lock */,
+				7896D33640D42885BE5FB0C2 /* [CP] Check Pods Manifest.lock */,
 				F989560C24B7578C00836D5D /* Sources */,
 				F989560D24B7578C00836D5D /* Frameworks */,
 				F989560E24B7578C00836D5D /* Resources */,
-				A066F08B121ED8F65620284E /* [CP] Embed Pods Frameworks */,
+				D441558D5608D31510196CA4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -206,7 +206,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F989564224B7578D00836D5D /* Build configuration list for PBXNativeTarget "GeofenceObjCPodsExampleTests" */;
 			buildPhases = (
-				547E07BCC4E148D84EAEF2E1 /* [CP] Check Pods Manifest.lock */,
+				F7BA23CC898188DBA4CB56C2 /* [CP] Check Pods Manifest.lock */,
 				F989562724B7578D00836D5D /* Sources */,
 				F989562824B7578D00836D5D /* Frameworks */,
 				F989562924B7578D00836D5D /* Resources */,
@@ -225,11 +225,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F989564524B7578D00836D5D /* Build configuration list for PBXNativeTarget "GeofenceObjCPodsExampleUITests" */;
 			buildPhases = (
-				708051A481D4F29952DCC3EB /* [CP] Check Pods Manifest.lock */,
+				9C51BD433BD48A97F6E54684 /* [CP] Check Pods Manifest.lock */,
 				F989563224B7578D00836D5D /* Sources */,
 				F989563324B7578D00836D5D /* Frameworks */,
 				F989563424B7578D00836D5D /* Resources */,
-				82D33C0B19717B68AA2F527D /* [CP] Embed Pods Frameworks */,
+				A00CCD193E8587F16B677E08 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -311,7 +311,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		297713F45BC04824526BB96B /* [CP] Check Pods Manifest.lock */ = {
+		7896D33640D42885BE5FB0C2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -333,29 +333,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		547E07BCC4E148D84EAEF2E1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GeofenceObjCPodsExampleTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		708051A481D4F29952DCC3EB /* [CP] Check Pods Manifest.lock */ = {
+		9C51BD433BD48A97F6E54684 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -377,7 +355,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		82D33C0B19717B68AA2F527D /* [CP] Embed Pods Frameworks */ = {
+		A00CCD193E8587F16B677E08 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -394,7 +372,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GeofenceObjCPodsExample-GeofenceObjCPodsExampleUITests/Pods-GeofenceObjCPodsExample-GeofenceObjCPodsExampleUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A066F08B121ED8F65620284E /* [CP] Embed Pods Frameworks */ = {
+		D441558D5608D31510196CA4 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -409,6 +387,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GeofenceObjCPodsExample/Pods-GeofenceObjCPodsExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F7BA23CC898188DBA4CB56C2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GeofenceObjCPodsExampleTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -587,7 +587,7 @@
 		};
 		F989564024B7578D00836D5D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 104670996E7D56DE874411C5 /* Pods-GeofenceObjCPodsExample.debug.xcconfig */;
+			baseConfigurationReference = F14F56E121A9F3A26DB42373 /* Pods-GeofenceObjCPodsExample.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -608,7 +608,7 @@
 		};
 		F989564124B7578D00836D5D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D8FA1789F1E17D3F9681C303 /* Pods-GeofenceObjCPodsExample.release.xcconfig */;
+			baseConfigurationReference = BF9E3F00F0C1F35101556ACF /* Pods-GeofenceObjCPodsExample.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -629,7 +629,7 @@
 		};
 		F989564324B7578D00836D5D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2CD1722A869F3328B2B500C9 /* Pods-GeofenceObjCPodsExampleTests.debug.xcconfig */;
+			baseConfigurationReference = B5F461455E56031B76055839 /* Pods-GeofenceObjCPodsExampleTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -650,7 +650,7 @@
 		};
 		F989564424B7578D00836D5D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6549A586B03BAF1A9C7D7C69 /* Pods-GeofenceObjCPodsExampleTests.release.xcconfig */;
+			baseConfigurationReference = 44E25BD3B5437ED0AA36BDC9 /* Pods-GeofenceObjCPodsExampleTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -671,7 +671,7 @@
 		};
 		F989564624B7578D00836D5D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E47D4D0E03BE3D8E67B10D03 /* Pods-GeofenceObjCPodsExample-GeofenceObjCPodsExampleUITests.debug.xcconfig */;
+			baseConfigurationReference = 4540A4AE7A501F4672679A95 /* Pods-GeofenceObjCPodsExample-GeofenceObjCPodsExampleUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -691,7 +691,7 @@
 		};
 		F989564724B7578D00836D5D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EB6CE8FA0795CB565977D588 /* Pods-GeofenceObjCPodsExample-GeofenceObjCPodsExampleUITests.release.xcconfig */;
+			baseConfigurationReference = 937A2C12827576EDAAEA675E /* Pods-GeofenceObjCPodsExample-GeofenceObjCPodsExampleUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
