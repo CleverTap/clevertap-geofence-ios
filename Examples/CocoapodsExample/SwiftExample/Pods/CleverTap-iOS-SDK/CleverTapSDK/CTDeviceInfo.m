@@ -22,9 +22,9 @@
 NSString *const kCLTAP_DEVICE_ID_TAG = @"deviceId";
 NSString *const kCLTAP_FALLBACK_DEVICE_ID_TAG = @"fallbackDeviceId";
 NSString *const kCLTAP_ERROR_PROFILE_PREFIX = @"-i";
-NSString *const kCLTAP_LOCAL_INAPP_COUNT = @"local_in_app_count";
 
 static BOOL _wifi;
+static BOOL _isOnline;
 
 static NSRecursiveLock *deviceIDLock;
 static NSString *_idfv;
@@ -40,6 +40,7 @@ static NSString *_timeZone;
 static NSString *_radio;
 static NSString *_deviceWidth;
 static NSString *_deviceHeight;
+static NSLocale *_systemLocale;
 
 #if !CLEVERTAP_NO_REACHABILITY_SUPPORT
 SCNetworkReachabilityRef _reachability;
@@ -54,7 +55,6 @@ static CTTelephonyNetworkInfo *_networkInfo;
 @property (strong, readwrite) NSString *fallbackDeviceId;
 @property (strong, readwrite) NSString *vendorIdentifier;
 @property (strong, readwrite) NSMutableArray *validationErrors;
-@property (assign, readwrite) int localInAppCount;
 
 @end
 
@@ -84,7 +84,27 @@ static void CleverTapReachabilityHandler(SCNetworkReachabilityRef target, SCNetw
 
 + (void)handleReachabilityUpdate:(SCNetworkReachabilityFlags)flags {
     _wifi = (flags & kSCNetworkReachabilityFlagsReachable) && !(flags & kSCNetworkReachabilityFlagsIsWWAN);
-    CleverTapLogStaticInternal(@"Updating wifi to: %@", @(_wifi));
+    _isOnline = [self isOnlineForFlags:flags];
+    CleverTapLogStaticInternal(@"Updating wifi to: %@ and isOnline to %@", @(_wifi), @(_isOnline));
+}
+
++ (BOOL)isOnlineForFlags:(SCNetworkReachabilityFlags)flags {
+    BOOL isReachable = (flags & kSCNetworkReachabilityFlagsReachable) != 0;
+    BOOL needsConnection = (flags & kSCNetworkReachabilityFlagsConnectionRequired) != 0;
+
+    // Check if it is a WWAN connection (e.g., cellular)
+    BOOL isWWAN = (flags & kSCNetworkReachabilityFlagsIsWWAN) != 0;
+    // Determine if the device is online based on the flags
+    if (isReachable && !needsConnection) {
+        if (isWWAN) {
+            // Device is online via WWAN (cellular)
+            return YES;
+        } else {
+            // Device is online via Wi-Fi or other wired connection
+            return YES;
+        }
+    }
+    return NO;
 }
 #endif
 
@@ -262,8 +282,10 @@ static void CleverTapReachabilityHandler(SCNetworkReachabilityRef target, SCNetw
 - (void)forceUpdateDeviceID:(NSString *)newDeviceID {
     @try {
         [deviceIDLock lock];
-        self.deviceId = newDeviceID;
+        // deviceId getter uses the value from CTPreferences,
+        // persist first and then set the property, so KVO works
         [CTPreferences putString:newDeviceID forKey:[self deviceIdStorageKey]];
+        self.deviceId = newDeviceID;
     } @finally {
         [deviceIDLock unlock];
     }
@@ -419,18 +441,39 @@ static void CleverTapReachabilityHandler(SCNetworkReachabilityRef target, SCNetw
     return _wifi;
 }
 
+- (BOOL)isOnline {
+    return _isOnline;
+}
+
 #if !CLEVERTAP_NO_REACHABILITY_SUPPORT
 
 - (NSString *)carrier {
     if (!_carrier) {
-        _carrier = [self getCarrier].carrierName ?: @"";
+        if (@available(iOS 16.0, *)) {
+            // CTCarrier is deprecated above iOS version 16 with no replacements so carrierName will be empty.
+            _carrier = @"";
+        } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+            _carrier = [self getCarrier].carrierName ?: @"";
+#pragma clang diagnostic pop
+        }
     }
     return _carrier;
 }
 
 - (NSString *)countryCode {
     if (!_countryCode) {
-        _countryCode =  [self getCarrier].isoCountryCode ?: @"";
+        if (@available(iOS 16.0, *)) {
+            // CTCarrier is deprecated above iOS version 16 with no replacements so used NSLocale to get isoCountryCode.
+            NSLocale *currentLocale = [NSLocale currentLocale];
+            _countryCode = [currentLocale objectForKey:NSLocaleCountryCode];
+        } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+            _countryCode =  [self getCarrier].isoCountryCode ?: @"";
+#pragma clang diagnostic pop
+        }
     }
     return _countryCode;
 }
@@ -443,14 +486,18 @@ static void CleverTapReachabilityHandler(SCNetworkReachabilityRef target, SCNetw
     return _radio;
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 - (CTCarrier *)getCarrier {
     if (@available(iOS 12.0, *)) {
         NSString *providerKey = _networkInfo.serviceSubscriberCellularProviders.allKeys.lastObject;
         return _networkInfo.serviceSubscriberCellularProviders[providerKey];
     } else {
+        
         return _networkInfo.subscriberCellularProvider;
     }
 }
+#pragma clang diagnostic pop
 
 - (NSString *)getCurrentRadioAccessTechnology {
     __block NSString *radioValue;
@@ -462,7 +509,10 @@ static void CleverTapReachabilityHandler(SCNetworkReachabilityRef target, SCNetw
             }
         }];
     } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         NSString *radio = _networkInfo.currentRadioAccessTechnology;
+#pragma clang diagnostic pop
         if (radio && [radio hasPrefix:@"CTRadioAccessTechnology"]) {
             radioValue = [radio substringFromIndex:23];
         }
@@ -471,14 +521,25 @@ static void CleverTapReachabilityHandler(SCNetworkReachabilityRef target, SCNetw
 }
 #endif
 
-- (void)incrementLocalInAppCount {
-    self.localInAppCount = self.localInAppCount + 1;
-    [CTPreferences putInt:self.localInAppCount forKey:kCLTAP_LOCAL_INAPP_COUNT];
-}
-
-- (int)getLocalInAppCount {
-    self.localInAppCount = (int) [CTPreferences getIntForKey:kCLTAP_LOCAL_INAPP_COUNT withResetValue:0];
-    return self.localInAppCount;
+- (NSLocale *)systemLocale {
+    if (!_systemLocale) {
+        NSLocale *currentLocale = [NSLocale currentLocale];
+        
+        NSString *language = [[NSLocale preferredLanguages] firstObject];
+        if (!language || [language  isEqualToString:@""] ){
+            language = @"xx";
+        }
+        
+        NSString *country = [currentLocale objectForKey:NSLocaleCountryCode];
+        if (!country || [country  isEqualToString:@""]){
+            country = @"XX";
+        }
+        
+        NSString *currentLocaleString = [NSString stringWithFormat:@"%@_%@",
+                                         language,country];
+        _systemLocale = [[NSLocale alloc] initWithLocaleIdentifier:currentLocaleString];
+    }
+    return _systemLocale;
 }
 
 @end
