@@ -11,6 +11,7 @@ internal final class CleverTapGeofenceEngine: NSObject {
     private var recentLocations = [CLLocation]()
     private var specifiedDistanceFilter = CleverTapGeofenceUtils.defaultDistanceFilter
     private var specifiedTimeFilter = CleverTapGeofenceUtils.defaultTimeFilter
+    private var isUpdatingLocation: Bool = false
     
     
     // MARK: - Lifecycle
@@ -42,7 +43,13 @@ internal final class CleverTapGeofenceEngine: NSObject {
         specifiedDistanceFilter = distanceFilter
         specifiedTimeFilter = timeFilter
         
-        locationManager?.startUpdatingLocation()
+        if !isUpdatingLocation {
+            locationManager?.startUpdatingLocation()
+            isUpdatingLocation = true
+        } else {
+            CleverTapGeofenceUtils.log("Location updates already started, skipping redundant startUpdatingLocation call", type: .debug)
+        }
+        
         locationManager?.startMonitoringVisits()
         
         if CLLocationManager.significantLocationChangeMonitoringAvailable() {
@@ -66,7 +73,10 @@ internal final class CleverTapGeofenceEngine: NSObject {
         
         locationManager?.stopMonitoringVisits()
         locationManager?.stopMonitoringSignificantLocationChanges()
-        locationManager?.stopUpdatingLocation()
+        if isUpdatingLocation {
+            locationManager?.stopUpdatingLocation()
+            isUpdatingLocation = false
+        }
         locationManager?.delegate = nil
         locationManager = nil
     }
@@ -181,7 +191,12 @@ internal final class CleverTapGeofenceEngine: NSObject {
             locationManager?.startUpdatingLocation()
             CleverTapGeofenceUtils.log("User set Always permission, app can get location data in active & background state.", type: .debug)
         case .authorizedWhenInUse:
-            locationManager?.startUpdatingLocation()
+            if !isUpdatingLocation {
+                locationManager?.startUpdatingLocation()
+                isUpdatingLocation = true
+            } else {
+                CleverTapGeofenceUtils.log("Location updates already started, skipping redundant startUpdatingLocation call", type: .debug)
+            }
             CleverTapGeofenceUtils.recordError(message: .permissionOnlyWhileUsing)
         case .denied:
             CleverTapGeofenceUtils.recordError(message: .permissionDenied)
