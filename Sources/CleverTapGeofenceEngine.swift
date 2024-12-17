@@ -188,8 +188,13 @@ internal final class CleverTapGeofenceEngine: NSObject {
         
         switch status {
         case .authorizedAlways:
-            locationManager?.startUpdatingLocation()
-            CleverTapGeofenceUtils.log("User set Always permission, app can get location data in active & background state.", type: .debug)
+            if !isUpdatingLocation {
+                locationManager?.startUpdatingLocation()
+                isUpdatingLocation = true
+                CleverTapGeofenceUtils.log("User set Always permission, app can get location data in active & background state.", type: .debug)
+            } else {
+                CleverTapGeofenceUtils.log("Location updates already started, skipping redundant startUpdatingLocation call", type: .debug)
+            }
         case .authorizedWhenInUse:
             if !isUpdatingLocation {
                 locationManager?.startUpdatingLocation()
