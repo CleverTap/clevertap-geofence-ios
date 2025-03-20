@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+### [Version 1.0.7](https://github.com/CleverTap/clevertap-geofence-ios/releases/tag/1.0.7) (March 20, 2025)
+* Supports the latest CleverTap iOS SDK(7.1.1)
+
 ### [Version 1.0.6](https://github.com/CleverTap/clevertap-geofence-ios/releases/tag/1.0.6) (April 22, 2024)
 * Supports the latest CleverTap iOS SDK(6.2.1)
 * Fixes a build error related to privacy manifests when statically linking the SDK using Cocoapods.

@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name                   = 'CleverTap-Geofence-SDK'
-  s.version                = '1.0.6'
+  s.version                = '1.0.7'
   s.summary                = 'CleverTapGeofence provides Geofencing capabilities to CleverTap iOS SDK.'
   s.homepage               = 'https://github.com/CleverTap/clevertap-geofence-ios'
   s.license                = { :type => "MIT" }
