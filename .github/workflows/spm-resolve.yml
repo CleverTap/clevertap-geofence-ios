@@ -1,0 +1,46 @@
+name: SPM resolve time
+
+on:
+  push:
+
+jobs:
+  resolve:
+    name: Resolve SPM dependencies
+    runs-on: macos-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Toolchain in use
+        run: xcodebuild -version
+
+      - name: Resolve dependencies
+        run: |
+          set -o pipefail
+          start=$(date +%s)
+          xcodebuild -resolvePackageDependencies \
+            -project Examples/SPMSample/SPMSample.xcodeproj \
+            -scheme SPMSample \
+            -clonedSourcePackagesDirPath "${{ runner.temp }}/spm" \
+            2>&1 | tee resolve.log
+          echo "RESOLVE_SECS=$(( $(date +%s) - start ))" >> "$GITHUB_ENV"
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "## SPM resolve time"
+            echo ""
+            echo "| | |"
+            echo "|---|---|"
+            echo "| resolve time | \`${RESOLVE_SECS:-?}s\` |"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload resolve log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: resolve-log
+          path: resolve.log
+          if-no-files-found: warn
