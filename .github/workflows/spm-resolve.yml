@@ -25,7 +25,6 @@ jobs:
           xcodebuild -resolvePackageDependencies \
             -project Examples/SPMSample/SPMSample.xcodeproj \
             -scheme SPMSample \
-            -clonedSourcePackagesDirPath "${{ runner.temp }}/spm" \
             2>&1 | tee resolve.log
           echo "RESOLVE_SECS=$(( $(date +%s) - start ))" >> "$GITHUB_ENV"
 
@@ -39,7 +38,6 @@ jobs:
             -configuration Release \
             -destination 'generic/platform=iOS' \
             -archivePath "$ARCHIVE_PATH" \
-            -clonedSourcePackagesDirPath "${{ runner.temp }}/spm" \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY="" \
