@@ -26,4 +26,5 @@ playground.xcworkspace
 Examples/CocoapodsExample/ObjCExample/Pods
 Examples/CocoapodsExample/SwiftExample/Pods
 Examples/CarthageExample
+Vendors/
 
