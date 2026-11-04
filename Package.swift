@@ -1,11 +1,11 @@
-// swift-tools-version: 5.4
+// swift-tools-version: 5.5
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
     name: "CleverTapGeofence",
-    platforms: [.iOS(.v10)],
+    platforms: [.iOS(.v15)],
     products: [
         .library(
             name: "CleverTapGeofence",
@@ -13,7 +13,7 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/CleverTap/clevertap-ios-sdk.git", .upToNextMajor(from: "6.1.0")),
+        .package(url: "https://github.com/CleverTap/clevertap-ios-sdk.git", .upToNextMajor(from: "7.9.1")),
         .package(url: "https://github.com/Quick/Quick.git", .upToNextMajor(from: "3.0.0")),
         .package(url: "https://github.com/Quick/Nimble.git", .upToNextMajor(from: "8.1.2")),
     ],
