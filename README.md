@@ -7,7 +7,7 @@
 [![codebeat badge](https://codebeat.co/badges/72d5f95b-6d33-4811-97fb-7c7cff001815)](https://codebeat.co/projects/github-com-clevertap-clevertap-geofence-ios-master)
 [![Language](https://img.shields.io/badge/swift-5.1-orange.svg)](https://developer.apple.com/swift)
 [![Platform](http://img.shields.io/badge/platform-iOS-lightgrey.svg?style=flat)](https://developer.apple.com/resources/)
-![iOS 10.0+](https://img.shields.io/badge/iOS-10.0%2B-blue.svg)
+![iOS 15.0+](https://img.shields.io/badge/iOS-15.0%2B-blue.svg)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
 
@@ -29,19 +29,34 @@ CleverTap Geofence SDK provides Geofencing capabilities to CleverTap iOS SDK by 
 - [License](#-license)
 
 
+## 📝 Note
+Starting from Geofence SDK version **1.1.0**, the minimum supported deployment version is **iOS 15.0**.
+
 ## 📋 Requirements
 Following are required for using CleverTap Geofence SDK -
 - [CleverTap iOS SDK version 3.9.0 or above](https://github.com/CleverTap/clevertap-ios-sdk/releases)
 - Swift version 5.1 or above
-- iOS version 10.0 or above
+- iOS version 15.0 or above
 - Xcode 12 for targeting iOS 14.x.x
 - CoreLocation iOS Framework
+
+> ⚠️ **Upgrading to Xcode 27 / iOS 27?** See the [Xcode 27 / iOS 27 Support guide](/Docs/iOS27Support.md) for the raised minimum deployment target (iOS 15) and the CocoaPods `post_install` snippet.
 
 ## 🎉 Installation
 
 #### Via CocoaPods
 
 [CocoaPods](https://cocoapods.org) is a dependency manager for iOS projects. To integrate CleverTap Geofence SDK into your Xcode project using CocoaPods, specify the following in your `Podfile`:
+
+> **CocoaPods users:** CocoaPods trunk becomes read-only on December 2, 2026. Add these two
+> lines to the top of your Podfile to keep receiving CleverTap updates:
+>
+> ```ruby
+> source 'https://github.com/CleverTap/podspecs.git'
+> source 'https://cdn.cocoapods.org/'
+> ```
+>
+> Existing installs keep working with no change.
 
 ```
 pod 'CleverTap-Geofence-SDK'

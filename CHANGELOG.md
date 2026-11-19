@@ -1,6 +1,14 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+### [Version 2.0.0](https://github.com/CleverTap/clevertap-geofence-ios/releases/tag/2.0.0) (November 19, 2026)
+* Supports the latest CleverTap iOS SDK(7.9.1)
+* Adds Xcode 27 and iOS 27 support. The SDK builds with Xcode 27 and runs on iOS 27.
+  * Minimum deployment target is now iOS 15.0 (previously iOS 10.0). Xcode 27 does not build targets below this range.
+  * CocoaPods users may also need a `post_install` hook that raises every pod target to iOS 15, because dependencies such as `SDWebImage` carry their own lower minimums.
+  * See [the iOS 27 Support doc](https://github.com/CleverTap/clevertap-geofence-ios/blob/master/Docs/iOS27Support.md) for the migration steps.
+* Reduced SPM download size.
+
 ### [Version 1.0.7](https://github.com/CleverTap/clevertap-geofence-ios/releases/tag/1.0.7) (March 21, 2025)
 * Supports the latest CleverTap iOS SDK(7.1.1)
 
