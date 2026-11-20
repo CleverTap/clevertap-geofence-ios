@@ -1,5 +1,0 @@
-#import <Foundation/Foundation.h>
-@interface PodsDummy_Pods_GeofenceObjCPodsExample_GeofenceObjCPodsExampleUITests : NSObject
-@end
-@implementation PodsDummy_Pods_GeofenceObjCPodsExample_GeofenceObjCPodsExampleUITests
-@end

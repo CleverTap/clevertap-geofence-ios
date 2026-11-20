@@ -36,7 +36,12 @@ CleverTap Geofence SDK can also be integrated manually without any dependency ma
 
 - Add the CleverTapGeofence.xcodeproj to your Xcode Project, by dragging the CleverTapGeofence.xcodeproj under the main project file.
 
-- Embed the framework. Select your app.xcodeproj file. Under "General", add the CleverTapGeofence framework as an embedded binary.
+- Embed the frameworks. Select your app target, and under **General -> Frameworks, Libraries, and Embedded Content**, add all three of the following with **Embed & Sign**:
+  - `CleverTapGeofence.framework`
+  - `CleverTapSDK.framework`
+  - `SDWebImage.framework`
+
+> **Starting with 2.0.0**, `CleverTapGeofence.xcodeproj` resolves the CleverTap iOS SDK through Swift Package Manager, so Xcode fetches `CleverTapSDK` and `SDWebImage` for you - there is no longer a `Vendors/` directory to check out. You still have to embed all three frameworks in your app, because `CleverTapGeofence` links `CleverTapSDK` and `SDWebImage` dynamically; embedding only `CleverTapGeofence` builds, but the app fails to launch with a `Library not loaded` dyld error.
 
 You can refer to [Manual Demo Application](https://github.com/CleverTap/clevertap-geofence-ios/tree/master/Examples/Manual) showcasing Manual Installation.
 

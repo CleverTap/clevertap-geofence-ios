@@ -3,15 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		49FA01AA24C6EBAD005FC1E4 /* CleverTapSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FA01A924C6EBAD005FC1E4 /* CleverTapSDK.framework */; };
+		4816B1A630AEE94D00F8E457 /* CleverTapSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 4816B1A530AEE94D00F8E457 /* CleverTapSDK */; };
 		49FA01AD24C6EE34005FC1E4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FA01AC24C6EE34005FC1E4 /* CoreLocation.framework */; };
 		ECBA6ABA24EBEFEC007D8D6D /* CleverTapGeofence.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBA6AB624EBEEDE007D8D6D /* CleverTapGeofence.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECE7A2B124DC10700016F503 /* CleverTapGeofence.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = "CleverTapGeofence::CleverTapGeofence::Product" /* CleverTapGeofence.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		ECE7A2B224DC10700016F503 /* CleverTapSDK.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49FA01A924C6EBAD005FC1E4 /* CleverTapSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ECE7A2CB24DC12050016F503 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECE7A2C424DC11E60016F503 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ECE7A2CC24DC12050016F503 /* OCMock.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECE7A2C324DC11E60016F503 /* OCMock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ECE7A2CD24DC12050016F503 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECE7A2C524DC11E70016F503 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -45,7 +44,6 @@
 				ECE7A2CD24DC12050016F503 /* Quick.framework in CopyFiles */,
 				ECE7A2CE24DC12050016F503 /* SDWebImage.framework in CopyFiles */,
 				ECE7A2B124DC10700016F503 /* CleverTapGeofence.framework in CopyFiles */,
-				ECE7A2B224DC10700016F503 /* CleverTapSDK.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,7 +51,6 @@
 
 /* Begin PBXFileReference section */
 		0B83D5822B9F0209001A5A9B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		49FA01A924C6EBAD005FC1E4 /* CleverTapSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CleverTapSDK.framework; path = Vendors/CleverTapSDK.framework; sourceTree = "<group>"; };
 		49FA01AC24C6EE34005FC1E4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
 		"CleverTapGeofence::CleverTapGeofence::Product" /* CleverTapGeofence.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CleverTapGeofence.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"CleverTapGeofence::CleverTapGeofenceTests::Product" /* CleverTapGeofenceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = CleverTapGeofenceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,7 +72,7 @@
 			buildActionMask = 0;
 			files = (
 				49FA01AD24C6EE34005FC1E4 /* CoreLocation.framework in Frameworks */,
-				49FA01AA24C6EBAD005FC1E4 /* CleverTapSDK.framework in Frameworks */,
+				4816B1A630AEE94D00F8E457 /* CleverTapSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,7 +102,6 @@
 		F90875ED24ADDC0D00AFE67C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				49FA01A924C6EBAD005FC1E4 /* CleverTapSDK.framework */,
 				49FA01AC24C6EE34005FC1E4 /* CoreLocation.framework */,
 				ECE7A2C424DC11E60016F503 /* Nimble.framework */,
 				ECE7A2C324DC11E60016F503 /* OCMock.framework */,
@@ -179,6 +175,9 @@
 			dependencies = (
 			);
 			name = CleverTapGeofence;
+			packageProductDependencies = (
+				4816B1A530AEE94D00F8E457 /* CleverTapSDK */,
+			);
 			productName = CleverTapGeofence;
 			productReference = "CleverTapGeofence::CleverTapGeofence::Product" /* CleverTapGeofence.framework */;
 			productType = "com.apple.product-type.framework";
@@ -225,6 +224,9 @@
 				Base,
 			);
 			mainGroup = OBJ_5;
+			packageReferences = (
+				4816B1A430AEE94D00F8E457 /* XCRemoteSwiftPackageReference "clevertap-ios-sdk" */,
+			);
 			productRefGroup = OBJ_14 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -284,7 +286,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = CleverTapGeofence.xcodeproj/CleverTapGeofence_Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
@@ -301,7 +303,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -331,7 +333,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = CleverTapGeofence.xcodeproj/CleverTapGeofence_Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
@@ -348,7 +350,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -402,13 +404,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE DEBUG";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				USE_HEADERMAP = NO;
@@ -427,7 +430,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = CleverTapGeofence.xcodeproj/CleverTapGeofenceTests_Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@loader_path/../Frameworks",
@@ -486,12 +489,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE";
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -511,7 +515,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = CleverTapGeofence.xcodeproj/CleverTapGeofenceTests_Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@loader_path/../Frameworks",
@@ -561,6 +565,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4816B1A430AEE94D00F8E457 /* XCRemoteSwiftPackageReference "clevertap-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CleverTap/clevertap-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4816B1A530AEE94D00F8E457 /* CleverTapSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4816B1A430AEE94D00F8E457 /* XCRemoteSwiftPackageReference "clevertap-ios-sdk" */;
+			productName = CleverTapSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = OBJ_1 /* Project object */;
 }
