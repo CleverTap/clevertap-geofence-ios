@@ -175,6 +175,7 @@ You can further *customize* your integration of CleverTap Geofence by following 
 
 - A [demo application](https://github.com/CleverTap/clevertap-geofence-ios/tree/master/Examples/CocoapodsExample) showing CocoaPods Installation.
 - A [demo application](https://github.com/CleverTap/clevertap-geofence-ios/tree/master/Examples/CarthageExample) showing Carthage Installation.
+- A [demo application](https://github.com/CleverTap/clevertap-geofence-ios/tree/master/Examples/Manual) showing Manual Installation.
 - A [demo application](https://github.com/CleverTap/clevertap-geofence-ios/tree/master/Examples/SPMSample) showing SPM Installation.
 
 ## 🆕 Change Log

@@ -96,7 +96,6 @@ workflows:
             # debug log
             set -x
 
-            git submodule update --init --recursive
             cd Examples/Manual/
             xcodebuild -project "GeofenceManualExample.xcodeproj" -scheme "GeofenceManualExample" -sdk iphonesimulator -destination 'name=iPhone 11' build
     - deploy-to-bitrise-io@1: {}
