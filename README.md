@@ -30,14 +30,13 @@ CleverTap Geofence SDK provides Geofencing capabilities to CleverTap iOS SDK by 
 
 
 ## 📝 Note
-Starting from Geofence SDK version **1.1.0**, the minimum supported deployment version is **iOS 15.0**.
+Starting from Geofence SDK version **2.0.0**, the minimum supported deployment version is **iOS 15.0**.
 
 ## 📋 Requirements
 Following are required for using CleverTap Geofence SDK -
-- [CleverTap iOS SDK version 3.9.0 or above](https://github.com/CleverTap/clevertap-ios-sdk/releases)
+- [CleverTap iOS SDK version 7.9.1 or above](https://github.com/CleverTap/clevertap-ios-sdk/releases)
 - Swift version 5.1 or above
 - iOS version 15.0 or above
-- Xcode 12 for targeting iOS 14.x.x
 - CoreLocation iOS Framework
 
 > ⚠️ **Upgrading to Xcode 27 / iOS 27?** See the [Xcode 27 / iOS 27 Support guide](/Docs/iOS27Support.md) for the raised minimum deployment target (iOS 15) and the CocoaPods `post_install` snippet.
@@ -176,7 +175,6 @@ You can further *customize* your integration of CleverTap Geofence by following 
 
 - A [demo application](https://github.com/CleverTap/clevertap-geofence-ios/tree/master/Examples/CocoapodsExample) showing CocoaPods Installation.
 - A [demo application](https://github.com/CleverTap/clevertap-geofence-ios/tree/master/Examples/CarthageExample) showing Carthage Installation.
-- A [demo application](https://github.com/CleverTap/clevertap-geofence-ios/tree/master/Examples/Manual) showing Manual Installation.
 - A [demo application](https://github.com/CleverTap/clevertap-geofence-ios/tree/master/Examples/SPMSample) showing SPM Installation.
 
 ## 🆕 Change Log

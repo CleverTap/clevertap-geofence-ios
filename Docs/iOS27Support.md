@@ -1,9 +1,9 @@
 # Xcode 27 / iOS 27 Support
 
-Starting from **Geofence SDK v1.1.0**, the CleverTap Geofence SDK builds with **Xcode 27** and runs on **iOS 27**. Two things changed that may require action in your app:
+Starting from **Geofence SDK v2.0.0**, the CleverTap Geofence SDK builds with **Xcode 27** and runs on **iOS 27**. Two things changed that may require action in your app:
 
 1. The **minimum deployment target** was raised from iOS 10 to **iOS 15** (Xcode 27 no longer builds targets below its supported range).
-2. Apps must adopt the **UIScene lifecycle** (required by iOS 26+ when built with the iOS 26/27 SDK).
+2. Apps must adopt the **UIScene lifecycle** (iOS 26 logs a deprecation warning; from iOS 27 an app built with the latest SDK fails to launch without it).
 
 ---
 
@@ -63,13 +63,20 @@ Nothing to do beyond raising your app target to iOS 15. `Package.swift` already 
 
 ## 3. Adopt the UIScene lifecycle
 
-Starting with iOS 26, apps built with the iOS 26/27 SDK **must** use the `UIScene` lifecycle. An app that still uses the legacy app-delegate, window-based lifecycle - an `AppDelegate` with a `window` property, a `UIMainStoryboardFile` in `Info.plist`, and no scene manifest - **crashes at launch** on iOS 26 and later.
+Apps built with the latest SDK **must** use the `UIScene` lifecycle. An app that still uses the legacy app-delegate, window-based lifecycle - an `AppDelegate` with a `window` property, a `UIMainStoryboardFile` in `Info.plist`, and no scene manifest - is treated differently depending on the OS version:
+
+| OS | Behaviour |
+| --- | --- |
+| iOS 26 | Launches, but logs a deprecation warning that the UIScene lifecycle will soon be required. |
+| iOS 27 and later | **Fails to launch**: `UIScene life cycle is required for apps built with this SDK.` |
+
+See Apple's [TN3187: Migrating to the UIKit scene-based life cycle](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle) for the full details.
 
 This is an app-side requirement, not a Geofence SDK change. See the [CleverTap iOS SDK iOS 27 guide](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/docs/iOS27Support.md) for the full `SceneDelegate` migration steps.
 
 ### What this means for Geofence specifically
 
-`CleverTapGeofence.shared.start(didFinishLaunchingWithOptions:)` is called from `application(_:didFinishLaunchingWithOptions:)`. That callback **still runs** under the scene lifecycle, so your Geofence start-up code does not move and needs no change.
+`CleverTapGeofence.monitor.start(didFinishLaunchingWithOptions:)` is called from `application(_:didFinishLaunchingWithOptions:)`. That callback **still runs** under the scene lifecycle, so your Geofence start-up code does not move and needs no change.
 
 The same holds for a location-triggered relaunch. iOS still wakes the app through `application(_:didFinishLaunchingWithOptions:)` with a location launch key, so region monitoring keeps working as before.
 

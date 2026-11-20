@@ -11,6 +11,7 @@
 		A54DE3061D0960E615A1B95B /* Pods_GeofenceSwiftPodsExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 106ABF4C3448FA510407ECE0 /* Pods_GeofenceSwiftPodsExampleTests.framework */; };
 		C84A6E42DE6C3AE42497C458 /* Pods_GeofenceSwiftPodsExample_GeofenceSwiftPodsExampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A801D9C8C56D1BA95FA87000 /* Pods_GeofenceSwiftPodsExample_GeofenceSwiftPodsExampleUITests.framework */; };
 		F989565524B75BFD00836D5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F989565424B75BFD00836D5D /* AppDelegate.swift */; };
+		F9895690AAAA000000000002 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9895690AAAA000000000001 /* SceneDelegate.swift */; };
 		F989565924B75BFD00836D5D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F989565824B75BFD00836D5D /* ViewController.swift */; };
 		F989565C24B75BFD00836D5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F989565A24B75BFD00836D5D /* Main.storyboard */; };
 		F989565E24B75BFE00836D5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F989565D24B75BFE00836D5D /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		EC3A156824FF9C2100C6ED32 /* GeofenceSwiftPodsExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GeofenceSwiftPodsExample.entitlements; sourceTree = "<group>"; };
 		F989565124B75BFD00836D5D /* GeofenceSwiftPodsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeofenceSwiftPodsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F989565424B75BFD00836D5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F9895690AAAA000000000001 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F989565824B75BFD00836D5D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F989565B24B75BFD00836D5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F989565D24B75BFE00836D5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			children = (
 				EC3A156824FF9C2100C6ED32 /* GeofenceSwiftPodsExample.entitlements */,
 				F989565424B75BFD00836D5D /* AppDelegate.swift */,
+				F9895690AAAA000000000001 /* SceneDelegate.swift */,
 				F989565824B75BFD00836D5D /* ViewController.swift */,
 				F989565A24B75BFD00836D5D /* Main.storyboard */,
 				F989565D24B75BFE00836D5D /* Assets.xcassets */,
@@ -408,6 +411,7 @@
 			files = (
 				F989565924B75BFD00836D5D /* ViewController.swift in Sources */,
 				F989565524B75BFD00836D5D /* AppDelegate.swift in Sources */,
+				F9895690AAAA000000000002 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,7 +517,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -568,7 +572,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -587,7 +591,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A5J34NR598;
 				INFOPLIST_FILE = GeofenceSwiftPodsExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -608,7 +612,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A5J34NR598;
 				INFOPLIST_FILE = GeofenceSwiftPodsExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -629,7 +633,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A5J34NR598;
 				INFOPLIST_FILE = GeofenceSwiftPodsExampleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -652,7 +656,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A5J34NR598;
 				INFOPLIST_FILE = GeofenceSwiftPodsExampleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
